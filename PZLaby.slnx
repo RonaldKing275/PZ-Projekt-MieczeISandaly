@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="PZLab1/PZLab1.csproj" Id="a3076c07-1fb6-403a-a65b-1179ff59111f" />
+  <Project Path="PZLab2/PZLab21.csproj" Id="a58d3176-6cfa-40c9-a7e4-8115b6fddd74" />
+  <Project Path="PZLab22/PZLab22.csproj" Id="704c7365-a7af-446d-8107-424faa19cd8f" />
+  <Project Path="PZLab3/PZLab3.csproj" Id="dca59157-6f3b-481f-9a8b-4cf16a4955da" />
+  <Project Path="PZLab4/PZLab4.csproj" Id="544a2e17-7617-4f72-bef9-c351b4d055f3" />
+  <Project Path="PZLab5/PZLab5.csproj" Id="f3c08116-82bc-4943-96b7-1bf1282d4194" />
+  <Project Path="PZLab6/PZLab6.csproj" Id="57973f93-0937-40b1-9135-6f0e3f4d3686" />
+  <Project Path="PZLab6Lib/PZLab6Lib.csproj" Id="b6e48094-3e6e-42bb-b544-f4d76406bf3b" />
+  <Project Path="PZLab7/PZLab7.csproj" Id="05873530-8c94-4dc0-b2dc-7d640a423ad2" />
+  <Project Path="PZLab7Lib/PZLab7Lib.csproj" Id="04a731a9-dee8-487f-96fa-fac622601db1" />
+  <Project Path="PZLab8i9/PZLab8i9.csproj" Id="cc803b5c-5fac-477d-8ab1-e5dadc5c9743" />
+  <Project Path="PZLab8i9Lib/PZLab8i9Lib.csproj" Id="83c96589-33d6-4ae5-95a6-f50c2bceeddf" />
+</Solution>

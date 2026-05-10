@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS8765: Dopuszczanie wartości null dla typu parametru nie jest zgodne z przesłoniętą składową (prawdopodobnie z powodu atrybutów dopuszczania wartości null).
+dotnet_diagnostic.CS8765.severity = silent

@@ -1,0 +1,144 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PZLab8i9Lib
+{
+    public abstract class Postac
+    {
+        public string Imie { get; set; }
+        public int Poziom { get; set; }
+        public int Zloto { get; set; }
+
+        // Statystyki RPG
+        public int Sila { get; set; }
+        public int Zrecznosc { get; set; }
+        public int Inteligencja { get; set; }
+        public int Charyzma { get; set; }
+        public int Witalnosc { get; set; }
+        public int Wytrzymalosc { get; set; }
+
+        public int MaxHp { get; set; }
+        public int MaxStamina { get; set; }
+        public int AktualnyPancerz { get; set;  }
+
+        // Pola prywatne dla HP i Staminy
+        private int aktualneHp;
+        private int aktualnaStamina;
+
+        // Zdarzenia wywoływane przy zmianie Hp/Staminy
+        public event StatystykaZmienionaAkcja OnHpChanged;
+        public event StatystykaZmienionaAkcja OnStaminaChanged;
+
+        // Zawsze gdy HP i Stamina się zmienia - odpala się event
+        public int AktualneHp
+        {
+            get => aktualneHp;
+            set
+            {
+                aktualneHp = Math.Max(0, Math.Min(value, MaxHp));
+                OnHpChanged?.Invoke(aktualneHp, MaxHp);
+            }
+        }
+
+        public int AktualnaStamina
+        {
+            get => aktualnaStamina;
+            set
+            {
+                aktualnaStamina = Math.Max(0, Math.Min(value, MaxStamina));
+                OnStaminaChanged?.Invoke(aktualnaStamina, MaxStamina);
+            }
+        }
+
+        public void PrzeliczMaxPaski()
+        {
+            // Bazowo 100, co poziom +15, do tego bonus za każdy punkt Witalności +15 HP za punkt
+            MaxHp = 100 + ((Poziom - 1) * 15) + (Witalnosc * 15);
+
+            // Bazowo 120, co poziom +10, do tego bonus za każdy punkt Wytrzymałości +10 Staminy za punkt
+            MaxStamina = 120 + ((Poziom - 1) * 10) + (Wytrzymalosc * 10);
+        }
+
+        public void OdnowPancerz()
+        {
+            // Oblicza sumę zbroi z ekwipunku i ładuje ją jako barierę na start walki
+            int maxPancerz = UbranyPancerz.Values.Sum(z => z.PunktyPancerza);
+            AktualnyPancerz = maxPancerz;
+        }
+
+        public void Odpocznij()
+        {
+            AktualnaStamina = MaxStamina;
+        }
+
+        public bool CzyMozeWykonacAkcje(int kosztStaminy)
+        {
+            return AktualnaStamina >= kosztStaminy;
+        }
+
+        // Ekwipunek
+        public List<Przedmiot> PosiadanePrzedmioty { get; set; } = new List<Przedmiot>();
+        public Bron WyposazonaBron { get; set; }
+        public Dictionary<CzescZbroi, Zbroja> UbranyPancerz { get; set; }
+            = new Dictionary<CzescZbroi, Zbroja>();
+
+        public bool CzyZyje => AktualneHp > 0;
+
+        public Postac(string imie, int poziom)
+        {
+            Imie = imie;
+            Poziom = poziom;
+        }
+
+        // Wirtualna metoda zadawania bazowych obrażeń (Bron + Siła)
+        public virtual int ObliczObrazeniaZwykle()
+        {
+            if (WyposazonaBron == null) return (4 + (int)(Sila * 0.75));
+
+            if (WyposazonaBron.Typ == TypBroni.Dystansowa)
+            {
+                return WyposazonaBron.Obrazenia + Zrecznosc; // Łuki, miecze itp. zależą od zręczności
+            }
+            else
+            {
+                return WyposazonaBron.Obrazenia + Sila; // Maczugi, kastety itp. zależą od siły
+            }
+        }
+        public int OtrzymajObrazenia(int dmg)
+        {
+            if (dmg <= 0) return 0;
+
+            // Jeśli bariera pochłania cały cios
+            if (AktualnyPancerz >= dmg)
+            {
+                AktualnyPancerz -= dmg; // Zdziera pancerz
+                return 0;
+            }
+            else
+            {
+                // Pancerz zostaje przebity i zniszczony do końca walki
+                int resztaDmg = dmg - AktualnyPancerz;
+                AktualnyPancerz = 0;
+
+                AktualneHp -= resztaDmg; // Reszta obrażeń uderza w ciało
+
+                return resztaDmg; // Zwraca informację, ile HP ubyło
+            }
+        }
+
+        public string PobierzRaportPancerza()
+        {
+            if (UbranyPancerz.Count == 0) return "Brak zbroi (0 pancerza)";
+
+            List<string> czesci = new List<string>();
+            foreach (var kvp in UbranyPancerz)
+            {
+                czesci.Add($"{kvp.Key}: {kvp.Value.Nazwa} ({kvp.Value.PunktyPancerza})");
+            }
+
+            int suma = UbranyPancerz.Values.Sum(z => z.PunktyPancerza);
+            return string.Join("\n", czesci) + $"\nSUMA: {suma}";
+        }
+    }
+}

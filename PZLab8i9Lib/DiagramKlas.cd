@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PZLab8i9Lib.BazaPrzedmiotow" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAgBAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BazaPrzedmiotow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Gracz" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAQACAAAEAgAAAAAAAAAAIAAABAAAAAAA=</HashCode>
+      <FileName>Gracz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Postac" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAgABAIBAAAIBgCIgAAAkISCBiAAAAAAAOAAQQAIBA=</HashCode>
+      <FileName>Postac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.PrzeciwnikKomputer" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>PrzeciwnikKomputer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Przedmiot" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAAAAgBAAAAAA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Bron" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAIAAAAAAAAAAAAABAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Zbroja" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Czar" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.Mikstura" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.NotEnoughGoldException" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wyjatki.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PZLab8i9Lib.RequirementNotMetException" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Wyjatki.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="PZLab8i9Lib.TypBroni" Collapsed="true">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PZLab8i9Lib.CzescZbroi" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAABAAAAAAAAQAAAAQAAAAAAAAAAAAAQAABAAA=</HashCode>
+      <FileName>Przedmioty.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="PZLab8i9Lib.StatystykaZmienionaAkcja" Collapsed="true">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Delegaty.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
