@@ -3,6 +3,19 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# --- IGNORE STARYCH LABÓW ---
+/PZLab1/
+/PZLab2/
+/PZLab2.2/
+/PZLab3/
+/PZLab4/
+/PZLab5/
+/PZLab6/
+/PZLab6Lib/
+/PZLab7/
+/PZLab7Lib/
+/PZLab22/
+
 # User-specific files
 *.rsuser
 *.suo
