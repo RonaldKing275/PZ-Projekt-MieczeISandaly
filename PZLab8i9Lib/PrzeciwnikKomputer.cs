@@ -45,7 +45,9 @@ namespace PZLab8i9Lib
 
         private void WylosujEkwipunek(int poziom)
         {
-            var dostepneBronie = BazaPrzedmiotow.WszystkieBronie.Where(b => b.WymaganyPoziom <= poziom).ToList();
+            var dostepneBronie = BazaPrzedmiotow.WszystkieBronie
+                .Where(b => b.WymaganaSila <= Sila && b.WymaganaZrecznosc <= Zrecznosc)
+                .ToList();
             var dostepneZbroje = BazaPrzedmiotow.WszystkieZbroje.Where(z => z.WymaganyPoziom <= poziom).ToList();
 
             if (dostepneBronie.Any())
@@ -61,6 +63,23 @@ namespace PZLab8i9Lib
                 Zbroja pancerz = dostepneZbroje[wylosowanyIndexZbroi];
                 UbranyPancerz[pancerz.TypCzesci] = pancerz;
             }
+
+            /* Lepsza metoda losująca zbroje do Projektu
+            if (poziom > 1 && dostepneZbroje.Any())
+            {
+                foreach (CzescZbroi czesc in Enum.GetValues(typeof(CzescZbroi)))
+                {
+                    var zbrojeNaCzesc = dostepneZbroje.Where(z => z.TypCzesci == czesc).ToList();
+        
+                    // 50% szans na posiadanie przedmiotu w danym slocie
+                    if (zbrojeNaCzesc.Any() && rnd.Next(100) < 50)
+                    {
+                        Zbroja pancerz = zbrojeNaCzesc[rnd.Next(zbrojeNaCzesc.Count)];
+                        UbranyPancerz[czesc] = pancerz;
+                    }
+                }
+            }
+             */
         }
     }
 }

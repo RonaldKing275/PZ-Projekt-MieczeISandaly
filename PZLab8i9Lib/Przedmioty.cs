@@ -13,18 +13,16 @@ namespace PZLab8i9Lib
     {
         public string Nazwa { get; set; }
         public int Cena { get; set; }
-        public int WymaganyPoziom { get; set; }
 
         public Przedmiot () { }
 
-        public Przedmiot(string nazwa, int cena, int wymaganyPoziom)
+        public Przedmiot(string nazwa, int cena)
         {
             Nazwa = nazwa;
             Cena = cena;
-            WymaganyPoziom = wymaganyPoziom;
         }
 
-        public override string ToString() => $"{Nazwa} (Lv.{WymaganyPoziom}) - {Cena}G";
+        public override string ToString() => $"{Nazwa} - {Cena}G";
     }
 
     public enum TypBroni { Wrecz, Dystansowa }
@@ -38,14 +36,16 @@ namespace PZLab8i9Lib
 
         public Bron () { }
 
-        public Bron(string nazwa, int cena, int poziom, int dmg, TypBroni typ, int reqSila = 0, int reqZrecznosc = 0)
-            : base(nazwa, cena, poziom)
+        public Bron(string nazwa, int cena, int dmg, TypBroni typ, int reqSila = 0, int reqZrecznosc = 0)
+            : base(nazwa, cena)
         {
             Obrazenia = dmg;
             Typ = typ;
             WymaganaSila = reqSila;
             WymaganaZrecznosc = reqZrecznosc;
         }
+
+        public override string ToString() => $"{Nazwa} (Wymaga: S{WymaganaSila}/Z{WymaganaZrecznosc}) - {Cena}G";
     }
 
     public enum CzescZbroi { Helm, Naramienniki, Klata, Spodnie, Buty, Tarcza }
@@ -53,15 +53,19 @@ namespace PZLab8i9Lib
     {
         public int PunktyPancerza { get; set; }
         public CzescZbroi TypCzesci { get; set; }
+        public int WymaganyPoziom { get; set; }
 
         public Zbroja () { }
 
         public Zbroja(string nazwa, int cena, int poziom, int pancerz, CzescZbroi typCzesci)
-            : base(nazwa, cena, poziom)
+            : base(nazwa, cena)
         {
             PunktyPancerza = pancerz;
             TypCzesci = typCzesci;
+            WymaganyPoziom = poziom;
         }
+
+        public override string ToString() => $"{Nazwa} (Wymaga: Lv{WymaganyPoziom}) - {Cena}G";
     }
 
     public class Czar : Przedmiot
@@ -72,13 +76,15 @@ namespace PZLab8i9Lib
 
         public Czar() { }
 
-        public Czar(string nazwa, int cena, int poziom, int dmg, int koszt, int reqInt)
-            : base(nazwa, cena, poziom)
+        public Czar(string nazwa, int cena, int dmg, int koszt, int reqInt)
+            : base(nazwa, cena)
         {
             ObrazeniaMagiczne = dmg;
             KosztStaminy = koszt;
             WymaganaInteligencja = reqInt;
         }
+
+        public override string ToString() => $"{Nazwa} (Wymaga: {WymaganaInteligencja} Int) - {Cena}G";
     }
 
     public class Mikstura : Przedmiot
@@ -88,11 +94,13 @@ namespace PZLab8i9Lib
 
         public Mikstura() { }
 
-        public Mikstura(string nazwa, int cena, int poziom, int leczenieHp, int leczenieStaminy)
-            : base(nazwa, cena, poziom)
+        public Mikstura(string nazwa, int cena, int leczenieHp, int leczenieStaminy)
+            : base(nazwa, cena)
         {
             LeczenieHp = leczenieHp;
             LeczenieStaminy = leczenieStaminy;
         }
+
+        // TODO: Napisać ToString
     }
 }
