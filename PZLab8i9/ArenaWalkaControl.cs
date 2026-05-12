@@ -32,6 +32,13 @@ namespace PZLab8i9
             glowneOkno.Bohater.OdnowPancerz();
             wrog.OdnowPancerz();
 
+            // Gdy HP lub Stamina gracza/wroga się zmieni, paski zaktualizują się same
+            glowneOkno.Bohater.OnHpChanged += (aktualne, max) => barHpGracza.Value = aktualne;
+            glowneOkno.Bohater.OnStaminaChanged += (aktualne, max) => barStaminaGracza.Value = aktualne;
+
+            wrog.OnHpChanged += (aktualne, max) => barHpWroga.Value = aktualne;
+            wrog.OnStaminaChanged += (aktualne, max) => barStaminaWroga.Value = aktualne;
+
             ZaktualizujPaski();
             Log("=== WALKA ROZPOCZĘTA ===");
         }
