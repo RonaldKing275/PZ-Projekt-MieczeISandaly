@@ -10,6 +10,7 @@ namespace PZLab8i9Lib
         {
             // Nazwa, Cena, Dmg, Typ, reqSila, reqZrecznosc
             new Bron("Zardzewiały Miecz", 30, 8, TypBroni.Wrecz, reqSila: 1, reqZrecznosc: 5),
+            new Bron("Kastet", 40, 9, TypBroni.Wrecz, reqSila:5, reqZrecznosc:1),
             new Bron("Sztylet Złodzieja", 50, 10, TypBroni.Wrecz, reqSila: 1, reqZrecznosc: 10),
             new Bron("Topór Drwala", 120, 18, TypBroni.Wrecz, reqSila: 15, reqZrecznosc: 1),
             new Bron("Krótki Łuk", 60, 12, TypBroni.Dystansowa, reqSila: 1, reqZrecznosc: 12),

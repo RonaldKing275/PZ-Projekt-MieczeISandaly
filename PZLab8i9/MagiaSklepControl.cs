@@ -30,7 +30,7 @@ namespace PZLab8i9
             lblZloto.Text = $"Złoto: {b.Zloto}G | Czary: {aktualneCzary}/{b.LimitCzarow} | Broń: {bron}\n" +
                             $"Siła: {b.Sila} | Zręczność: {b.Zrecznosc} | Inteligencja: {b.Inteligencja}\n" +
                             $"Charyzma: {b.Charyzma} | Witalność: {b.Witalnosc} | Wytrzymałość: {b.Wytrzymalosc}\n" +
-                            $"Pancerz: {b.PobierzRaportPancerza()}";
+                            $"Pancerz:\n{b.PobierzRaportPancerza()}";
 
             lstAsortyment.Items.Clear();
             foreach (var czar in BazaPrzedmiotow.WszystkieCzary)
@@ -42,8 +42,12 @@ namespace PZLab8i9
 
         private void btnKup_Click(object sender, EventArgs e)
         {
-            if (lstAsortyment.SelectedItem is Czar wybranyCzar)
+            int index = lstAsortyment.SelectedIndex;
+
+            if (index >= 0)
             {
+                Czar wybranyCzar = BazaPrzedmiotow.WszystkieCzary[index];
+
                 try
                 {
                     glowneOkno.Bohater.KupPrzedmiot(wybranyCzar);

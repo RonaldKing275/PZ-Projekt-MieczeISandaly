@@ -70,7 +70,7 @@ namespace PZLab8i9Lib
                 }
             }
 
-            Zloto -= p.Cena;
+            Zloto -= cenaPoRabacie;
 
             switch (p)
             {

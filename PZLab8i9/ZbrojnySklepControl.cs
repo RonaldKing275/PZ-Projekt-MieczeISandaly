@@ -28,7 +28,7 @@ namespace PZLab8i9
             lblZloto.Text = $"Złoto: {b.Zloto}G | Broń: {bron} ({b.ObliczObrazeniaZwykle()} dmg)\n" +
                             $"Siła: {b.Sila} | Zręczność: {b.Zrecznosc} | Inteligencja: {b.Inteligencja}\n" +
                             $"Charyzma: {b.Charyzma} | Witalność: {b.Witalnosc} | Wytrzymałość: {b.Wytrzymalosc}\n" +
-                            $"Pancerz: {b.PobierzRaportPancerza()}";
+                            $"Pancerz:\n{b.PobierzRaportPancerza()}";
 
             lstAsortyment.Items.Clear();
             foreach (var zbroja in BazaPrzedmiotow.WszystkieZbroje)
@@ -40,8 +40,12 @@ namespace PZLab8i9
 
         private void btnKup_Click(object sender, EventArgs e)
         {
-            if (lstAsortyment.SelectedItem is Zbroja wybranaZbroja)
+            int index = lstAsortyment.SelectedIndex;
+
+            if (index >= 0)
             {
+                Zbroja wybranaZbroja = BazaPrzedmiotow.WszystkieZbroje[index];
+
                 try
                 {
                     glowneOkno.Bohater.KupPrzedmiot(wybranaZbroja);
