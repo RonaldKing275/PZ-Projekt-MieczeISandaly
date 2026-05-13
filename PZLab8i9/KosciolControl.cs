@@ -13,7 +13,12 @@ namespace PZLab8i9
     public partial class KosciolControl : UserControl
     {
         private Form1 glowneOkno;
-        private string sciezkaZapisu = "savegame.json";
+        private static string sciezkaZapisu = "savegame.json";
+
+        public static string SciezkaZapisu
+        {
+            get => sciezkaZapisu;
+        }
         public KosciolControl(Form1 form)
         {
             InitializeComponent();
