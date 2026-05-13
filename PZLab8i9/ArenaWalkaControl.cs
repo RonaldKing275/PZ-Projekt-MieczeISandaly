@@ -32,6 +32,9 @@ namespace PZLab8i9
             glowneOkno.Bohater.OdnowPancerz();
             wrog.OdnowPancerz();
 
+            glowneOkno.Bohater.AktualneHp = glowneOkno.Bohater.MaxHp;
+            glowneOkno.Bohater.AktualnaStamina = glowneOkno.Bohater.MaxStamina;
+
             // Gdy HP lub Stamina gracza/wroga się zmieni, paski zaktualizują się same
             glowneOkno.Bohater.OnHpChanged += (aktualne, max) => barHpGracza.Value = aktualne;
             glowneOkno.Bohater.OnStaminaChanged += (aktualne, max) => barStaminaGracza.Value = aktualne;
@@ -60,11 +63,15 @@ namespace PZLab8i9
             barHpGracza.Value = glowneOkno.Bohater.AktualneHp;
             barStaminaGracza.Maximum = glowneOkno.Bohater.MaxStamina;
             barStaminaGracza.Value = glowneOkno.Bohater.AktualnaStamina;
+            barPancerzGracza.Maximum = glowneOkno.Bohater.MaxPancerz == 0 ? 1 : glowneOkno.Bohater.MaxPancerz;
+            barPancerzGracza.Value = glowneOkno.Bohater.AktualnyPancerz;
 
             barHpWroga.Maximum = wrog.MaxHp;
             barHpWroga.Value = wrog.AktualneHp;
             barStaminaWroga.Maximum = wrog.MaxStamina;
             barStaminaWroga.Value = wrog.AktualnaStamina;
+            barPancerzWroga.Maximum = wrog.MaxPancerz == 0 ? 1 : wrog.MaxPancerz;
+            barPancerzWroga.Value = wrog.AktualnyPancerz;
         }
 
         private void Log(string wiadomosc)
@@ -174,13 +181,14 @@ namespace PZLab8i9
                 Log($"PORAŻKA! Medycy wyciągają Cię z areny. Tracisz {traconeZloto}G na koszty leczenia.");
             }
 
-            glowneOkno.Bohater.AktualneHp = glowneOkno.Bohater.MaxHp;
-            glowneOkno.Bohater.AktualnaStamina = glowneOkno.Bohater.MaxStamina;
             btnWroc.Visible = true;
         }
 
         private void btnWroc_Click(object sender, EventArgs e)
         {
+            glowneOkno.Bohater.AktualneHp = glowneOkno.Bohater.MaxHp;
+            glowneOkno.Bohater.AktualnaStamina = glowneOkno.Bohater.MaxStamina;
+
             if (glowneOkno.Bohater.PunktyDoRozdania > 0)
                 glowneOkno.ZmienEkran(new RozdajPunktyControl(glowneOkno));
             else

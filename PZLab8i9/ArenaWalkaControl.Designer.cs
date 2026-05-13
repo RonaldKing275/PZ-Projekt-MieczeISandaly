@@ -106,7 +106,8 @@
             // 
             // barPancerzGracza
             // 
-            barPancerzGracza.BackColor = Color.FromArgb(64, 64, 64);
+            barPancerzGracza.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            barPancerzGracza.BackColor = Color.FromArgb(224, 224, 224);
             barPancerzGracza.ForeColor = Color.Silver;
             barPancerzGracza.Location = new Point(22, 405);
             barPancerzGracza.Name = "barPancerzGracza";
@@ -115,7 +116,8 @@
             // 
             // barHpGracza
             // 
-            barHpGracza.BackColor = Color.FromArgb(64, 64, 64);
+            barHpGracza.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            barHpGracza.BackColor = Color.FromArgb(224, 224, 224);
             barHpGracza.ForeColor = Color.Red;
             barHpGracza.Location = new Point(22, 451);
             barHpGracza.Name = "barHpGracza";
@@ -124,7 +126,8 @@
             // 
             // barStaminaGracza
             // 
-            barStaminaGracza.BackColor = Color.FromArgb(64, 64, 64);
+            barStaminaGracza.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            barStaminaGracza.BackColor = Color.FromArgb(224, 224, 224);
             barStaminaGracza.ForeColor = Color.Blue;
             barStaminaGracza.Location = new Point(22, 499);
             barStaminaGracza.Name = "barStaminaGracza";
@@ -133,7 +136,8 @@
             // 
             // barPancerzWroga
             // 
-            barPancerzWroga.BackColor = Color.FromArgb(64, 64, 64);
+            barPancerzWroga.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            barPancerzWroga.BackColor = Color.FromArgb(224, 224, 224);
             barPancerzWroga.ForeColor = Color.Silver;
             barPancerzWroga.Location = new Point(855, 405);
             barPancerzWroga.Name = "barPancerzWroga";
@@ -142,7 +146,8 @@
             // 
             // barHpWroga
             // 
-            barHpWroga.BackColor = Color.FromArgb(64, 64, 64);
+            barHpWroga.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            barHpWroga.BackColor = Color.FromArgb(224, 224, 224);
             barHpWroga.ForeColor = Color.Red;
             barHpWroga.Location = new Point(855, 451);
             barHpWroga.Name = "barHpWroga";
@@ -151,7 +156,8 @@
             // 
             // barStaminaWroga
             // 
-            barStaminaWroga.BackColor = Color.FromArgb(64, 64, 64);
+            barStaminaWroga.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            barStaminaWroga.BackColor = Color.FromArgb(224, 224, 224);
             barStaminaWroga.ForeColor = Color.Blue;
             barStaminaWroga.Location = new Point(855, 499);
             barStaminaWroga.Name = "barStaminaWroga";
