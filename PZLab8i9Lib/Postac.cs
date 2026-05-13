@@ -20,17 +20,18 @@ namespace PZLab8i9Lib
 
         public int MaxHp { get; set; }
         public int MaxStamina { get; set; }
-        public int AktualnyPancerz { get; set;  }
+        public int MaxPancerz { get; set; }
 
-        // Pola prywatne dla HP i Staminy
         private int aktualneHp;
         private int aktualnaStamina;
+        private int aktualnyPancerz;
 
-        // Zdarzenia wywoływane przy zmianie Hp/Staminy
+        // Zdarzenia wywoływane przy zmianie Hp/Staminy/Pancerza
         public event StatystykaZmienionaAkcja OnHpChanged;
         public event StatystykaZmienionaAkcja OnStaminaChanged;
+        public event StatystykaZmienionaAkcja OnPancerzChanged;
 
-        // Zawsze gdy HP i Stamina się zmienia - odpala się event
+        // Zawsze gdy HP, Stamina i Pancerz się zmienia - odpala się event
         public int AktualneHp
         {
             get => aktualneHp;
@@ -51,6 +52,16 @@ namespace PZLab8i9Lib
             }
         }
 
+        public int AktualnyPancerz
+        {
+            get => aktualnyPancerz;
+            set
+            {
+                aktualnyPancerz = Math.Max(0, value);
+                OnPancerzChanged?.Invoke(aktualnyPancerz, MaxPancerz);
+            }
+        }
+
         public void PrzeliczMaxPaski()
         {
             // Bazowo 100, co poziom +15, do tego bonus za każdy punkt Witalności +15 HP za punkt
@@ -63,8 +74,8 @@ namespace PZLab8i9Lib
         public void OdnowPancerz()
         {
             // Oblicza sumę zbroi z ekwipunku i ładuje ją jako barierę na start walki
-            int maxPancerz = UbranyPancerz.Values.Sum(z => z.PunktyPancerza);
-            AktualnyPancerz = maxPancerz;
+            MaxPancerz = UbranyPancerz.Values.Sum(z => z.PunktyPancerza);
+            AktualnyPancerz = MaxPancerz;
         }
 
         public void Odpocznij()

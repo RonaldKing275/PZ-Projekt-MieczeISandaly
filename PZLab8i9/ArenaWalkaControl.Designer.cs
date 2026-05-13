@@ -30,14 +30,16 @@
         {
             lblImieGracza = new Label();
             lblImieWroga = new Label();
-            barHpGracza = new ProgressBar();
-            barStaminaGracza = new ProgressBar();
-            barHpWroga = new ProgressBar();
-            barStaminaWroga = new ProgressBar();
             txtLogi = new TextBox();
             btnZwyklyAtak = new Button();
             btnOdpocznij = new Button();
             btnWroc = new Button();
+            barPancerzGracza = new KolorowyPasek();
+            barHpGracza = new KolorowyPasek();
+            barStaminaGracza = new KolorowyPasek();
+            barPancerzWroga = new KolorowyPasek();
+            barHpWroga = new KolorowyPasek();
+            barStaminaWroga = new KolorowyPasek();
             SuspendLayout();
             // 
             // lblImieGracza
@@ -58,38 +60,6 @@
             lblImieWroga.Size = new Size(50, 20);
             lblImieWroga.TabIndex = 1;
             lblImieWroga.Text = "label2";
-            // 
-            // barHpGracza
-            // 
-            barHpGracza.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            barHpGracza.Location = new Point(22, 451);
-            barHpGracza.Name = "barHpGracza";
-            barHpGracza.Size = new Size(125, 29);
-            barHpGracza.TabIndex = 2;
-            // 
-            // barStaminaGracza
-            // 
-            barStaminaGracza.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            barStaminaGracza.Location = new Point(22, 499);
-            barStaminaGracza.Name = "barStaminaGracza";
-            barStaminaGracza.Size = new Size(125, 29);
-            barStaminaGracza.TabIndex = 3;
-            // 
-            // barHpWroga
-            // 
-            barHpWroga.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            barHpWroga.Location = new Point(855, 451);
-            barHpWroga.Name = "barHpWroga";
-            barHpWroga.Size = new Size(125, 29);
-            barHpWroga.TabIndex = 4;
-            // 
-            // barStaminaWroga
-            // 
-            barStaminaWroga.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            barStaminaWroga.Location = new Point(855, 499);
-            barStaminaWroga.Name = "barStaminaWroga";
-            barStaminaWroga.Size = new Size(125, 29);
-            barStaminaWroga.TabIndex = 5;
             // 
             // txtLogi
             // 
@@ -134,18 +104,74 @@
             btnWroc.Visible = false;
             btnWroc.Click += btnWroc_Click;
             // 
+            // barPancerzGracza
+            // 
+            barPancerzGracza.BackColor = Color.FromArgb(64, 64, 64);
+            barPancerzGracza.ForeColor = Color.Silver;
+            barPancerzGracza.Location = new Point(22, 405);
+            barPancerzGracza.Name = "barPancerzGracza";
+            barPancerzGracza.Size = new Size(125, 29);
+            barPancerzGracza.TabIndex = 10;
+            // 
+            // barHpGracza
+            // 
+            barHpGracza.BackColor = Color.FromArgb(64, 64, 64);
+            barHpGracza.ForeColor = Color.Red;
+            barHpGracza.Location = new Point(22, 451);
+            barHpGracza.Name = "barHpGracza";
+            barHpGracza.Size = new Size(125, 29);
+            barHpGracza.TabIndex = 11;
+            // 
+            // barStaminaGracza
+            // 
+            barStaminaGracza.BackColor = Color.FromArgb(64, 64, 64);
+            barStaminaGracza.ForeColor = Color.Blue;
+            barStaminaGracza.Location = new Point(22, 499);
+            barStaminaGracza.Name = "barStaminaGracza";
+            barStaminaGracza.Size = new Size(125, 29);
+            barStaminaGracza.TabIndex = 12;
+            // 
+            // barPancerzWroga
+            // 
+            barPancerzWroga.BackColor = Color.FromArgb(64, 64, 64);
+            barPancerzWroga.ForeColor = Color.Silver;
+            barPancerzWroga.Location = new Point(855, 405);
+            barPancerzWroga.Name = "barPancerzWroga";
+            barPancerzWroga.Size = new Size(125, 29);
+            barPancerzWroga.TabIndex = 13;
+            // 
+            // barHpWroga
+            // 
+            barHpWroga.BackColor = Color.FromArgb(64, 64, 64);
+            barHpWroga.ForeColor = Color.Red;
+            barHpWroga.Location = new Point(855, 451);
+            barHpWroga.Name = "barHpWroga";
+            barHpWroga.Size = new Size(125, 29);
+            barHpWroga.TabIndex = 14;
+            // 
+            // barStaminaWroga
+            // 
+            barStaminaWroga.BackColor = Color.FromArgb(64, 64, 64);
+            barStaminaWroga.ForeColor = Color.Blue;
+            barStaminaWroga.Location = new Point(855, 499);
+            barStaminaWroga.Name = "barStaminaWroga";
+            barStaminaWroga.Size = new Size(125, 29);
+            barStaminaWroga.TabIndex = 15;
+            // 
             // ArenaWalkaControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(barStaminaWroga);
+            Controls.Add(barHpWroga);
+            Controls.Add(barPancerzWroga);
+            Controls.Add(barStaminaGracza);
+            Controls.Add(barHpGracza);
+            Controls.Add(barPancerzGracza);
             Controls.Add(btnWroc);
             Controls.Add(btnOdpocznij);
             Controls.Add(btnZwyklyAtak);
             Controls.Add(txtLogi);
-            Controls.Add(barStaminaWroga);
-            Controls.Add(barHpWroga);
-            Controls.Add(barStaminaGracza);
-            Controls.Add(barHpGracza);
             Controls.Add(lblImieWroga);
             Controls.Add(lblImieGracza);
             Name = "ArenaWalkaControl";
@@ -158,13 +184,15 @@
 
         private Label lblImieGracza;
         private Label lblImieWroga;
-        private ProgressBar barHpGracza;
-        private ProgressBar barStaminaGracza;
-        private ProgressBar barHpWroga;
-        private ProgressBar barStaminaWroga;
         private TextBox txtLogi;
         private Button btnZwyklyAtak;
         private Button btnOdpocznij;
         private Button btnWroc;
+        private KolorowyPasek barPancerzGracza;
+        private KolorowyPasek barHpGracza;
+        private KolorowyPasek barStaminaGracza;
+        private KolorowyPasek barPancerzWroga;
+        private KolorowyPasek barHpWroga;
+        private KolorowyPasek barStaminaWroga;
     }
 }
