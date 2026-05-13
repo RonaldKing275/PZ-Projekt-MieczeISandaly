@@ -9,28 +9,21 @@ using PZLab8i9Lib;
 
 namespace PZLab8i9
 {
-    public partial class BronSklepControl : UserControl
+    public partial class BronSklepControl : SklepBazowyControl
     {
-        private Form1 glowneOkno;
-        public BronSklepControl(Form1 form)
+        public BronSklepControl(Form1 form) : base(form)
         {
             InitializeComponent();
-            glowneOkno = form;
-
             ZaladujSklep();
         }
 
         private void ZaladujSklep()
         {
+            WypiszStatystyki(lblZloto);
+
             var b = glowneOkno.Bohater;
-            string bron = b.WyposazonaBron != null ? b.WyposazonaBron.Nazwa : "Pięści";
-
-            lblZloto.Text = $"Złoto: {b.Zloto}G | Broń: {bron} ({b.ObliczObrazeniaZwykle()} dmg)\n" +
-                            $"Siła: {b.Sila} | Zręczność: {b.Zrecznosc} | Inteligencja: {b.Inteligencja}\n" +
-                            $"Charyzma: {b.Charyzma} | Witalność: {b.Witalnosc} | Wytrzymałość: {b.Wytrzymalosc}\n" +
-                            $"Pancerz:\n{b.PobierzRaportPancerza()}";
-
             lstAsortyment.Items.Clear();
+
             foreach (var przedmiot in BazaPrzedmiotow.WszystkieBronie)
             {
                 int cenaFinalna = b.ObliczCenePoRabacie(przedmiot.Cena);
@@ -40,37 +33,13 @@ namespace PZLab8i9
 
         private void btnKup_Click(object sender, EventArgs e)
         {
-            int index = lstAsortyment.SelectedIndex;
-
-            if (index >= 0)
-            {
-                Bron wybranaBron = BazaPrzedmiotow.WszystkieBronie[index];
-
-                try
-                {
-                    glowneOkno.Bohater.KupPrzedmiot(wybranaBron);
-
-                    MessageBox.Show($"Kupiłeś: {wybranaBron.Nazwa}!\nZostała automatycznie wyposażona jako Twoja główna broń.", "Zakup udany", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ZaladujSklep();
-                }
-                catch (NotEnoughGoldException ex)
-                {
-                    MessageBox.Show(ex.Message, "Brak złota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (RequirementNotMetException ex)
-                {
-                    MessageBox.Show(ex.Message, "Jesteś za słaby!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Najpierw wybierz broń z listy!");
-            }
+            ObsluzZakup(lstAsortyment, BazaPrzedmiotow.WszystkieBronie, "Została automatycznie wyposażona jako Twoja główna broń.");
+            ZaladujSklep();
         }
 
         private void btnWroc_Click(object sender, EventArgs e)
         {
-            glowneOkno.ZmienEkran(new UlicaControl(glowneOkno));
+            ObsluzPrzyciskWrot();
         }
     }
 }

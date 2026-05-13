@@ -9,14 +9,11 @@ using System.Windows.Forms;
 
 namespace PZLab8i9
 {
-    public partial class MagiaSklepControl : UserControl
+    public partial class MagiaSklepControl : SklepBazowyControl
     {
-        private Form1 glowneOkno;
-        public MagiaSklepControl(Form1 form)
+        public MagiaSklepControl(Form1 form) : base(form)
         {
             InitializeComponent();
-            glowneOkno = form;
-
             ZaladujSklep();
         }
 
@@ -25,14 +22,11 @@ namespace PZLab8i9
             var b = glowneOkno.Bohater;
             int aktualneCzary = b.PosiadanePrzedmioty.Count(p => p is Czar);
 
-            string bron = b.WyposazonaBron != null ? b.WyposazonaBron.Nazwa : "Pięści";
-
-            lblZloto.Text = $"Złoto: {b.Zloto}G | Czary: {aktualneCzary}/{b.LimitCzarow} | Broń: {bron}\n" +
-                            $"Siła: {b.Sila} | Zręczność: {b.Zrecznosc} | Inteligencja: {b.Inteligencja}\n" +
-                            $"Charyzma: {b.Charyzma} | Witalność: {b.Witalnosc} | Wytrzymałość: {b.Wytrzymalosc}\n" +
-                            $"Pancerz:\n{b.PobierzRaportPancerza()}";
+            string infoCzary = $"| Czary: {aktualneCzary}/{b.LimitCzarow}";
+            WypiszStatystyki(lblZloto, infoCzary);
 
             lstAsortyment.Items.Clear();
+
             foreach (var czar in BazaPrzedmiotow.WszystkieCzary)
             {
                 int cenaFinalna = b.ObliczCenePoRabacie(czar.Cena);
@@ -42,37 +36,13 @@ namespace PZLab8i9
 
         private void btnKup_Click(object sender, EventArgs e)
         {
-            int index = lstAsortyment.SelectedIndex;
-
-            if (index >= 0)
-            {
-                Czar wybranyCzar = BazaPrzedmiotow.WszystkieCzary[index];
-
-                try
-                {
-                    glowneOkno.Bohater.KupPrzedmiot(wybranyCzar);
-
-                    MessageBox.Show($"Nauczyłeś się zaklęcia: {wybranyCzar.Nazwa}!", "Zakup udany", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ZaladujSklep();
-                }
-                catch (NotEnoughGoldException ex)
-                {
-                    MessageBox.Show(ex.Message, "Brak złota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (RequirementNotMetException ex)
-                {
-                    MessageBox.Show(ex.Message, "Brak predyspozycji", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Najpierw wybierz czar z listy!");
-            }
+            ObsluzZakup(lstAsortyment, BazaPrzedmiotow.WszystkieCzary, "Od teraz możesz rzucać to zaklęcie w walce.");
+            ZaladujSklep();
         }
 
         private void btnWroc_Click(object sender, EventArgs e)
         {
-            glowneOkno.ZmienEkran(new UlicaControl(glowneOkno));
+            ObsluzPrzyciskWrot();
         }
     }
 }
