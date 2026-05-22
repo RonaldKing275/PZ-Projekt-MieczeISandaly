@@ -19,9 +19,13 @@ namespace PZLab8i9
         protected void WypiszStatystyki(Label labelUI, string dodatkoweInfo = "")
         {
             var b = glowneOkno.Bohater;
-            string bron = b.WyposazonaBron != null ? b.WyposazonaBron.Nazwa : "Pięści";
 
-            labelUI.Text = $"Złoto: {b.Zloto}G | Broń: {bron} ({b.ObliczObrazeniaZwykle()} dmg) {dodatkoweInfo}\n" +
+            string bronWrecz = b.WyposazonaBronGlowna != null ? b.WyposazonaBronGlowna.Nazwa : "Pięści";
+            string bronDystans = b.WyposazonaBronPomocnicza != null ? b.WyposazonaBronPomocnicza.Nazwa : "Brak";
+
+            labelUI.Text = $"Złoto: {b.Zloto}G {dodatkoweInfo}\n" +
+                           $"Wręcz: {bronWrecz} ({b.ObliczObrazeniaZwykle(false)} dmg)\n" +
+                           $"Dystans: {bronDystans} ({b.ObliczObrazeniaZwykle(true)} dmg)\n" +
                            $"Siła: {b.Sila} | Zręczność: {b.Zrecznosc} | Inteligencja: {b.Inteligencja}\n" +
                            $"Charyzma: {b.Charyzma} | Witalność: {b.Witalnosc} | Wytrzymałość: {b.Wytrzymalosc}\n" +
                            $"Pancerz:\n{b.PobierzRaportPancerza()}";
@@ -58,6 +62,11 @@ namespace PZLab8i9
         protected void ObsluzPrzyciskWrot()
         {
             glowneOkno.ZmienEkran(new UlicaControl(glowneOkno));
+        }
+
+        protected void UstawDomyslnaChmurke(Label labelUI, string dodatkoweInfo = "")
+        {
+            WypiszStatystyki(labelUI, dodatkoweInfo);
         }
     }
 }

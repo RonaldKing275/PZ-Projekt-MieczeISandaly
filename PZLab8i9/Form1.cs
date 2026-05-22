@@ -14,7 +14,7 @@ namespace PZLab8i9
         {
             InitializeComponent();
             this.Text = "Miecze i Sandały - Projekt";
-            this.Size = new System.Drawing.Size(1000, 550);
+            this.Size = new System.Drawing.Size(1015, 595);
             this.StartPosition = FormStartPosition.CenterScreen;
 
             // Zamiast tworzyć gracza, ładujemy Menu Główne

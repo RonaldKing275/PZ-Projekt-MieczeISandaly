@@ -80,6 +80,7 @@ namespace PZLab8i9Lib
 
                 case Zbroja nowaZbroja:
                     UbranyPancerz[nowaZbroja.TypCzesci] = nowaZbroja;
+                    OdnowPancerz();
                     break;
 
                 case Czar nowyCzar:

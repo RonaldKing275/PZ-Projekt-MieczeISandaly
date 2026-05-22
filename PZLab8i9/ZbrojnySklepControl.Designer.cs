@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZbrojnySklepControl));
             lstAsortyment = new ListBox();
             lblZloto = new Label();
             btnKup = new Button();
@@ -80,6 +81,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(btnWroc);
             Controls.Add(btnKup);
             Controls.Add(lblZloto);

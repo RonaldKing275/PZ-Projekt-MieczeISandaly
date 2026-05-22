@@ -8,13 +8,63 @@ namespace PZLab8i9Lib
     {
         public static List<Bron> WszystkieBronie { get; } = new List<Bron>
         {
-            // Nazwa, Cena, Dmg, Typ, reqSila, reqZrecznosc
-            new Bron("Zardzewiały Miecz", 30, 8, TypBroni.Wrecz, reqSila: 1, reqZrecznosc: 5),
-            new Bron("Kastet", 40, 9, TypBroni.Wrecz, reqSila:5, reqZrecznosc:1),
-            new Bron("Sztylet Złodzieja", 50, 10, TypBroni.Wrecz, reqSila: 1, reqZrecznosc: 10),
-            new Bron("Topór Drwala", 120, 18, TypBroni.Wrecz, reqSila: 15, reqZrecznosc: 1),
-            new Bron("Krótki Łuk", 60, 12, TypBroni.Dystansowa, reqSila: 1, reqZrecznosc: 12),
-            new Bron("Ciężka Maczuga", 200, 25, TypBroni.Wrecz, reqSila: 25, reqZrecznosc: 1)
+            //      Nazwa,      Cena,  MinDmg, Typ,        RodzajZasiegu, Image,     reqSila,    reqZrecznosc
+            // Miecze
+            // Strona 1:
+            new Bron("Dagger", 200, 3, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz1", strona:1, posX:46, posY:64, reqSila: 0, reqZrecznosc: 3),
+            new Bron("Shortsword", 400, 4, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz2", strona:1, posX:139, posY:34, reqSila: 0, reqZrecznosc: 6),
+            new Bron("Dirk", 600, 5, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz3", strona:1, posX:241, posY:17, reqSila: 0, reqZrecznosc: 9),
+            new Bron("Gladius", 800, 6, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz4", strona:1, posX:349, posY:17, reqSila: 0, reqZrecznosc: 12),
+
+            new Bron("Bastard Sword", 2000, 9, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz7", strona:1, posX:33, posY:215, reqSila: 0, reqZrecznosc: 21),
+            new Bron("Longsword", 2500, 10, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz8", strona:1, posX:127, posY:215, reqSila: 0, reqZrecznosc: 24),
+            new Bron("Broadsword", 1100, 7, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz5", strona:1, posX:231, posY:213, reqSila: 0, reqZrecznosc: 15),
+            new Bron("Claymore", 1500, 8, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz6", strona:1, posX:323, posY:213, reqSila: 0, reqZrecznosc: 18),
+            //// Strona 2:
+
+
+            //// Topory
+            //// Strona 1:
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //// Strona 2:
+
+
+            //// Maczugi
+            //// Strona 1:
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            //// Strona 2:
+
+
+            //// Łuki
+            //// Strona 1:
+            //new Bron("Iron Slingshot", 250, 5, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 6),
+            //new Bron("Oak Slingshot", 450, 6, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 9),
+            //new Bron("Shuriken", 750, 7, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 12),
+            //new Bron("Yew Bow", 950, 8, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 15),
+
+            //new Bron("Hunter's Bow", 1400, 9, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 18),
+            //new Bron("Tracker's Bow", 1800, 10, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 21),
+            //new Bron("Oak Longbow", 2300, 11, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 24),
+            //new Bron("Steel Longbow", 2900, 12, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 27),
+            //new Bron("Reinforced Longbow", 3600, 13, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 30),
+            // Strona 2:
         };
 
         public static List<Zbroja> WszystkieZbroje { get; } = new List<Zbroja>

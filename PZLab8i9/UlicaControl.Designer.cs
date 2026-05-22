@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UlicaControl));
             btnZbrojny = new Button();
             btnBronie = new Button();
             btnMagia = new Button();
@@ -39,29 +40,31 @@
             // 
             // btnZbrojny
             // 
-            btnZbrojny.Location = new Point(681, 346);
+            btnZbrojny.Anchor = AnchorStyles.None;
+            btnZbrojny.Location = new Point(809, 347);
             btnZbrojny.Name = "btnZbrojny";
             btnZbrojny.Size = new Size(94, 51);
             btnZbrojny.TabIndex = 0;
-            btnZbrojny.Text = "Sklep ze zbroją";
+            btnZbrojny.Text = "Zbrojownia";
             btnZbrojny.UseVisualStyleBackColor = true;
             btnZbrojny.Click += btnZbrojny_Click;
             // 
             // btnBronie
             // 
-            btnBronie.Location = new Point(73, 327);
+            btnBronie.Anchor = AnchorStyles.None;
+            btnBronie.Location = new Point(102, 325);
             btnBronie.Name = "btnBronie";
             btnBronie.Size = new Size(94, 48);
             btnBronie.TabIndex = 1;
-            btnBronie.Text = "Sklep z broniami";
+            btnBronie.Text = "Zbrojmistrz";
             btnBronie.UseVisualStyleBackColor = true;
             btnBronie.Click += btnBronie_Click;
             // 
             // btnMagia
             // 
-            btnMagia.Location = new Point(216, 240);
+            btnMagia.Location = new Point(232, 277);
             btnMagia.Name = "btnMagia";
-            btnMagia.Size = new Size(94, 55);
+            btnMagia.Size = new Size(99, 55);
             btnMagia.TabIndex = 2;
             btnMagia.Text = "Sklep z magią";
             btnMagia.UseVisualStyleBackColor = true;
@@ -69,7 +72,8 @@
             // 
             // btnKosciol
             // 
-            btnKosciol.Location = new Point(623, 240);
+            btnKosciol.Anchor = AnchorStyles.None;
+            btnKosciol.Location = new Point(698, 277);
             btnKosciol.Name = "btnKosciol";
             btnKosciol.Size = new Size(94, 29);
             btnKosciol.TabIndex = 3;
@@ -79,7 +83,8 @@
             // 
             // btnArena
             // 
-            btnArena.Location = new Point(139, 70);
+            btnArena.Anchor = AnchorStyles.None;
+            btnArena.Location = new Point(153, 59);
             btnArena.Name = "btnArena";
             btnArena.Size = new Size(94, 29);
             btnArena.TabIndex = 4;
@@ -109,6 +114,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(lblExpInfo);
             Controls.Add(barExp);
             Controls.Add(btnArena);

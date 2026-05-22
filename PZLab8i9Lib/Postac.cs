@@ -90,9 +90,17 @@ namespace PZLab8i9Lib
 
         // Ekwipunek
         public List<Przedmiot> PosiadanePrzedmioty { get; set; } = new List<Przedmiot>();
-        public Bron WyposazonaBron { get; set; }
+        public Bron WyposazonaBronGlowna { get; set; }
+        public Bron WyposazonaBronPomocnicza { get; set; }
         public Dictionary<CzescZbroi, Zbroja> UbranyPancerz { get; set; }
             = new Dictionary<CzescZbroi, Zbroja>();
+
+        // Kompatybilność wsteczna
+        public Bron WyposazonaBron
+        {
+            get => WyposazonaBronGlowna;
+            set => WyposazonaBronGlowna = value;
+        }
 
         public bool CzyZyje => AktualneHp > 0;
 
@@ -102,20 +110,73 @@ namespace PZLab8i9Lib
             Poziom = poziom;
         }
 
-        // Wirtualna metoda zadawania bazowych obrażeń (Bron + Siła)
-        public virtual int ObliczObrazeniaZwykle()
+        public void WyposazBron(Bron nowaBron)
         {
-            if (WyposazonaBron == null) return (4 + (int)(Sila * 0.75));
-
-            if (WyposazonaBron.Typ == TypBroni.Dystansowa)
+            if (nowaBron.Zasieg == RodzajZasiegu.Wrecz)
             {
-                return WyposazonaBron.Obrazenia + Zrecznosc; // Łuki, miecze itp. zależą od zręczności
+                WyposazonaBronGlowna = nowaBron;
             }
-            else
+            else if (nowaBron.Zasieg == RodzajZasiegu.Dystansowa)
             {
-                return WyposazonaBron.Obrazenia + Sila; // Maczugi, kastety itp. zależą od siły
+                WyposazonaBronPomocnicza = nowaBron;
             }
         }
+
+        // Wirtualna metoda zadawania bazowych obrażeń (Bron + Siła)
+        public virtual int ObliczObrazeniaZwykle(bool atakDystansowy = false)
+        {
+            // Zabezpieczenie, żeby gracz bez broni głównej mógł używać samego Łuku
+            Bron uzywanaBron = atakDystansowy ? WyposazonaBronPomocnicza : WyposazonaBronGlowna;
+
+            if (uzywanaBron == null)
+            {
+                return 4 + (int)(Sila * 0.75);
+            }
+
+            int bonus = (uzywanaBron.Typ == TypBroni.Miecze || uzywanaBron.Typ == TypBroni.Luki)
+                        ? Zrecznosc
+                        : Sila;
+
+            return uzywanaBron.MinObrazenia + bonus;
+        }
+
+        public string PobierzZakresObrazen(bool atakDystansowy = false)
+        {
+            Bron uzywanaBron = atakDystansowy ? WyposazonaBronPomocnicza : WyposazonaBronGlowna;
+
+            if (uzywanaBron == null)
+            {
+                int dmgPiesci = 4 + (int)(Sila * 0.75);
+                return $"{dmgPiesci}-{dmgPiesci}";
+            }
+
+            int bonus = (uzywanaBron.Typ == TypBroni.Miecze || uzywanaBron.Typ == TypBroni.Luki)
+                        ? Zrecznosc
+                        : Sila;
+
+            int min = uzywanaBron.MinObrazenia + bonus;
+            int max = uzywanaBron.MaxObrazenia + bonus;
+
+            return $"{min}-{max}";
+        }
+
+        // Losuje finalne obrażenia z przedziału
+        private static Random r = new Random();
+        public int LosujObrazenia(bool atakDystansowy = false)
+        {
+            Bron uzywanaBron = atakDystansowy ? WyposazonaBronPomocnicza : WyposazonaBronGlowna;
+
+            if (uzywanaBron == null)
+                return 4 + (int)(Sila * 0.75);
+
+            int bonus = (uzywanaBron.Typ == TypBroni.Miecze || uzywanaBron.Typ == TypBroni.Luki) ? Zrecznosc : Sila;
+
+            int min = uzywanaBron.MinObrazenia + bonus;
+            int max = uzywanaBron.MaxObrazenia + bonus;
+
+            return r.Next(min, max + 1);
+        }
+
         public int OtrzymajObrazenia(int dmg)
         {
             if (dmg <= 0) return 0;
@@ -131,7 +192,6 @@ namespace PZLab8i9Lib
                 // Pancerz zostaje przebity i zniszczony do końca walki
                 int resztaDmg = dmg - AktualnyPancerz;
                 AktualnyPancerz = 0;
-
                 AktualneHp -= resztaDmg; // Reszta obrażeń uderza w ciało
 
                 return resztaDmg; // Zwraca informację, ile HP ubyło

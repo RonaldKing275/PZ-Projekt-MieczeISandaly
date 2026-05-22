@@ -15,6 +15,7 @@ namespace PZLab8i9
         {
             InitializeComponent();
             glowneOkno = form;
+            this.DoubleBuffered = true;
 
             AktualizujWidok();
         }
