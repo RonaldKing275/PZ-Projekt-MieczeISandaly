@@ -21,6 +21,12 @@ namespace PZLab8i9
             InitializeComponent();
             this.DoubleBuffered = true;
             UstawStanGlownegoMenu();
+
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, pnlPolkaSklepowa, new object[] { true });
         }
 
         private void UstawStanGlownegoMenu()
@@ -57,19 +63,12 @@ namespace PZLab8i9
             ZaladujKategorie();
         }
 
-        private Image SkalujObrazek(Image oryginal, double skala)
-        {
-            if (oryginal == null) return null;
-            int nowaSzerokosc = (int)(oryginal.Width * skala);
-            int nowaWysokosc = (int)(oryginal.Height * skala);
-            return new Bitmap(oryginal, nowaSzerokosc, nowaWysokosc);
-        }
-
         private void ZaladujKategorie()
         {
             this.BackColor = SystemColors.Control;
             this.BackgroundImage = Properties.Resources.MiSSklepBronie1Gotowe;
 
+            pnlPolkaSklepowa.SuspendLayout();
             pnlPolkaSklepowa.Controls.Clear();
 
             var bronieNaTejStronie = bronieWKategorii.Where(b => b.StronaWSklepie == aktualnaStrona).ToList();
@@ -122,6 +121,8 @@ namespace PZLab8i9
 
                 pnlPolkaSklepowa.Controls.Add(picPrzedmiot);
             }
+
+            pnlPolkaSklepowa.ResumeLayout();
 
             if (bronieWKategorii.Count > 0)
             {
