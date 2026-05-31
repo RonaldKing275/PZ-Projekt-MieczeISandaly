@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BronSklepControl));
             lblZloto = new Label();
             pictureBox1 = new PictureBox();
             btnMiecze = new Button();
@@ -36,26 +37,33 @@
             btnLuki = new Button();
             btnNastepnaStrona = new Button();
             pnlPolkaSklepowa = new Panel();
+            pictureBox7 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlPolkaSklepowa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblZloto
             // 
-            lblZloto.AutoSize = true;
+            resources.ApplyResources(lblZloto, "lblZloto");
             lblZloto.BackColor = Color.White;
-            lblZloto.Location = new Point(104, 31);
             lblZloto.Name = "lblZloto";
-            lblZloto.Size = new Size(50, 20);
-            lblZloto.TabIndex = 1;
-            lblZloto.Text = "label1";
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Location = new Point(921, 472);
+            resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(76, 75);
-            pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
@@ -65,11 +73,8 @@
             btnMiecze.FlatAppearance.BorderSize = 0;
             btnMiecze.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnMiecze.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnMiecze.FlatStyle = FlatStyle.Flat;
-            btnMiecze.Location = new Point(529, 154);
+            resources.ApplyResources(btnMiecze, "btnMiecze");
             btnMiecze.Name = "btnMiecze";
-            btnMiecze.Size = new Size(43, 166);
-            btnMiecze.TabIndex = 6;
             btnMiecze.UseVisualStyleBackColor = false;
             btnMiecze.Click += btnMiecze_Click;
             // 
@@ -79,11 +84,8 @@
             btnTopory.FlatAppearance.BorderSize = 0;
             btnTopory.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnTopory.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnTopory.FlatStyle = FlatStyle.Flat;
-            btnTopory.Location = new Point(597, 142);
+            resources.ApplyResources(btnTopory, "btnTopory");
             btnTopory.Name = "btnTopory";
-            btnTopory.Size = new Size(82, 178);
-            btnTopory.TabIndex = 7;
             btnTopory.UseVisualStyleBackColor = false;
             btnTopory.Click += btnTopory_Click;
             // 
@@ -93,11 +95,8 @@
             btnMaczugi.FlatAppearance.BorderSize = 0;
             btnMaczugi.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnMaczugi.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnMaczugi.FlatStyle = FlatStyle.Flat;
-            btnMaczugi.Location = new Point(707, 142);
+            resources.ApplyResources(btnMaczugi, "btnMaczugi");
             btnMaczugi.Name = "btnMaczugi";
-            btnMaczugi.Size = new Size(65, 178);
-            btnMaczugi.TabIndex = 8;
             btnMaczugi.UseVisualStyleBackColor = false;
             btnMaczugi.Click += btnMaczugi_Click;
             // 
@@ -107,38 +106,70 @@
             btnLuki.FlatAppearance.BorderSize = 0;
             btnLuki.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnLuki.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnLuki.FlatStyle = FlatStyle.Flat;
-            btnLuki.Location = new Point(819, 154);
+            resources.ApplyResources(btnLuki, "btnLuki");
             btnLuki.Name = "btnLuki";
-            btnLuki.Size = new Size(41, 166);
-            btnLuki.TabIndex = 9;
             btnLuki.UseVisualStyleBackColor = false;
             btnLuki.Click += btnLuki_Click;
             // 
             // btnNastepnaStrona
             // 
-            btnNastepnaStrona.Location = new Point(603, 472);
+            resources.ApplyResources(btnNastepnaStrona, "btnNastepnaStrona");
             btnNastepnaStrona.Name = "btnNastepnaStrona";
-            btnNastepnaStrona.Size = new Size(199, 36);
-            btnNastepnaStrona.TabIndex = 10;
-            btnNastepnaStrona.Text = "Następna Strona";
             btnNastepnaStrona.UseVisualStyleBackColor = true;
             btnNastepnaStrona.Click += btnNastepnaStrona_Click;
             // 
             // pnlPolkaSklepowa
             // 
             pnlPolkaSklepowa.BackColor = Color.Transparent;
-            pnlPolkaSklepowa.Location = new Point(496, 31);
+            pnlPolkaSklepowa.Controls.Add(pictureBox6);
+            pnlPolkaSklepowa.Controls.Add(pictureBox5);
+            pnlPolkaSklepowa.Controls.Add(pictureBox4);
+            pnlPolkaSklepowa.Controls.Add(pictureBox7);
+            pnlPolkaSklepowa.Controls.Add(pictureBox2);
+            pnlPolkaSklepowa.Controls.Add(pictureBox3);
+            resources.ApplyResources(pnlPolkaSklepowa, "pnlPolkaSklepowa");
             pnlPolkaSklepowa.Name = "pnlPolkaSklepowa";
-            pnlPolkaSklepowa.Padding = new Padding(2);
-            pnlPolkaSklepowa.Size = new Size(414, 435);
-            pnlPolkaSklepowa.TabIndex = 11;
+            // 
+            // pictureBox7
+            // 
+            resources.ApplyResources(pictureBox7, "pictureBox7");
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            resources.ApplyResources(pictureBox6, "pictureBox6");
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            resources.ApplyResources(pictureBox5, "pictureBox5");
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            resources.ApplyResources(pictureBox4, "pictureBox4");
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(pictureBox2, "pictureBox2");
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.TabStop = false;
             // 
             // BronSklepControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.MiSSklepBronieGotowe;
             Controls.Add(pnlPolkaSklepowa);
             Controls.Add(btnMiecze);
             Controls.Add(btnNastepnaStrona);
@@ -148,8 +179,14 @@
             Controls.Add(pictureBox1);
             Controls.Add(lblZloto);
             Name = "BronSklepControl";
-            Size = new Size(1000, 550);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlPolkaSklepowa.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,5 +200,11 @@
         private Button btnLuki;
         private Button btnNastepnaStrona;
         private Panel pnlPolkaSklepowa;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
     }
 }

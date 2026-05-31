@@ -123,13 +123,32 @@ namespace PZLab8i9
                 pnlPolkaSklepowa.Controls.Add(picPrzedmiot);
             }
 
-            bool czyJestNastepnaStrona = bronieWKategorii.Any(b => b.StronaWSklepie > aktualnaStrona);
-            if (btnNastepnaStrona != null) btnNastepnaStrona.Visible = czyJestNastepnaStrona;
+            if (bronieWKategorii.Count > 0)
+            {
+                int maxStrona = bronieWKategorii.Max(b => b.StronaWSklepie);
+                if (btnNastepnaStrona != null) btnNastepnaStrona.Visible = maxStrona > 1;
+            }
+            else
+            {
+                if (btnNastepnaStrona != null) btnNastepnaStrona.Visible = false;
+            }
         }
 
         private void btnNastepnaStrona_Click(object sender, EventArgs e)
         {
-            aktualnaStrona++;
+            if (bronieWKategorii.Count == 0) return;
+
+            int maksymalnaStrona = bronieWKategorii.Max(b => b.StronaWSklepie);
+
+            if (aktualnaStrona >= maksymalnaStrona)
+            {
+                aktualnaStrona = 1;
+            }
+            else
+            {
+                aktualnaStrona++;
+            }
+
             ZaladujKategorie();
         }
 

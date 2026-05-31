@@ -20,8 +20,22 @@ namespace PZLab8i9Lib
             new Bron("Longsword", 2500, 10, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz8", strona:1, posX:127, posY:215, reqSila: 0, reqZrecznosc: 24),
             new Bron("Broadsword", 1100, 7, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz5", strona:1, posX:231, posY:213, reqSila: 0, reqZrecznosc: 15),
             new Bron("Claymore", 1500, 8, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz6", strona:1, posX:323, posY:213, reqSila: 0, reqZrecznosc: 18),
-            //// Strona 2:
+            
+            // Strona 2:
+            new Bron("Knight Sword", 3000, 12, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz9", strona:2, posX:5, posY:83, reqSila: 0, reqZrecznosc: 27),
+            new Bron("Silver Longsword", 3500, 14, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz10", strona:2, posX:65, posY:91, reqSila: 0, reqZrecznosc: 30),
+            new Bron("Heartblade", 4000, 16, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz11", strona:2, posX:129, posY:83, reqSila: 0, reqZrecznosc: 33),
+            new Bron("Crystal Sword", 4500, 18, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz12", strona:2, posX:199, posY:83, reqSila: 0, reqZrecznosc: 36),
+            new Bron("Rapier", 5000, 19, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz13", strona:2, posX:280, posY:75, reqSila: 0, reqZrecznosc: 39),
+            new Bron("Cutlas", 5500, 20, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz14", strona:2, posX:338, posY:83, reqSila: 0, reqZrecznosc: 42),
 
+            // Strona 3:
+            new Bron("Scimitar", 6000, 21, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz15", strona:3, posX:14, posY:52, reqSila: 0, reqZrecznosc: 45),
+            new Bron("Raj Scimitar", 6500, 22, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz16", strona:3, posX:101, posY:63, reqSila: 0, reqZrecznosc: 48),
+            new Bron("Katana", 7000, 23, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz17", strona:3, posX:171, posY:56, reqSila: 0, reqZrecznosc: 51),
+            new Bron("Ancestor Katana", 7500, 24, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz18", strona:3, posX:226, posY:42, reqSila: 0, reqZrecznosc: 54),
+            new Bron("Kensai Spirit", 8000, 25, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz19", strona:3, posX:282, posY:42, reqSila: 0, reqZrecznosc: 57),
+            new Bron("Daikatana", 8500, 26, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz20", strona:3, posX:345, posY:42, reqSila: 0, reqZrecznosc: 60),
 
             //// Topory
             //// Strona 1:
