@@ -37,48 +37,92 @@ namespace PZLab8i9Lib
             new Bron("Kensai Spirit", 8000, 25, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz19", strona:3, posX:282, posY:42, reqSila: 0, reqZrecznosc: 57),
             new Bron("Daikatana", 8500, 26, TypBroni.Miecze, RodzajZasiegu.Wrecz, "miecz20", strona:3, posX:345, posY:42, reqSila: 0, reqZrecznosc: 60),
 
-            //// Topory
-            //// Strona 1:
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
+            // Topory
+            // Strona 1:
+            new Bron("Cleaver", 200, 4, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor1", strona:1, posX:14, posY:63, reqSila: 3, reqZrecznosc: 0),
+            new Bron("Hand axe", 400, 5, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor2", strona:1, posX:88, posY:57, reqSila: 6, reqZrecznosc: 0),
+            new Bron("Bronze axe", 600, 6, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor3", strona:1, posX:164, posY:49, reqSila: 9, reqZrecznosc: 0),
+            new Bron("Hatchet", 800, 8, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor4", strona:1, posX:246, posY:57, reqSila: 12, reqZrecznosc: 0),
+            new Bron("Warrior axe", 1100, 10, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor5", strona:1, posX:299, posY:26, reqSila: 15, reqZrecznosc: 0),
 
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Cleaver", 200, 3, TypBroni.Topory, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //// Strona 2:
-
-
-            //// Maczugi
-            //// Strona 1:
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //new Bron("Blackjack", 200, 3, TypBroni.Maczugi, RodzajZasiegu.Wrecz, reqSila: 3, reqZrecznosc: 0),
-            //// Strona 2:
-
-
-            //// Łuki
-            //// Strona 1:
-            //new Bron("Iron Slingshot", 250, 5, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 6),
-            //new Bron("Oak Slingshot", 450, 6, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 9),
-            //new Bron("Shuriken", 750, 7, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 12),
-            //new Bron("Yew Bow", 950, 8, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 15),
-
-            //new Bron("Hunter's Bow", 1400, 9, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 18),
-            //new Bron("Tracker's Bow", 1800, 10, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 21),
-            //new Bron("Oak Longbow", 2300, 11, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 24),
-            //new Bron("Steel Longbow", 2900, 12, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 27),
-            //new Bron("Reinforced Longbow", 3600, 13, TypBroni.Luki, RodzajZasiegu.Dystansowa, reqSila: 0, reqZrecznosc: 30),
+            new Bron("Berserker axe", 1500, 15, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor6", strona:1, posX:14, posY:225, reqSila: 18, reqZrecznosc: 0),
+            new Bron("Greensteel axe", 2000, 18, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor7", strona:1, posX:130, posY:185, reqSila: 21, reqZrecznosc: 0),
+            new Bron("Madman's cleaver", 2500, 20, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor8", strona:1, posX:218, posY:238, reqSila: 24, reqZrecznosc: 0),
+            new Bron("Greataxe", 3000, 25, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor9", strona:1, posX:312, posY:225, reqSila: 27, reqZrecznosc: 0),
+            
             // Strona 2:
+            new Bron("Blacksteel battleaxe", 4500, 40, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor10", strona:2, posX:14, posY:63, reqSila: 36, reqZrecznosc: 0),
+            new Bron("Steel battleaxe", 4000, 35, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor11", strona:2, posX:14, posY:63, reqSila: 33, reqZrecznosc: 0),
+            new Bron("Ramhead sickle", 6000, 60, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor12", strona:2, posX:14, posY:63, reqSila: 45, reqZrecznosc: 0),
+            new Bron("Reaper scythe", 8500, 110, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor13", strona:2, posX:14, posY:63, reqSila: 60, reqZrecznosc: 0),
+            new Bron("Ogre battleaxe", 5000, 45, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor14", strona:2, posX:14, posY:63, reqSila: 39, reqZrecznosc: 0),
+            new Bron("Iron greataxe", 3500, 30, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor15", strona:3, posX:14, posY:63, reqSila: 30, reqZrecznosc: 0),
+            
+            // Strona 3:
+            new Bron("Hunter spear", 5500, 50, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor16", strona:3, posX:14, posY:63, reqSila: 42, reqZrecznosc: 0),
+            new Bron("Halberd", 6500, 70, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor17", strona:3, posX:14, posY:63, reqSila: 48, reqZrecznosc: 0),
+            new Bron("Awl Pike", 7000, 80, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor18", strona:3, posX:14, posY:63, reqSila: 51, reqZrecznosc: 0),
+            new Bron("Poleaxe", 7500, 90, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor19", strona:3, posX:14, posY:63, reqSila: 54, reqZrecznosc: 0),
+            new Bron("Pilum", 8000, 100, TypBroni.Topory, RodzajZasiegu.Wrecz, "topor20", strona:3, posX:14, posY:63, reqSila: 57, reqZrecznosc: 0),
+
+
+            // Maczugi
+            // Strona 1:
+            new Bron("Blackjack", 200, 4, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga1", strona:1, posX:14, posY:63, reqSila: 3, reqZrecznosc: 0),
+            new Bron("Hammer", 400, 5, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga2", strona:1, posX:14, posY:63, reqSila: 6, reqZrecznosc: 0),
+            new Bron("Knuckle Duster", 600, 8, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga3", strona:1, posX:14, posY:63, reqSila: 9, reqZrecznosc: 0),
+            new Bron("Wooden club", 800, 10, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga4", strona:1, posX:14, posY:63, reqSila: 12, reqZrecznosc: 0),
+
+            new Bron("Iron Mace", 1100, 15, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga5", strona:1, posX:14, posY:63, reqSila: 15, reqZrecznosc: 0),
+            new Bron("Steel Mace", 1500, 20, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga6", strona:1, posX:14, posY:63, reqSila: 18, reqZrecznosc: 0),
+            new Bron("Spiked Mace", 2000, 25, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga7", strona:1, posX:14, posY:63, reqSila: 21, reqZrecznosc: 0),
+            new Bron("Warhammer", 2500, 30, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga8", strona:1, posX:14, posY:63, reqSila: 24, reqZrecznosc: 0),
+
+            // Strona 2:
+            new Bron("Sledgehammer", 5000, 60, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga9", strona:2, posX:14, posY:63, reqSila: 39, reqZrecznosc: 0),
+            
+            new Bron("Morning Star", 3000, 35, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga10", strona:2, posX:14, posY:63, reqSila: 27, reqZrecznosc: 0),
+            new Bron("Studded Mace", 3500, 40, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga11", strona:2, posX:14, posY:63, reqSila: 30, reqZrecznosc: 0),
+            new Bron("Maul", 4000, 45, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga12", strona:2, posX:14, posY:63, reqSila: 33, reqZrecznosc: 0),
+            new Bron("Spiked Maul", 4500, 50, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga13", strona:2, posX:14, posY:63, reqSila: 36, reqZrecznosc: 0),
+
+            // Strona 3:
+            new Bron("Claw Hammer", 5500, 70, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga14", strona:3, posX:14, posY:63, reqSila: 42, reqZrecznosc: 0),
+            
+            new Bron("Imperial Warhammer", 6500, 90, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga15", strona:3, posX:14, posY:63, reqSila: 48, reqZrecznosc: 0),
+            new Bron("Heavy Mallet", 6000, 80, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga16", strona:3, posX:14, posY:63, reqSila: 45, reqZrecznosc: 0),
+            new Bron("Bonecrusher Cudgel", 7000, 100, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga17", strona:3, posX:14, posY:63, reqSila: 51, reqZrecznosc: 0),
+            new Bron("Quake Staff", 7500, 120, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga19", strona:3, posX:14, posY:63, reqSila: 54, reqZrecznosc: 0),
+            new Bron("Dual Maul", 8000, 160, TypBroni.Maczugi, RodzajZasiegu.Wrecz, "maczuga19", strona:3, posX:14, posY:63, reqSila: 60, reqZrecznosc: 0),
+
+            // Łuki
+            // Strona 1:
+            new Bron("Iron Slingshot", 200, 5, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk1", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 6),
+            new Bron("Oak Slingshot", 400, 6, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk2", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 9),
+            new Bron("Shuriken", 600, 7, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk3", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 12),
+            new Bron("Yew Bow", 800, 8, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk4", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 15),
+
+            new Bron("Hunter's Bow", 1100, 9, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk5", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 18),
+            new Bron("Tracker's Bow", 1500, 10, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk6", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 21),
+            new Bron("Oak Longbow", 2000, 11, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk7", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 24),
+            new Bron("Steel Longbow", 2500, 12, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk8", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 27),
+            new Bron("Reinforced Longbow", 3000, 13, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk9", strona:1, posX:14, posY:63, reqSila: 0, reqZrecznosc: 30),
+
+            // Strona 2:
+            new Bron("Crabclaw Bow", 3500, 14, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk10", strona:2, posX:14, posY:63, reqSila: 0, reqZrecznosc: 33),
+            new Bron("Batwing Bow", 4000, 15, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk11", strona:2, posX:14, posY:63, reqSila: 0, reqZrecznosc: 36),
+            new Bron("Kraken Bow", 4500, 16, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk12", strona:2, posX:14, posY:63, reqSila: 0, reqZrecznosc: 39),
+
+            new Bron("Wyvern Bow", 5000, 17, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk13", strona:2, posX:14, posY:63, reqSila: 0, reqZrecznosc: 42),
+            new Bron("Seer's Bow", 5500, 18, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk14", strona:2, posX:14, posY:63, reqSila: 0, reqZrecznosc: 45),
+
+            // Strona 3:
+            new Bron("Blaze Bow", 6000, 19, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk15", strona:3, posX:14, posY:63, reqSila: 0, reqZrecznosc: 48),
+            new Bron("Titanium Bow", 6500, 20, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk16", strona:3, posX:14, posY:63, reqSila: 0, reqZrecznosc: 51),
+
+            new Bron("Knight Crossbow", 7000, 21, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk17", strona:3, posX:14, posY:63, reqSila: 0, reqZrecznosc: 54),
+            new Bron("Falcon Crossbow", 7500, 22, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk18", strona:3, posX:14, posY:63, reqSila: 0, reqZrecznosc: 57),
+            new Bron("Doombolt Crossbow", 8000, 23, TypBroni.Luki, RodzajZasiegu.Dystansowa, "luk19", strona:3, posX:14, posY:63, reqSila: 0, reqZrecznosc: 60),
         };
 
         public static List<Zbroja> WszystkieZbroje { get; } = new List<Zbroja>
