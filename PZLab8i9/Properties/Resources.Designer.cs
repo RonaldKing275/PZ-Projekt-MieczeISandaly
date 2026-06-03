@@ -63,6 +63,86 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IkonaAtakNormalPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaAtakNormalPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaAtakPowerPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaAtakPowerPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaAtakQuickPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaAtakQuickPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaKrokPrzodPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaKrokPrzodPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaKrokTylPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaKrokTylPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaKrzykPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaKrzykPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaOdpocznijPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaOdpocznijPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaZmienBronPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaZmienBronPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap miecz1 {
             get {
                 object obj = ResourceManager.GetObject("miecz1", resourceCulture);

@@ -118,6 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="IkonaAtakNormalPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaAtakNormalPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaAtakPowerPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaAtakPowerPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaAtakQuickPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaAtakQuickPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaKrokPrzodPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaKrokPrzodPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaKrokTylPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaKrokTylPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaKrzykPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaKrzykPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaOdpocznijPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaOdpocznijPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaZmienBronPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaZmienBronPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="miecz1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\miecz1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

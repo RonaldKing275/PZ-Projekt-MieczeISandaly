@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArenaWalkaControl));
             lblImieGracza = new Label();
             lblImieWroga = new Label();
-            txtLogi = new TextBox();
-            btnZwyklyAtak = new Button();
-            btnOdpocznij = new Button();
             btnWroc = new Button();
             barPancerzGracza = new KolorowyPasek();
             barHpGracza = new KolorowyPasek();
@@ -40,12 +38,29 @@
             barPancerzWroga = new KolorowyPasek();
             barHpWroga = new KolorowyPasek();
             barStaminaWroga = new KolorowyPasek();
+            lblKomunikatWalki = new Label();
+            btnKrokTyl = new PictureBox();
+            btnKrokPrzod = new PictureBox();
+            btnKrzyk = new PictureBox();
+            btnOdpocznij = new PictureBox();
+            btnSzybkiAtak = new PictureBox();
+            btnNormalnyAtak = new PictureBox();
+            btnCiezkiAtak = new PictureBox();
+            btnZmienBron = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnKrokTyl).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnKrokPrzod).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnKrzyk).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnOdpocznij).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnSzybkiAtak).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnNormalnyAtak).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCiezkiAtak).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnZmienBron).BeginInit();
             SuspendLayout();
             // 
             // lblImieGracza
             // 
             lblImieGracza.AutoSize = true;
-            lblImieGracza.Location = new Point(148, 89);
+            lblImieGracza.Location = new Point(224, 168);
             lblImieGracza.Name = "lblImieGracza";
             lblImieGracza.Size = new Size(50, 20);
             lblImieGracza.TabIndex = 0;
@@ -55,42 +70,11 @@
             // 
             lblImieWroga.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblImieWroga.AutoSize = true;
-            lblImieWroga.Location = new Point(777, 89);
+            lblImieWroga.Location = new Point(735, 158);
             lblImieWroga.Name = "lblImieWroga";
             lblImieWroga.Size = new Size(50, 20);
             lblImieWroga.TabIndex = 1;
             lblImieWroga.Text = "label2";
-            // 
-            // txtLogi
-            // 
-            txtLogi.Anchor = AnchorStyles.Top;
-            txtLogi.Location = new Point(342, 86);
-            txtLogi.Multiline = true;
-            txtLogi.Name = "txtLogi";
-            txtLogi.ReadOnly = true;
-            txtLogi.ScrollBars = ScrollBars.Vertical;
-            txtLogi.Size = new Size(309, 365);
-            txtLogi.TabIndex = 6;
-            // 
-            // btnZwyklyAtak
-            // 
-            btnZwyklyAtak.Location = new Point(127, 146);
-            btnZwyklyAtak.Name = "btnZwyklyAtak";
-            btnZwyklyAtak.Size = new Size(94, 51);
-            btnZwyklyAtak.TabIndex = 7;
-            btnZwyklyAtak.Text = "Zwykły Atak";
-            btnZwyklyAtak.UseVisualStyleBackColor = true;
-            btnZwyklyAtak.Click += btnZwyklyAtak_Click;
-            // 
-            // btnOdpocznij
-            // 
-            btnOdpocznij.Location = new Point(127, 237);
-            btnOdpocznij.Name = "btnOdpocznij";
-            btnOdpocznij.Size = new Size(94, 36);
-            btnOdpocznij.TabIndex = 8;
-            btnOdpocznij.Text = "Odpocznij";
-            btnOdpocznij.UseVisualStyleBackColor = true;
-            btnOdpocznij.Click += btnOdpocznij_Click;
             // 
             // btnWroc
             // 
@@ -164,10 +148,117 @@
             barStaminaWroga.Size = new Size(125, 29);
             barStaminaWroga.TabIndex = 15;
             // 
+            // lblKomunikatWalki
+            // 
+            lblKomunikatWalki.Location = new Point(420, 50);
+            lblKomunikatWalki.Name = "lblKomunikatWalki";
+            lblKomunikatWalki.Size = new Size(160, 100);
+            lblKomunikatWalki.TabIndex = 16;
+            lblKomunikatWalki.Text = "label1";
+            lblKomunikatWalki.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnKrokTyl
+            // 
+            btnKrokTyl.BackColor = Color.Transparent;
+            btnKrokTyl.BackgroundImage = Properties.Resources.IkonaKrokTylPrzeskalowane;
+            btnKrokTyl.Location = new Point(120, 138);
+            btnKrokTyl.Name = "btnKrokTyl";
+            btnKrokTyl.Size = new Size(65, 63);
+            btnKrokTyl.TabIndex = 23;
+            btnKrokTyl.TabStop = false;
+            btnKrokTyl.Click += btnKrokTyl_Click;
+            // 
+            // btnKrokPrzod
+            // 
+            btnKrokPrzod.BackColor = Color.Transparent;
+            btnKrokPrzod.BackgroundImage = Properties.Resources.IkonaKrokPrzodPrzeskalowane;
+            btnKrokPrzod.Location = new Point(319, 138);
+            btnKrokPrzod.Name = "btnKrokPrzod";
+            btnKrokPrzod.Size = new Size(65, 63);
+            btnKrokPrzod.TabIndex = 24;
+            btnKrokPrzod.TabStop = false;
+            btnKrokPrzod.Click += btnKrokPrzod_Click;
+            // 
+            // btnKrzyk
+            // 
+            btnKrzyk.BackColor = Color.Transparent;
+            btnKrzyk.BackgroundImage = Properties.Resources.IkonaKrzykPrzeskalowane;
+            btnKrzyk.Location = new Point(82, 276);
+            btnKrzyk.Name = "btnKrzyk";
+            btnKrzyk.Size = new Size(65, 63);
+            btnKrzyk.TabIndex = 25;
+            btnKrzyk.TabStop = false;
+            btnKrzyk.Click += btnKrzyk_Click;
+            // 
+            // btnOdpocznij
+            // 
+            btnOdpocznij.BackColor = Color.Transparent;
+            btnOdpocznij.BackgroundImage = Properties.Resources.IkonaOdpocznijPrzeskalowane;
+            btnOdpocznij.Location = new Point(82, 207);
+            btnOdpocznij.Name = "btnOdpocznij";
+            btnOdpocznij.Size = new Size(65, 63);
+            btnOdpocznij.TabIndex = 26;
+            btnOdpocznij.TabStop = false;
+            btnOdpocznij.Click += btnOdpocznij_Click;
+            // 
+            // btnSzybkiAtak
+            // 
+            btnSzybkiAtak.BackColor = Color.Transparent;
+            btnSzybkiAtak.BackgroundImage = Properties.Resources.IkonaAtakQuickPrzeskalowane;
+            btnSzybkiAtak.Location = new Point(319, 345);
+            btnSzybkiAtak.Name = "btnSzybkiAtak";
+            btnSzybkiAtak.Size = new Size(65, 63);
+            btnSzybkiAtak.TabIndex = 27;
+            btnSzybkiAtak.TabStop = false;
+            btnSzybkiAtak.Click += btnSzybkiAtak_Click;
+            // 
+            // btnNormalnyAtak
+            // 
+            btnNormalnyAtak.BackColor = Color.Transparent;
+            btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaAtakNormalPrzeskalowane;
+            btnNormalnyAtak.Location = new Point(356, 276);
+            btnNormalnyAtak.Name = "btnNormalnyAtak";
+            btnNormalnyAtak.Size = new Size(65, 63);
+            btnNormalnyAtak.TabIndex = 28;
+            btnNormalnyAtak.TabStop = false;
+            btnNormalnyAtak.Click += btnNormalnyAtak_Click;
+            // 
+            // btnCiezkiAtak
+            // 
+            btnCiezkiAtak.BackColor = Color.Transparent;
+            btnCiezkiAtak.BackgroundImage = Properties.Resources.IkonaAtakPowerPrzeskalowane;
+            btnCiezkiAtak.Location = new Point(356, 207);
+            btnCiezkiAtak.Name = "btnCiezkiAtak";
+            btnCiezkiAtak.Size = new Size(65, 63);
+            btnCiezkiAtak.TabIndex = 29;
+            btnCiezkiAtak.TabStop = false;
+            btnCiezkiAtak.Click += btnCiezkiAtak_Click;
+            // 
+            // btnZmienBron
+            // 
+            btnZmienBron.BackColor = Color.Transparent;
+            btnZmienBron.BackgroundImage = Properties.Resources.IkonaZmienBronPrzeskalowane;
+            btnZmienBron.Location = new Point(120, 345);
+            btnZmienBron.Name = "btnZmienBron";
+            btnZmienBron.Size = new Size(53, 53);
+            btnZmienBron.TabIndex = 30;
+            btnZmienBron.TabStop = false;
+            btnZmienBron.Click += btnZmienBron_Click;
+            // 
             // ArenaWalkaControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            Controls.Add(btnZmienBron);
+            Controls.Add(btnCiezkiAtak);
+            Controls.Add(btnNormalnyAtak);
+            Controls.Add(btnSzybkiAtak);
+            Controls.Add(btnOdpocznij);
+            Controls.Add(btnKrzyk);
+            Controls.Add(btnKrokPrzod);
+            Controls.Add(btnKrokTyl);
+            Controls.Add(lblKomunikatWalki);
             Controls.Add(barStaminaWroga);
             Controls.Add(barHpWroga);
             Controls.Add(barPancerzWroga);
@@ -175,13 +266,18 @@
             Controls.Add(barHpGracza);
             Controls.Add(barPancerzGracza);
             Controls.Add(btnWroc);
-            Controls.Add(btnOdpocznij);
-            Controls.Add(btnZwyklyAtak);
-            Controls.Add(txtLogi);
             Controls.Add(lblImieWroga);
             Controls.Add(lblImieGracza);
             Name = "ArenaWalkaControl";
             Size = new Size(1000, 550);
+            ((System.ComponentModel.ISupportInitialize)btnKrokTyl).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnKrokPrzod).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnKrzyk).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnOdpocznij).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnSzybkiAtak).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnNormalnyAtak).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCiezkiAtak).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnZmienBron).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -190,9 +286,6 @@
 
         private Label lblImieGracza;
         private Label lblImieWroga;
-        private TextBox txtLogi;
-        private Button btnZwyklyAtak;
-        private Button btnOdpocznij;
         private Button btnWroc;
         private KolorowyPasek barPancerzGracza;
         private KolorowyPasek barHpGracza;
@@ -200,5 +293,14 @@
         private KolorowyPasek barPancerzWroga;
         private KolorowyPasek barHpWroga;
         private KolorowyPasek barStaminaWroga;
+        private Label lblKomunikatWalki;
+        private PictureBox btnKrokTyl;
+        private PictureBox btnKrokPrzod;
+        private PictureBox btnKrzyk;
+        private PictureBox btnOdpocznij;
+        private PictureBox btnSzybkiAtak;
+        private PictureBox btnNormalnyAtak;
+        private PictureBox btnCiezkiAtak;
+        private PictureBox btnZmienBron;
     }
 }
