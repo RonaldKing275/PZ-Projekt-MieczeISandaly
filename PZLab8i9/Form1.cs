@@ -17,20 +17,8 @@ namespace PZLab8i9
             this.Size = new System.Drawing.Size(1015, 595);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            // Zamiast tworzyć gracza, ładujemy Menu Główne
             ZmienEkran(new MenuGlowneControl(this));
         }
-
-        //    Bohater = new Gracz("Gladiator");
-        //
-        //    if (Bohater.PunktyDoRozdania > 0)
-        //    {
-        //        ZmienEkran(new RozdajPunktyControl(this));
-        //    }
-        //    else
-        //    {
-        //        ZmienEkran(new UlicaControl(this));
-        //    }
 
         public void ZmienEkran(UserControl nowyEkran)
         {

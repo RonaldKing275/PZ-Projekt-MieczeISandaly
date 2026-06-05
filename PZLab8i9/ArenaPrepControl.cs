@@ -33,8 +33,6 @@ namespace PZLab8i9
             var b = glowneOkno.Bohater;
             var w = wylosowanyWrog;
 
-            lblVS.Text = "VS";
-
             string bronGracza = b.WyposazonaBron != null ? b.WyposazonaBron.Nazwa : "Pięści";
             string bronWroga = w.WyposazonaBron != null ? w.WyposazonaBron.Nazwa : "Pięści";
 

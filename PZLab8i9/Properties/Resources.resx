@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ArenaPrep1v2Gotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ArenaPrep1v2Gotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ArenaPrep2v2Gotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ArenaPrep2v2Gotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IkonaAtakNormalPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaAtakNormalPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,11 +142,23 @@
   <data name="IkonaKrzykPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaKrzykPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IkonaLukBombardPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaLukBombardPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IkonaLukSnipePrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaLukSnipePrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IkonaOdpocznijPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaOdpocznijPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IkonaWyjscieGotowePrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaWyjscieGotowePrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IkonaZmienBronPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaZmienBronPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuGlowneGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\MenuGlowneGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="miecz1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\miecz1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,6 +220,9 @@
   <data name="miecz20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\miecz20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MiSKosciolGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\MiSKosciolGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MiSSklepBronie1Gotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSSklepBronie1Gotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,5 +234,32 @@
   </data>
   <data name="MiSUlicaGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSUlicaGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="topor9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\topor9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

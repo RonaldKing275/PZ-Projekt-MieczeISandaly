@@ -40,7 +40,7 @@ namespace PZLab8i9
         {
             lblPunkty.Text = $"Punkty do rozdania: {tPunkty}";
 
-            lblStatystyki.Text = $"--- STATYSTYKI ---\n" +
+            lblStatystyki.Text = $"\n" +
                                  $"Siła: {tSila}\n\n\n" +
                                  $"Zręczność: {tZrecznosc}\n\n\n" +
                                  $"Inteligencja: {tInteligencja}\n\n\n" +

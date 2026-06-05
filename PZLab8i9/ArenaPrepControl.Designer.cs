@@ -30,18 +30,20 @@
         {
             lblGracz = new Label();
             lblWrog = new Label();
-            btnLosuj = new Button();
-            btnWalcz = new Button();
-            btnWroc = new Button();
-            lblVS = new Label();
+            btnWroc = new PictureBox();
+            btnWalcz = new PictureBox();
+            btnLosuj = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnWroc).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnWalcz).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnLosuj).BeginInit();
             SuspendLayout();
             // 
             // lblGracz
             // 
             lblGracz.ImageAlign = ContentAlignment.TopLeft;
-            lblGracz.Location = new Point(21, 16);
+            lblGracz.Location = new Point(53, 53);
             lblGracz.Name = "lblGracz";
-            lblGracz.Size = new Size(395, 445);
+            lblGracz.Size = new Size(267, 260);
             lblGracz.TabIndex = 0;
             lblGracz.Text = "label1";
             lblGracz.TextAlign = ContentAlignment.TopRight;
@@ -50,71 +52,57 @@
             // 
             lblWrog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblWrog.ImageAlign = ContentAlignment.TopLeft;
-            lblWrog.Location = new Point(588, 16);
+            lblWrog.Location = new Point(662, 194);
             lblWrog.Name = "lblWrog";
-            lblWrog.Size = new Size(395, 445);
+            lblWrog.Size = new Size(263, 258);
             lblWrog.TabIndex = 1;
             lblWrog.Text = "label1";
             // 
-            // btnLosuj
+            // btnWroc
             // 
-            btnLosuj.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLosuj.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btnLosuj.Location = new Point(588, 470);
-            btnLosuj.Name = "btnLosuj";
-            btnLosuj.Size = new Size(193, 65);
-            btnLosuj.TabIndex = 2;
-            btnLosuj.Text = "Znajdź innego przeciwnika";
-            btnLosuj.UseVisualStyleBackColor = true;
-            btnLosuj.Click += btnLosuj_Click;
+            btnWroc.BackColor = Color.Transparent;
+            btnWroc.Location = new Point(305, 390);
+            btnWroc.Name = "btnWroc";
+            btnWroc.Size = new Size(90, 110);
+            btnWroc.TabIndex = 6;
+            btnWroc.TabStop = false;
+            btnWroc.Click += btnWroc_Click;
             // 
             // btnWalcz
             // 
-            btnWalcz.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnWalcz.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btnWalcz.Location = new Point(787, 470);
+            btnWalcz.BackColor = Color.Transparent;
+            btnWalcz.Location = new Point(545, 389);
             btnWalcz.Name = "btnWalcz";
-            btnWalcz.Size = new Size(196, 65);
-            btnWalcz.TabIndex = 3;
-            btnWalcz.Text = "Wejdź na arene!";
-            btnWalcz.UseVisualStyleBackColor = true;
+            btnWalcz.Size = new Size(90, 136);
+            btnWalcz.TabIndex = 7;
+            btnWalcz.TabStop = false;
             btnWalcz.Click += btnWalcz_Click;
             // 
-            // btnWroc
+            // btnLosuj
             // 
-            btnWroc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnWroc.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btnWroc.Location = new Point(21, 480);
-            btnWroc.Name = "btnWroc";
-            btnWroc.Size = new Size(157, 55);
-            btnWroc.TabIndex = 4;
-            btnWroc.Text = "Wróć na ulice";
-            btnWroc.UseVisualStyleBackColor = true;
-            btnWroc.Click += btnWroc_Click;
-            // 
-            // lblVS
-            // 
-            lblVS.Anchor = AnchorStyles.Top;
-            lblVS.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            lblVS.Location = new Point(469, 90);
-            lblVS.Name = "lblVS";
-            lblVS.Size = new Size(62, 25);
-            lblVS.TabIndex = 5;
-            lblVS.Text = "VS";
-            lblVS.TextAlign = ContentAlignment.MiddleCenter;
+            btnLosuj.BackColor = Color.Transparent;
+            btnLosuj.Location = new Point(423, 389);
+            btnLosuj.Name = "btnLosuj";
+            btnLosuj.Size = new Size(89, 136);
+            btnLosuj.TabIndex = 8;
+            btnLosuj.TabStop = false;
+            btnLosuj.Click += btnLosuj_Click;
             // 
             // ArenaPrepControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(lblVS);
-            Controls.Add(btnWroc);
-            Controls.Add(btnWalcz);
+            BackgroundImage = Properties.Resources.ArenaPrep2v2Gotowe;
             Controls.Add(btnLosuj);
+            Controls.Add(btnWalcz);
+            Controls.Add(btnWroc);
             Controls.Add(lblWrog);
             Controls.Add(lblGracz);
             Name = "ArenaPrepControl";
             Size = new Size(1000, 550);
+            ((System.ComponentModel.ISupportInitialize)btnWroc).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnWalcz).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnLosuj).EndInit();
             ResumeLayout(false);
         }
 
@@ -122,9 +110,8 @@
 
         private Label lblGracz;
         private Label lblWrog;
-        private Button btnLosuj;
-        private Button btnWalcz;
-        private Button btnWroc;
-        private Label lblVS;
+        private PictureBox btnWroc;
+        private PictureBox btnWalcz;
+        private PictureBox btnLosuj;
     }
 }

@@ -18,6 +18,7 @@ namespace PZLab8i9
         private double pozycjaWroga = 24.0;
 
         private bool uzywaBroniDystansowej = false;
+        private bool czyTuraGracza = true;
 
         private double PobierzDystans() => Math.Abs(pozycjaGracza - pozycjaWroga);
 
@@ -37,6 +38,9 @@ namespace PZLab8i9
         private readonly StatyAtaku AtakNormalny = new StatyAtaku(45, 1.5, 20, 3.5);// Koszt: 20 + Siła * 3.5
         private readonly StatyAtaku AtakCiezki = new StatyAtaku(25, 2.0, 35, 4.5);  // Koszt: 35 + Siła * 4.5
         private readonly StatyAtaku AtakDash = new StatyAtaku(40, 1.2, 20, 3.5);    // Koszt: 20 + Siła * 3.5 (taki sam jak normalny)
+
+        private readonly StatyAtaku AtakSnipe = new StatyAtaku(60, 1.2, 15, 2.5);   // Podmieniony Normalny
+        private readonly StatyAtaku AtakBombard = new StatyAtaku(35, 1.8, 30, 4.0); // Podmieniony Ciężki
 
         private int ObliczKosztRuchu() => 30;
 
@@ -86,6 +90,81 @@ namespace PZLab8i9
             UstawKomunikat("=== WALKA ROZPOCZĘTA ===");
         }
 
+        private void OdswiezPrzyciskiUI()
+        {
+            if (!czyTuraGracza)
+            {
+                if (btnSzybkiAtak != null) btnSzybkiAtak.Visible = false;
+                if (btnNormalnyAtak != null) btnNormalnyAtak.Visible = false;
+                if (btnCiezkiAtak != null) btnCiezkiAtak.Visible = false;
+                if (btnKrokPrzod != null) btnKrokPrzod.Visible = false;
+                if (btnKrokTyl != null) btnKrokTyl.Visible = false;
+                if (btnKrzyk != null) btnKrzyk.Visible = false;
+                if (btnOdpocznij != null) btnOdpocznij.Visible = false;
+
+                bool maBronDystansowa = glowneOkno.Bohater.WyposazonaBronPomocnicza != null && glowneOkno.Bohater.WyposazonaBronPomocnicza.Nazwa != "Brak";
+                btnZmienBron.Visible = maBronDystansowa;
+
+                return;
+            }
+
+            btnKrokPrzod.BackgroundImage = Properties.Resources.IkonaKrokPrzodPrzeskalowane;
+            btnKrokTyl.BackgroundImage = Properties.Resources.IkonaKrokTylPrzeskalowane;
+            btnKrzyk.BackgroundImage = Properties.Resources.IkonaKrzykPrzeskalowane;
+            btnZmienBron.BackgroundImage = Properties.Resources.IkonaZmienBronPrzeskalowane;
+            btnOdpocznij.BackgroundImage = Properties.Resources.IkonaOdpocznijPrzeskalowane;
+
+            btnKrokPrzod.Text = "";
+            btnKrokTyl.Text = "";
+            btnKrzyk.Text = "";
+            btnZmienBron.Text = "";
+            btnOdpocznij.Text = "";
+
+            btnZmienBron.Visible = true;
+            btnOdpocznij.Visible = true;
+
+            int kosztRuchu = ObliczKosztRuchu();
+            btnKrokPrzod.Visible = glowneOkno.Bohater.AktualnaStamina >= kosztRuchu;
+            btnKrokTyl.Visible = glowneOkno.Bohater.AktualnaStamina >= kosztRuchu;
+            btnKrzyk.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztKrzyku(glowneOkno.Bohater);
+
+            if (uzywaBroniDystansowej)
+            {
+                btnSzybkiAtak.Visible = false;
+
+                btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaLukSnipePrzeskalowane;
+                btnNormalnyAtak.Text = "";
+                btnNormalnyAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakSnipe);
+
+                btnCiezkiAtak.BackgroundImage = Properties.Resources.IkonaLukBombardPrzeskalowane;
+                btnCiezkiAtak.Text = "";
+                btnCiezkiAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakBombard);
+            }
+            else
+            {
+                btnSzybkiAtak.BackgroundImage = Properties.Resources.IkonaAtakQuickPrzeskalowane;
+                btnSzybkiAtak.Text = "";
+                btnSzybkiAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakSzybki);
+
+                btnCiezkiAtak.BackgroundImage = Properties.Resources.IkonaAtakPowerPrzeskalowane;
+                btnCiezkiAtak.Text = "";
+                btnCiezkiAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakCiezki);
+
+                if (PobierzDystans() > 0.5)
+                {
+                    btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaAtakNormalPrzeskalowane;
+                    btnNormalnyAtak.Text = "Szarża"; // TODO: ZOBACZYĆ CZY KONIECZNE!
+                    btnNormalnyAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakDash);
+                }
+                else
+                {
+                    btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaAtakNormalPrzeskalowane;
+                    btnNormalnyAtak.Text = "";
+                    btnNormalnyAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakNormalny);
+                }
+            }
+        }
+
         private void ZaktualizujPaski()
         {
             lblImieGracza.Text = $"{glowneOkno.Bohater.Imie} [Pancerz: {glowneOkno.Bohater.AktualnyPancerz}]";
@@ -105,13 +184,7 @@ namespace PZLab8i9
             barPancerzWroga.Maximum = wrog.MaxPancerz == 0 ? 1 : wrog.MaxPancerz;
             barPancerzWroga.Value = wrog.AktualnyPancerz;
 
-            if (btnNormalnyAtak != null)
-            {
-                if (!uzywaBroniDystansowej && PobierzDystans() > 0.5)
-                    btnNormalnyAtak.Text = "Szarża";
-                else
-                    btnNormalnyAtak.Text = "Normalny Atak";
-            }
+            OdswiezPrzyciskiUI();
         }
 
         private void UstawKomunikat(string wiadomosc)
@@ -169,12 +242,19 @@ namespace PZLab8i9
 
             pozycjaGracza = nowaPozycja;
 
+            double nowyDystans = PobierzDystans();
+
             if (wPrzod && przeskoczyl)
-                UstawKomunikat($"Przeskakujesz nad wrogiem! Jesteś za jego plecami. (Twój X: {Math.Round(pozycjaGracza, 1)})");
+                UstawKomunikat($"Przeskakujesz wroga! Jesteś za jego plecami. (Dystans: {Math.Round(nowyDystans, 1)}m)");
             else if (wPrzod)
-                UstawKomunikat($"Idziesz w stronę wroga. (Twój X: {Math.Round(pozycjaGracza, 1)})");
+                UstawKomunikat($"Zbliżasz się do wroga. (Dystans: {Math.Round(nowyDystans, 1)}m)");
             else
-                UstawKomunikat($"Wycofujesz się! (Twój X: {Math.Round(pozycjaGracza, 1)})");
+            {
+                if (pozycjaGracza == LEWA_KRAWEDZ || pozycjaGracza == PRAWA_KRAWEDZ)
+                    UstawKomunikat($"Odskakujesz pod samą ścianę areny! (Dystans: {Math.Round(nowyDystans, 1)}m)");
+                else
+                    UstawKomunikat($"Wycofujesz się! (Dystans: {Math.Round(nowyDystans, 1)}m)");
+            }
 
             ZaktualizujPaski();
             await OddajTureWrogowi();
@@ -355,9 +435,19 @@ namespace PZLab8i9
 
         private async void btnNormalnyAtak_Click(object sender, EventArgs e)
         {
-            bool udanaAkcja = (!uzywaBroniDystansowej && PobierzDystans() > 0.5)
-                ? WykonajDashAtak(glowneOkno.Bohater, wrog)
-                : WykonajAtak(glowneOkno.Bohater, wrog, uzywaBroniDystansowej, AtakNormalny);
+            bool udanaAkcja = false;
+
+            if (uzywaBroniDystansowej)
+            {
+                udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, true, AtakSnipe);
+            }
+            else
+            {
+                if (PobierzDystans() > 0.5)
+                    udanaAkcja = WykonajDashAtak(glowneOkno.Bohater, wrog);
+                else
+                    udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakNormalny);
+            }
 
             if (udanaAkcja)
             {
@@ -368,7 +458,18 @@ namespace PZLab8i9
 
         private async void btnCiezkiAtak_Click(object sender, EventArgs e)
         {
-            if (WykonajAtak(glowneOkno.Bohater, wrog, uzywaBroniDystansowej, AtakCiezki))
+            bool udanaAkcja = false;
+
+            if (uzywaBroniDystansowej)
+            {
+                udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, true, AtakBombard);
+            }
+            else
+            {
+                udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakCiezki);
+            }
+
+            if (udanaAkcja)
             {
                 if (SprawdzCzyKoniec()) return;
                 await OddajTureWrogowi();
@@ -386,6 +487,12 @@ namespace PZLab8i9
 
         private async void btnZmienBron_Click(object sender, EventArgs e)
         {
+            if (glowneOkno.Bohater.WyposazonaBronPomocnicza == null || glowneOkno.Bohater.WyposazonaBronPomocnicza.Nazwa == "Brak")
+            {
+                UstawKomunikat("Nie posiadasz broni dystansowej!");
+                return;
+            }
+
             uzywaBroniDystansowej = !uzywaBroniDystansowej;
             string rodzaj = uzywaBroniDystansowej ? "Dystansową" : "Białą";
             UstawKomunikat($"Zmieniasz broń na: {rodzaj}");
@@ -404,6 +511,9 @@ namespace PZLab8i9
         // AI PRZECIWNIKA I LOGIKA TURY
         private async Task OddajTureWrogowi()
         {
+            czyTuraGracza = false;
+            OdswiezPrzyciskiUI();
+
             ZablokujPrzyciski(true);
             await Task.Delay(1500);
 
@@ -412,7 +522,9 @@ namespace PZLab8i9
             if (!SprawdzCzyKoniec())
             {
                 runda++;
+                czyTuraGracza = true;
                 ZablokujPrzyciski(false);
+                OdswiezPrzyciskiUI();
             }
         }
 
@@ -466,13 +578,18 @@ namespace PZLab8i9
 
                         pozycjaWroga = nowaPozycja;
 
+                        double nowyDystansWroga = PobierzDystans();
+
                         if (przeskoczyl)
                         {
-                            UstawKomunikat($"{wrog.Imie} przeskakuje za Twoje plecy!");
+                            UstawKomunikat($"{wrog.Imie} przeskakuje za Twoje plecy! (Dystans: {Math.Round(nowyDystansWroga, 1)}m)");
                         }
                         else
                         {
-                            UstawKomunikat($"{wrog.Imie} zbliża się. (Jego X: {Math.Round(nowaPozycja, 1)})");
+                            if (pozycjaWroga == LEWA_KRAWEDZ || pozycjaWroga == PRAWA_KRAWEDZ)
+                                UstawKomunikat($"{wrog.Imie} wycofuje się pod ścianę! (Dystans: {Math.Round(nowyDystansWroga, 1)}m)");
+                            else
+                                UstawKomunikat($"{wrog.Imie} przemieszcza się. (Dystans: {Math.Round(nowyDystansWroga, 1)}m)");
                         }
                     }
                     else
@@ -529,7 +646,8 @@ namespace PZLab8i9
 
         private void ZakonczWalke(bool wygrana)
         {
-            ZablokujPrzyciski(true);
+            czyTuraGracza = false;
+            OdswiezPrzyciskiUI();
 
             if (wygrana)
             {

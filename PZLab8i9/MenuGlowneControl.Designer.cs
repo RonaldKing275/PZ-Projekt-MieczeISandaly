@@ -28,46 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnNowaGra = new Button();
-            btnWczytaj = new Button();
+            btnNowaGra = new PictureBox();
+            btnWczytaj = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnNowaGra).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnWczytaj).BeginInit();
             SuspendLayout();
             // 
             // btnNowaGra
             // 
-            btnNowaGra.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            btnNowaGra.Location = new Point(350, 300);
+            btnNowaGra.BackColor = Color.Transparent;
+            btnNowaGra.Location = new Point(373, 411);
             btnNowaGra.Name = "btnNowaGra";
-            btnNowaGra.Size = new Size(300, 60);
-            btnNowaGra.TabIndex = 0;
-            btnNowaGra.Text = "Nowa Gra";
-            btnNowaGra.UseVisualStyleBackColor = true;
+            btnNowaGra.Size = new Size(91, 107);
+            btnNowaGra.TabIndex = 2;
+            btnNowaGra.TabStop = false;
             btnNowaGra.Click += btnNowaGra_Click;
             // 
             // btnWczytaj
             // 
-            btnWczytaj.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            btnWczytaj.Location = new Point(350, 380);
+            btnWczytaj.BackColor = Color.Transparent;
+            btnWczytaj.Location = new Point(517, 411);
             btnWczytaj.Name = "btnWczytaj";
-            btnWczytaj.Size = new Size(300, 60);
-            btnWczytaj.TabIndex = 1;
-            btnWczytaj.Text = "Wczytaj Zapis";
-            btnWczytaj.UseVisualStyleBackColor = true;
+            btnWczytaj.Size = new Size(122, 107);
+            btnWczytaj.TabIndex = 3;
+            btnWczytaj.TabStop = false;
             btnWczytaj.Click += btnWczytaj_Click;
             // 
             // MenuGlowneControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.MenuGlowneGotowe;
             Controls.Add(btnWczytaj);
             Controls.Add(btnNowaGra);
             Name = "MenuGlowneControl";
             Size = new Size(1000, 550);
+            ((System.ComponentModel.ISupportInitialize)btnNowaGra).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnWczytaj).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button btnNowaGra;
-        private Button btnWczytaj;
+        private PictureBox btnNowaGra;
+        private PictureBox btnWczytaj;
     }
 }

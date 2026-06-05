@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RozdajPunktyControl));
             lblStatystyki = new Label();
             lblPunkty = new Label();
             btnSila = new Button();
@@ -36,12 +37,14 @@
             btnCharyzma = new Button();
             btnWitalnosc = new Button();
             btnWytrzymalosc = new Button();
-            btnZatwierdz = new Button();
+            btnZatwierdz = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnZatwierdz).BeginInit();
             SuspendLayout();
             // 
             // lblStatystyki
             // 
             lblStatystyki.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblStatystyki.BackColor = Color.Transparent;
             lblStatystyki.Location = new Point(17, 190);
             lblStatystyki.Name = "lblStatystyki";
             lblStatystyki.Size = new Size(199, 345);
@@ -51,12 +54,14 @@
             // 
             // lblPunkty
             // 
-            lblPunkty.Location = new Point(17, 28);
+            lblPunkty.BackColor = Color.Transparent;
+            lblPunkty.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            lblPunkty.Location = new Point(50, 28);
             lblPunkty.Name = "lblPunkty";
-            lblPunkty.Size = new Size(199, 85);
+            lblPunkty.Size = new Size(319, 85);
             lblPunkty.TabIndex = 1;
             lblPunkty.Text = "label1";
-            lblPunkty.TextAlign = ContentAlignment.BottomLeft;
+            lblPunkty.TextAlign = ContentAlignment.BottomCenter;
             // 
             // btnSila
             // 
@@ -126,20 +131,19 @@
             // 
             // btnZatwierdz
             // 
-            btnZatwierdz.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnZatwierdz.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btnZatwierdz.Location = new Point(829, 480);
+            btnZatwierdz.BackColor = Color.Transparent;
+            btnZatwierdz.Location = new Point(908, 468);
             btnZatwierdz.Name = "btnZatwierdz";
-            btnZatwierdz.Size = new Size(157, 55);
+            btnZatwierdz.Size = new Size(76, 71);
             btnZatwierdz.TabIndex = 8;
-            btnZatwierdz.Text = "Zatwierdź";
-            btnZatwierdz.UseVisualStyleBackColor = true;
+            btnZatwierdz.TabStop = false;
             btnZatwierdz.Click += btnZatwierdz_Click;
             // 
             // RozdajPunktyControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(btnZatwierdz);
             Controls.Add(btnWytrzymalosc);
             Controls.Add(btnWitalnosc);
@@ -151,6 +155,7 @@
             Controls.Add(lblStatystyki);
             Name = "RozdajPunktyControl";
             Size = new Size(1000, 550);
+            ((System.ComponentModel.ISupportInitialize)btnZatwierdz).EndInit();
             ResumeLayout(false);
         }
 
@@ -164,6 +169,6 @@
         private Button btnCharyzma;
         private Button btnWitalnosc;
         private Button btnWytrzymalosc;
-        private Button btnZatwierdz;
+        private PictureBox btnZatwierdz;
     }
 }

@@ -29,75 +29,63 @@
         private void InitializeComponent()
         {
             lblInfo = new Label();
-            btnZapisz = new Button();
-            btnWczytaj = new Button();
-            btnWroc = new Button();
+            btnZapisz = new PictureBox();
+            btnWroc = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnZapisz).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnWroc).BeginInit();
             SuspendLayout();
             // 
             // lblInfo
             // 
             lblInfo.Anchor = AnchorStyles.Top;
             lblInfo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            lblInfo.Location = new Point(168, 50);
+            lblInfo.Location = new Point(26, 45);
             lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(664, 193);
+            lblInfo.Size = new Size(322, 176);
             lblInfo.TabIndex = 0;
             lblInfo.Text = "Witaj w Kościele. Tutaj zapiszesz i wczytasz swoją postać";
             lblInfo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnZapisz
             // 
-            btnZapisz.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            btnZapisz.Location = new Point(168, 259);
+            btnZapisz.BackColor = Color.Transparent;
+            btnZapisz.Location = new Point(540, 446);
             btnZapisz.Name = "btnZapisz";
-            btnZapisz.Size = new Size(159, 49);
-            btnZapisz.TabIndex = 1;
-            btnZapisz.Text = "Zapisz grę";
-            btnZapisz.UseVisualStyleBackColor = true;
+            btnZapisz.Size = new Size(102, 37);
+            btnZapisz.TabIndex = 4;
+            btnZapisz.TabStop = false;
             btnZapisz.Click += btnZapisz_Click;
-            // 
-            // btnWczytaj
-            // 
-            btnWczytaj.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnWczytaj.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            btnWczytaj.Location = new Point(673, 259);
-            btnWczytaj.Name = "btnWczytaj";
-            btnWczytaj.Size = new Size(159, 49);
-            btnWczytaj.TabIndex = 2;
-            btnWczytaj.Text = "Wczytaj grę";
-            btnWczytaj.UseVisualStyleBackColor = true;
-            btnWczytaj.Click += btnWczytaj_Click;
             // 
             // btnWroc
             // 
-            btnWroc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnWroc.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btnWroc.Location = new Point(21, 480);
+            btnWroc.BackColor = Color.Transparent;
+            btnWroc.BackgroundImage = Properties.Resources.IkonaWyjscieGotowePrzeskalowane;
+            btnWroc.Location = new Point(910, 462);
             btnWroc.Name = "btnWroc";
-            btnWroc.Size = new Size(157, 55);
-            btnWroc.TabIndex = 3;
-            btnWroc.Text = "Wróć na ulice";
-            btnWroc.UseVisualStyleBackColor = true;
+            btnWroc.Size = new Size(74, 74);
+            btnWroc.TabIndex = 5;
+            btnWroc.TabStop = false;
             btnWroc.Click += btnWroc_Click;
             // 
             // KosciolControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.MiSKosciolGotowe;
             Controls.Add(btnWroc);
-            Controls.Add(btnWczytaj);
             Controls.Add(btnZapisz);
             Controls.Add(lblInfo);
             Name = "KosciolControl";
             Size = new Size(1000, 550);
+            ((System.ComponentModel.ISupportInitialize)btnZapisz).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnWroc).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label lblInfo;
-        private Button btnZapisz;
-        private Button btnWczytaj;
-        private Button btnWroc;
+        private PictureBox btnZapisz;
+        private PictureBox btnWroc;
     }
 }

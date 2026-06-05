@@ -63,6 +63,26 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ArenaPrep1v2Gotowe {
+            get {
+                object obj = ResourceManager.GetObject("ArenaPrep1v2Gotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ArenaPrep2v2Gotowe {
+            get {
+                object obj = ResourceManager.GetObject("ArenaPrep2v2Gotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IkonaAtakNormalPrzeskalowane {
             get {
                 object obj = ResourceManager.GetObject("IkonaAtakNormalPrzeskalowane", resourceCulture);
@@ -123,6 +143,26 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IkonaLukBombardPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaLukBombardPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IkonaLukSnipePrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaLukSnipePrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IkonaOdpocznijPrzeskalowane {
             get {
                 object obj = ResourceManager.GetObject("IkonaOdpocznijPrzeskalowane", resourceCulture);
@@ -133,9 +173,29 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IkonaWyjscieGotowePrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaWyjscieGotowePrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IkonaZmienBronPrzeskalowane {
             get {
                 object obj = ResourceManager.GetObject("IkonaZmienBronPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MenuGlowneGotowe {
+            get {
+                object obj = ResourceManager.GetObject("MenuGlowneGotowe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,6 +403,16 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap MiSKosciolGotowe {
+            get {
+                object obj = ResourceManager.GetObject("MiSKosciolGotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap MiSSklepBronie1Gotowe {
             get {
                 object obj = ResourceManager.GetObject("MiSSklepBronie1Gotowe", resourceCulture);
@@ -376,6 +446,96 @@ namespace PZLab8i9.Properties {
         public static System.Drawing.Bitmap MiSUlicaGotowe {
             get {
                 object obj = ResourceManager.GetObject("MiSUlicaGotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor1 {
+            get {
+                object obj = ResourceManager.GetObject("topor1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor2 {
+            get {
+                object obj = ResourceManager.GetObject("topor2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor3 {
+            get {
+                object obj = ResourceManager.GetObject("topor3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor4 {
+            get {
+                object obj = ResourceManager.GetObject("topor4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor5 {
+            get {
+                object obj = ResourceManager.GetObject("topor5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor6 {
+            get {
+                object obj = ResourceManager.GetObject("topor6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor7 {
+            get {
+                object obj = ResourceManager.GetObject("topor7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor8 {
+            get {
+                object obj = ResourceManager.GetObject("topor8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap topor9 {
+            get {
+                object obj = ResourceManager.GetObject("topor9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

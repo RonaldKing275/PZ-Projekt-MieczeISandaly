@@ -37,12 +37,16 @@ namespace PZLab8i9
         {
             try
             {
+                glowneOkno.Bohater.Zloto -= 100;
+
                 // Zmiana Bohatera w tekst (JSON)
                 string jsonString = JsonSerializer.Serialize(glowneOkno.Bohater);
 
                 File.WriteAllText(sciezkaZapisu, jsonString);
 
                 MessageBox.Show("Twoje postępy zostały zapisane przez kapłanów!", "Zapisano grę", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                AktualizujWidok();
             }
             catch (Exception ex)
             {

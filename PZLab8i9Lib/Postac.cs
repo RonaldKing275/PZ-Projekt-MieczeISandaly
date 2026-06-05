@@ -166,8 +166,13 @@ namespace PZLab8i9Lib
         {
             Bron uzywanaBron = atakDystansowy ? WyposazonaBronPomocnicza : WyposazonaBronGlowna;
 
-            if (uzywanaBron == null)
-                return 4 + (int)(Sila * 0.75);
+            if (uzywanaBron == null || uzywanaBron.Nazwa == "Brak")
+            {
+                if (atakDystansowy)
+                    return 0;
+                else
+                    return 4 + (int)(Sila * 0.75);
+            }
 
             int bonus = (uzywanaBron.Typ == TypBroni.Miecze || uzywanaBron.Typ == TypBroni.Luki) ? Zrecznosc : Sila;
 

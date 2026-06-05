@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,6 +18,12 @@ namespace PZLab8i9
             glowneOkno = form;
             this.DoubleBuffered = true;
 
+            btnBronie.Paint += RysujObramowanyTekst;
+            btnMagia.Paint += RysujObramowanyTekst;
+            btnZbrojny.Paint += RysujObramowanyTekst;
+            btnKosciol.Paint += RysujObramowanyTekst;
+            btnArena.Paint += RysujObramowanyTekst;
+
             AktualizujWidok();
         }
 
@@ -28,6 +35,41 @@ namespace PZLab8i9
             barExp.Value = Math.Min(b.Exp, b.WymaganyExp);
 
             lblExpInfo.Text = $"Poziom: {b.Poziom} | Doświadczenie: {b.Exp} / {b.WymaganyExp}";
+        }
+
+        private void RysujObramowanyTekst(object sender, PaintEventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == null || string.IsNullOrEmpty(btn.Text)) return;
+
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            float rozmiarCzcionki = e.Graphics.DpiY * btn.Font.SizeInPoints / 72f;
+
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                StringFormat format = new StringFormat();
+                format.Alignment = StringAlignment.Center;
+                format.LineAlignment = StringAlignment.Center;
+
+                path.AddString(
+                    btn.Text,
+                    btn.Font.FontFamily,
+                    (int)btn.Font.Style,
+                    rozmiarCzcionki,
+                    new RectangleF(0, 0, btn.Width, btn.Height),
+                    format);
+
+                using (Pen pen = new Pen(Color.Red, 3))
+                {
+                    e.Graphics.DrawPath(pen, path);
+                }
+
+                using (SolidBrush brush = new SolidBrush(Color.White))
+                {
+                    e.Graphics.FillPath(brush, path);
+                }
+            }
         }
 
         private void btnZbrojny_Click(object sender, EventArgs e)
@@ -52,7 +94,7 @@ namespace PZLab8i9
 
         private void btnArena_Click(object sender, EventArgs e)
         {
-            glowneOkno.ZmienEkran(new ArenaPrepControl(glowneOkno));
+            glowneOkno.ZmienEkran(new ArenaTrybControl(glowneOkno));
         }
     }
 }

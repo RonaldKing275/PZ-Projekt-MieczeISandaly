@@ -17,7 +17,7 @@
   <Class Name="PZLab8i9Lib.Postac" Collapsed="true">
     <Position X="1.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BIAgABAIBAAAIBgCIgAAAkISCBiAAAAAAAOAAQQAIBA=</HashCode>
+      <HashCode>BoAwABAoBAAAIhgCIgAAAkISKJiggAAAAAOBAQQAIBA=</HashCode>
       <FileName>Postac.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,28 +31,28 @@
   <Class Name="PZLab8i9Lib.Przedmiot" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAAAAgBAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Przedmioty.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PZLab8i9Lib.Bron" Collapsed="true">
     <Position X="5.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIAIAAAAAAAAAAAAABAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AIIAAgEAAAAoAAAEgAAAAAAAAAABAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Przedmioty.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PZLab8i9Lib.Zbroja" Collapsed="true">
     <Position X="0.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAABAAAAAAAAAFAAAAAA=</HashCode>
       <FileName>Przedmioty.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PZLab8i9Lib.Czar" Collapsed="true">
     <Position X="3" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAEAAAAAQAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Przedmioty.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,7 +80,7 @@
   <Enum Name="PZLab8i9Lib.TypBroni" Collapsed="true">
     <Position X="7.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAABAIAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Przedmioty.cs</FileName>
     </TypeIdentifier>
   </Enum>
