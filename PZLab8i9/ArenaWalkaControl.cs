@@ -1,5 +1,6 @@
 ﻿using PZLab8i9Lib;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +14,9 @@ namespace PZLab8i9
         private Random rnd = new Random();
 
         private const double LEWA_KRAWEDZ = 0.0;
-        private const double PRAWA_KRAWEDZ = 80.0;
-        private double pozycjaGracza = 32.0;
-        private double pozycjaWroga = 48.0;
+        private const double PRAWA_KRAWEDZ = 40.0;
+        private double pozycjaGracza = 16.0;
+        private double pozycjaWroga = 24.0;
 
         private int pikseleXGracza = 0;
         private int pikseleXWroga = 0;
@@ -34,28 +35,23 @@ namespace PZLab8i9
             public int Szansa;
             public double Mnoznik;
             public int BazowyKoszt;
-            public double SkalowanieSily; // Jak bardzo Siła zwiększa koszt staminy
+            public double SkalowanieSily;
 
             public StatyAtaku(int szansa, double mnoznik, int bazowyKoszt, double skalowanieSily)
             { Szansa = szansa; Mnoznik = mnoznik; BazowyKoszt = bazowyKoszt; SkalowanieSily = skalowanieSily; }
         }
 
-        private readonly StatyAtaku AtakSzybki = new StatyAtaku(90, 0.9, 10, 2);    // Koszt: 10 + Siła * 2
-        private readonly StatyAtaku AtakNormalny = new StatyAtaku(45, 1.5, 20, 3.5);// Koszt: 20 + Siła * 3.5
-        private readonly StatyAtaku AtakCiezki = new StatyAtaku(25, 2.0, 35, 4.5);  // Koszt: 35 + Siła * 4.5
-        private readonly StatyAtaku AtakDash = new StatyAtaku(40, 1.2, 20, 3.5);    // Koszt: 20 + Siła * 3.5 (taki sam jak normalny)
+        private readonly StatyAtaku AtakSzybki = new StatyAtaku(90, 0.9, 10, 2);
+        private readonly StatyAtaku AtakNormalny = new StatyAtaku(45, 1.5, 20, 3.5);
+        private readonly StatyAtaku AtakCiezki = new StatyAtaku(25, 2.0, 35, 4.5);
+        private readonly StatyAtaku AtakDash = new StatyAtaku(40, 1.2, 20, 3.5);
 
-        private readonly StatyAtaku AtakSnipe = new StatyAtaku(60, 1.2, 15, 2.5);   // Podmieniony Normalny
-        private readonly StatyAtaku AtakBombard = new StatyAtaku(35, 1.8, 30, 4.0); // Podmieniony Ciężki
+        private readonly StatyAtaku AtakSnipe = new StatyAtaku(60, 1.2, 15, 2.5);
+        private readonly StatyAtaku AtakBombard = new StatyAtaku(35, 1.8, 30, 4.0);
 
         private int ObliczKosztRuchu() => 30;
-
-        private int ObliczKosztAtaku(Postac postac, StatyAtaku staty)
-            => staty.BazowyKoszt + (int)(postac.Sila * staty.SkalowanieSily);
-
-        private int ObliczKosztKrzyku(Postac postac)
-            => 20 + (postac.Charyzma * 2);
-
+        private int ObliczKosztAtaku(Postac postac, StatyAtaku staty) => staty.BazowyKoszt + (int)(postac.Sila * staty.SkalowanieSily);
+        private int ObliczKosztKrzyku(Postac postac) => 20 + (postac.Charyzma * 2);
 
         public ArenaWalkaControl(Form1 form, PrzeciwnikKomputer wygenerowanyWrog)
         {
@@ -64,7 +60,6 @@ namespace PZLab8i9
             glowneOkno = form;
             wrog = wygenerowanyWrog;
 
-            // SYSTEM RYSOWANIA
             if (picGracz != null && picWrog != null)
             {
                 picGracz.Visible = false;
@@ -89,14 +84,10 @@ namespace PZLab8i9
         private void Arena_Paint(object sender, PaintEventArgs e)
         {
             if (picWrog != null && picWrog.Image != null)
-            {
                 e.Graphics.DrawImage(picWrog.Image, pikseleXWroga, picWrog.Location.Y, picWrog.Width, picWrog.Height);
-            }
 
             if (picGracz != null && picGracz.Image != null)
-            {
                 e.Graphics.DrawImage(picGracz.Image, pikseleXGracza, picGracz.Location.Y, picGracz.Width, picGracz.Height);
-            }
         }
 
         private void OdswiezPozycjeGrafik()
@@ -162,7 +153,7 @@ namespace PZLab8i9
 
             if (picWrog != null)
             {
-                // Łucznik to postacWrog2, Wojownik to postacWrog1
+                picWrog.BackgroundImage = null;
                 picWrog.Image = preferujeLuk ? Properties.Resources.postacWrog2 : Properties.Resources.postacWrog1;
             }
 
@@ -280,7 +271,6 @@ namespace PZLab8i9
             if (btnKrzyk != null) btnKrzyk.Enabled = !zablokuj;
         }
 
-        // SYSTEM RUCHU (OŚ X)
         private bool WykonajRuchMechanika(Postac ruszajacy, bool toGracz, bool wPrawo)
         {
             int kosztRuchu = ObliczKosztRuchu();
@@ -297,33 +287,20 @@ namespace PZLab8i9
             double posRuszajacego = toGracz ? pozycjaGracza : pozycjaWroga;
             double posCelu = toGracz ? pozycjaWroga : pozycjaGracza;
 
-            // Określamy, czy intencją ruchu jest zbliżenie się do wroga (tylko do komunikatów tekstowych!)
             bool wPrzod = (wPrawo && posCelu > posRuszajacego) || (!wPrawo && posCelu < posRuszajacego);
-
-            // Bezwzględny kierunek na osi X (+1.0 to prawo, -1.0 to lewo)
             double kierunek = wPrawo ? 1.0 : -1.0;
             double nowaPozycja = posRuszajacego + (mocSkoku * kierunek);
 
             if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
             if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
 
-            // Przeskoczenie następuje, gdy startowaliśmy z jednej strony, a lądujemy po drugiej
             bool przeskoczyl = (posRuszajacego < posCelu && nowaPozycja > posCelu) ||
                                (posRuszajacego > posCelu && nowaPozycja < posCelu);
 
-            // Mechanika kolizji zachowująca minimalny dystans 3.5m
             if (Math.Abs(nowaPozycja - posCelu) < 3.5)
             {
-                if (przeskoczyl)
-                {
-                    // Przeskakuje i ląduje ZA plecami
-                    nowaPozycja = posCelu + (wPrawo ? 3.5 : -3.5);
-                }
-                else
-                {
-                    // Zderza się z celem i zostaje PRZED nim
-                    nowaPozycja = posCelu - (wPrawo ? 3.5 : -3.5);
-                }
+                if (przeskoczyl) nowaPozycja = posCelu + (wPrawo ? 3.5 : -3.5);
+                else nowaPozycja = posCelu - (wPrawo ? 3.5 : -3.5);
 
                 if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
                 if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
@@ -363,8 +340,8 @@ namespace PZLab8i9
         private void btnKrokTyl_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrawo: false);
 
 
-        // SYSTEM ATAKU W MIEJSCU
-        private bool WykonajAtak(Postac atakujacy, Postac broniacy, bool czyDystans, StatyAtaku staty)
+        // SYSTEMY ZAKLĘĆ I ATAKÓW
+        private (bool udanaAkcja, bool ogluszyl) WykonajAtak(Postac atakujacy, Postac broniacy, bool czyDystans, StatyAtaku staty)
         {
             bool toGracz = (atakujacy == glowneOkno.Bohater);
             double aktDystans = PobierzDystans();
@@ -373,22 +350,23 @@ namespace PZLab8i9
             if (!czyDystans && aktDystans > 3.5)
             {
                 UstawKomunikat(toGracz ? "Jesteś za daleko! Podejdź bliżej lub użyj Szarży." : $"{atakujacy.Imie} uderza powietrze!");
-                return false;
+                return (false, false);
             }
             if (czyDystans && aktDystans <= 3.5)
             {
                 UstawKomunikat(toGracz ? "Wróg jest za blisko na łuk! Wyciągnij broń białą." : $"{atakujacy.Imie} nie może strzelać w zwarciu!");
-                return false;
+                return (false, false);
             }
 
             if (!atakujacy.CzyMozeWykonacAkcje(kosztAtaku))
             {
                 UstawKomunikat(toGracz ? "Masz za mało staminy! Musisz odpocząć." : $"{atakujacy.Imie} ledwo stoi na nogach!");
-                return false;
+                return (false, false);
             }
 
             atakujacy.AktualnaStamina -= kosztAtaku;
             int los = rnd.Next(1, 101);
+            bool ogluszylWroga = false;
 
             if (los <= staty.Szansa)
             {
@@ -396,9 +374,24 @@ namespace PZLab8i9
                 int finalneDmg = (int)(bazoweDmg * staty.Mnoznik);
                 int utrataHp = broniacy.OtrzymajObrazenia(finalneDmg);
 
-                UstawKomunikat(toGracz ?
-                    $"TRAFIENIE! Zadajesz {utrataHp} obrażeń." :
-                    $"{atakujacy.Imie} trafia Cię za {utrataHp} DMG!");
+                string komunikat = toGracz ? $"TRAFIENIE! Zadajesz {utrataHp} DMG." : $"{atakujacy.Imie} trafia Cię za {utrataHp} DMG.";
+
+                // Mechanika Zaklęć
+                Bron uzytaBron = czyDystans ? atakujacy.WyposazonaBronPomocnicza : atakujacy.WyposazonaBronGlowna;
+                if (uzytaBron != null && uzytaBron.TypZaklecia != TypZakleciaBroni.Brak)
+                {
+                    if (rnd.Next(1, 101) <= uzytaBron.ZaklecieSzansa)
+                    {
+                        int dmgMagiczne = uzytaBron.ZaklecieObrazenia;
+                        broniacy.AktualneHp -= dmgMagiczne; // Magia omija pancerz
+                        if (broniacy.AktualneHp < 0) broniacy.AktualneHp = 0;
+                        ogluszylWroga = true;
+
+                        komunikat += $" ZAKLĘCIE ({uzytaBron.TypZaklecia}) trafia za {dmgMagiczne} DMG i OGŁUSZA!";
+                    }
+                }
+
+                UstawKomunikat(komunikat);
             }
             else
             {
@@ -406,11 +399,10 @@ namespace PZLab8i9
             }
 
             ZaktualizujPaski();
-            return true;
+            return (true, ogluszylWroga);
         }
 
-        // SYSTEM SZARŻY (DASH)
-        private bool WykonajDashAtak(Postac atakujacy, Postac broniacy)
+        private (bool udanaAkcja, bool ogluszyl) WykonajDashAtak(Postac atakujacy, Postac broniacy)
         {
             bool toGracz = (atakujacy == glowneOkno.Bohater);
             double aktDystans = PobierzDystans();
@@ -419,13 +411,13 @@ namespace PZLab8i9
             if (aktDystans <= 3.5)
             {
                 UstawKomunikat(toGracz ? "Jesteś za blisko na szarżę!" : "");
-                return false;
+                return (false, false);
             }
 
             if (!atakujacy.CzyMozeWykonacAkcje(kosztDash))
             {
                 UstawKomunikat(toGracz ? "Za mało staminy na szarżę!" : $"{atakujacy.Imie} potyka się z braku sił!");
-                return false;
+                return (false, false);
             }
 
             atakujacy.AktualnaStamina -= kosztDash;
@@ -436,8 +428,8 @@ namespace PZLab8i9
 
             bool wrogPoPrawej = posBroniacego > posAtakujacego;
             double kierunek = wrogPoPrawej ? 1.0 : -1.0;
-
             double dystansDoZwarcia = aktDystans - 3.5;
+            bool ogluszylWroga = false;
 
             if (zasiegSzarzy >= dystansDoZwarcia)
             {
@@ -453,15 +445,28 @@ namespace PZLab8i9
                     int finalneDmg = (int)(bazoweDmg * AtakDash.Mnoznik);
                     int utrataHp = broniacy.OtrzymajObrazenia(finalneDmg);
 
-                    UstawKomunikat(toGracz ?
-                        $"SZARŻA! Wpadasz we wroga i zadajesz {utrataHp} obrażeń." :
-                        $"{atakujacy.Imie} szarżuje i wbija Ci broń, zadając {utrataHp} DMG!");
+                    string komunikat = toGracz ? $"SZARŻA! Wpadasz we wroga i zadajesz {utrataHp} DMG." : $"{atakujacy.Imie} szarżuje i wbija Ci broń, zadając {utrataHp} DMG!";
+
+                    // Mechanika Zaklęć w Szarży
+                    Bron uzytaBron = atakujacy.WyposazonaBronGlowna;
+                    if (uzytaBron != null && uzytaBron.TypZaklecia != TypZakleciaBroni.Brak)
+                    {
+                        if (rnd.Next(1, 101) <= uzytaBron.ZaklecieSzansa)
+                        {
+                            int dmgMagiczne = uzytaBron.ZaklecieObrazenia;
+                            broniacy.AktualneHp -= dmgMagiczne;
+                            if (broniacy.AktualneHp < 0) broniacy.AktualneHp = 0;
+                            ogluszylWroga = true;
+
+                            komunikat += $" ZAKLĘCIE ({uzytaBron.TypZaklecia}) trafia za {dmgMagiczne} DMG i OGŁUSZA!";
+                        }
+                    }
+
+                    UstawKomunikat(komunikat);
                 }
                 else
                 {
-                    UstawKomunikat(toGracz ?
-                        "SZARŻA PUDŁUJE! Doskakujesz, ale wróg robi unik." :
-                        $"{atakujacy.Imie} szarżuje, ale w ostatniej chwili robisz unik!");
+                    UstawKomunikat(toGracz ? "SZARŻA PUDŁUJE! Doskakujesz, ale wróg robi unik." : $"{atakujacy.Imie} szarżuje, ale w ostatniej chwili robisz unik!");
                 }
             }
             else
@@ -472,18 +477,14 @@ namespace PZLab8i9
                 else pozycjaWroga = nowaPozycja;
 
                 double nowyDystans = PobierzDystans();
-
-                UstawKomunikat(toGracz ?
-                    $"Szarżujesz, ale opadasz z sił przed celem! (Zostało: {Math.Round(nowyDystans, 1)}m)" :
-                    $"{atakujacy.Imie} szarżuje, ale mija się z Tobą z braku sił!");
+                UstawKomunikat(toGracz ? $"Szarżujesz, ale opadasz z sił przed celem! (Zostało: {Math.Round(nowyDystans, 1)}m)" : $"{atakujacy.Imie} szarżuje, ale mija się z Tobą z braku sił!");
             }
 
             OdswiezPozycjeGrafik();
             ZaktualizujPaski();
-            return true;
+            return (true, ogluszylWroga);
         }
 
-        // SYSTEM KRZYKU (TAUNT)
         private bool WykonajKrzyk(Postac atakujacy, Postac broniacy)
         {
             bool toGracz = (atakujacy == glowneOkno.Bohater);
@@ -491,9 +492,7 @@ namespace PZLab8i9
 
             if (!atakujacy.CzyMozeWykonacAkcje(kosztKrzyku))
             {
-                UstawKomunikat(toGracz ?
-                    "Masz zdarte gardło i brak tchu! Odpocznij." :
-                    $"{atakujacy.Imie} próbuje krzyczeć, ale chrypi z wyczerpania!");
+                UstawKomunikat(toGracz ? "Masz zdarte gardło i brak tchu! Odpocznij." : $"{atakujacy.Imie} próbuje krzyczeć, ale chrypi z wyczerpania!");
                 return false;
             }
 
@@ -509,22 +508,18 @@ namespace PZLab8i9
                 int dmg = 10 + (atakujacy.Charyzma * 2);
                 int utrataHp = broniacy.OtrzymajObrazenia(dmg);
 
-                UstawKomunikat(toGracz ?
-                    $"POTĘŻNY KRZYK! Twój ryk zadaje {utrataHp} obrażeń." :
-                    $"{atakujacy.Imie} drze się wniebogłosy! Tracisz {utrataHp} DMG.");
+                UstawKomunikat(toGracz ? $"POTĘŻNY KRZYK! Twój ryk zadaje {utrataHp} obrażeń." : $"{atakujacy.Imie} drze się wniebogłosy! Tracisz {utrataHp} DMG.");
             }
             else
             {
-                UstawKomunikat(toGracz ?
-                    "Krzyczysz, ale wróg tylko się zaśmiał. PUDŁO!" :
-                    $"{atakujacy.Imie} próbuje Cię ogłuszyć krzykiem, ale nie robi to na Tobie wrażenia.");
+                UstawKomunikat(toGracz ? "Krzyczysz, ale wróg tylko się zaśmiał. PUDŁO!" : $"{atakujacy.Imie} próbuje Cię ogłuszyć krzykiem, ale nie robi to na Tobie wrażenia.");
             }
 
             ZaktualizujPaski();
             return true;
         }
 
-        private void WykonajAtakWreczBota()
+        private bool WykonajAtakWreczBota()
         {
             int losAtaku = rnd.Next(1, 101);
             int kosztCiezki = ObliczKosztAtaku(wrog, AtakCiezki);
@@ -532,67 +527,75 @@ namespace PZLab8i9
             int kosztSzybki = ObliczKosztAtaku(wrog, AtakSzybki);
 
             if (wrog.AktualnaStamina >= kosztCiezki && losAtaku <= 25)
-                WykonajAtak(wrog, glowneOkno.Bohater, false, AtakCiezki);
+                return WykonajAtak(wrog, glowneOkno.Bohater, false, AtakCiezki).ogluszyl;
             else if (wrog.AktualnaStamina >= kosztNormalny && losAtaku <= 75)
-                WykonajAtak(wrog, glowneOkno.Bohater, false, AtakNormalny);
+                return WykonajAtak(wrog, glowneOkno.Bohater, false, AtakNormalny).ogluszyl;
             else if (wrog.AktualnaStamina >= kosztSzybki)
-                WykonajAtak(wrog, glowneOkno.Bohater, false, AtakSzybki);
+                return WykonajAtak(wrog, glowneOkno.Bohater, false, AtakSzybki).ogluszyl;
             else
             {
                 wrog.Odpocznij();
                 UstawKomunikat($"{wrog.Imie} dyszy i brakuje mu sił na cios!");
+                return false;
             }
         }
 
         // PRZYCISKI AKCJI GRACZA
         private async void btnSzybkiAtak_Click(object sender, EventArgs e)
         {
-            if (WykonajAtak(glowneOkno.Bohater, wrog, uzywaBroniDystansowej, AtakSzybki))
+            var wynik = WykonajAtak(glowneOkno.Bohater, wrog, uzywaBroniDystansowej, AtakSzybki);
+            if (wynik.udanaAkcja)
             {
                 if (SprawdzCzyKoniec()) return;
+                if (wynik.ogluszyl) return; // Zatrzymuje turę dla gracza
+
                 await OddajTureWrogowi();
             }
         }
 
         private async void btnNormalnyAtak_Click(object sender, EventArgs e)
         {
-            bool udanaAkcja = false;
+            (bool udanaAkcja, bool ogluszyl) wynik = (false, false);
 
             if (uzywaBroniDystansowej)
             {
-                udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, true, AtakSnipe);
+                wynik = WykonajAtak(glowneOkno.Bohater, wrog, true, AtakSnipe);
             }
             else
             {
                 if (PobierzDystans() > 3.5)
-                    udanaAkcja = WykonajDashAtak(glowneOkno.Bohater, wrog);
+                    wynik = WykonajDashAtak(glowneOkno.Bohater, wrog);
                 else
-                    udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakNormalny);
+                    wynik = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakNormalny);
             }
 
-            if (udanaAkcja)
+            if (wynik.udanaAkcja)
             {
                 if (SprawdzCzyKoniec()) return;
+                if (wynik.ogluszyl) return;
+
                 await OddajTureWrogowi();
             }
         }
 
         private async void btnCiezkiAtak_Click(object sender, EventArgs e)
         {
-            bool udanaAkcja = false;
+            (bool udanaAkcja, bool ogluszyl) wynik = (false, false);
 
             if (uzywaBroniDystansowej)
             {
-                udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, true, AtakBombard);
+                wynik = WykonajAtak(glowneOkno.Bohater, wrog, true, AtakBombard);
             }
             else
             {
-                udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakCiezki);
+                wynik = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakCiezki);
             }
 
-            if (udanaAkcja)
+            if (wynik.udanaAkcja)
             {
                 if (SprawdzCzyKoniec()) return;
+                if (wynik.ogluszyl) return;
+
                 await OddajTureWrogowi();
             }
         }
@@ -634,22 +637,27 @@ namespace PZLab8i9
         {
             czyTuraGracza = false;
             OdswiezPrzyciskiUI();
-
             ZablokujPrzyciski(true);
-            await Task.Delay(1500);
 
-            RuchPrzeciwnika();
+            bool kolejnaTuraBota = true;
 
-            if (!SprawdzCzyKoniec())
+            while (kolejnaTuraBota)
             {
-                runda++;
-                czyTuraGracza = true;
-                ZablokujPrzyciski(false);
-                OdswiezPrzyciskiUI();
+                await Task.Delay(1500); // Odczekanie przed ruchem wroga
+                if (SprawdzCzyKoniec()) return;
+
+                kolejnaTuraBota = RuchPrzeciwnika(); // Jeśli zwróci true = ogłuszył i dostaje kolejny cios
+
+                if (SprawdzCzyKoniec()) return;
             }
+
+            runda++;
+            czyTuraGracza = true;
+            ZablokujPrzyciski(false);
+            OdswiezPrzyciskiUI();
         }
 
-        private void RuchPrzeciwnika()
+        private bool RuchPrzeciwnika()
         {
             double aktDystans = PobierzDystans();
             int losCzynnosci = rnd.Next(1, 101);
@@ -657,31 +665,27 @@ namespace PZLab8i9
             int kosztKrzykuWroga = ObliczKosztKrzyku(wrog);
             int kosztRuchuWroga = ObliczKosztRuchu();
 
-            // AI dedukuje, czy chce grać na dystans
             bool botMaLuk = wrog.WyposazonaBronPomocnicza != null && wrog.WyposazonaBronPomocnicza.Nazwa != "Brak";
-            bool preferujeLuk = botMaLuk && (wrog.Zrecznosc >= wrog.Sila); // Łuk jeśli ma więcej Zręczności
+            bool preferujeLuk = botMaLuk && (wrog.Zrecznosc >= wrog.Sila);
 
-            // Zawsze 15% szans na Krzyk (jeśli go stać)
             if (losCzynnosci <= 15 && wrog.AktualnaStamina >= kosztKrzykuWroga)
             {
                 WykonajKrzyk(wrog, glowneOkno.Bohater);
                 ZaktualizujPaski();
-                return;
+                return false;
             }
 
-            // TAKTYKA GŁÓWNA
             bool graczPoPrawej = pozycjaGracza > pozycjaWroga;
+            bool ogluszylGracza = false;
 
             if (preferujeLuk)
             {
-                // TAKTYKA: ŁUCZNIK
                 if (aktDystans <= 3.5)
                 {
                     if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
-                        // Ucieczka: bot idzie w odwrotną stronę niż stoi gracz
                         WykonajRuchMechanika(wrog, false, wPrawo: !graczPoPrawej);
                     else
-                        WykonajAtakWreczBota();
+                        ogluszylGracza = WykonajAtakWreczBota();
                 }
                 else
                 {
@@ -689,11 +693,10 @@ namespace PZLab8i9
                     int kosztBombard = ObliczKosztAtaku(wrog, AtakBombard);
 
                     if (wrog.AktualnaStamina >= kosztBombard && rnd.Next(100) < 30)
-                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakBombard);
+                        ogluszylGracza = WykonajAtak(wrog, glowneOkno.Bohater, true, AtakBombard).ogluszyl;
                     else if (wrog.AktualnaStamina >= kosztSnipe)
-                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakSnipe);
+                        ogluszylGracza = WykonajAtak(wrog, glowneOkno.Bohater, true, AtakSnipe).ogluszyl;
                     else if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
-                        // Zwiększanie dystansu
                         WykonajRuchMechanika(wrog, false, wPrawo: !graczPoPrawej);
                     else
                     {
@@ -704,17 +707,15 @@ namespace PZLab8i9
             }
             else
             {
-                // TAKTYKA: WOJOWNIK
                 if (aktDystans > 3.5)
                 {
                     int kosztDash = ObliczKosztAtaku(wrog, AtakDash);
                     if (wrog.AktualnaStamina >= kosztDash && rnd.Next(100) < 40)
                     {
-                        WykonajDashAtak(wrog, glowneOkno.Bohater);
+                        ogluszylGracza = WykonajDashAtak(wrog, glowneOkno.Bohater).ogluszyl;
                     }
                     else if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
                     {
-                        // Szarża się nie udała - podchodzi do gracza
                         WykonajRuchMechanika(wrog, false, wPrawo: graczPoPrawej);
                     }
                     else
@@ -723,13 +724,14 @@ namespace PZLab8i9
                         UstawKomunikat($"{wrog.Imie} zatrzymuje się by złapać oddech.");
                     }
                 }
-                else // Zwarcie
+                else
                 {
-                    WykonajAtakWreczBota();
+                    ogluszylGracza = WykonajAtakWreczBota();
                 }
             }
 
             ZaktualizujPaski();
+            return ogluszylGracza;
         }
 
         private bool SprawdzCzyKoniec()

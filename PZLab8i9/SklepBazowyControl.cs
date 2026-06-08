@@ -33,34 +33,6 @@ namespace PZLab8i9
                            $"Pancerz:\n{b.PobierzRaportPancerza()}";
         }
 
-        protected void ObsluzZakup<T>(ListBox lst, List<T> bazaPrzedmiotow, string infoPoZakupie) where T : Przedmiot
-        {
-            int index = lst.SelectedIndex;
-
-            if (index >= 0)
-            {
-                T wybranyPrzedmiot = bazaPrzedmiotow[index];
-
-                try
-                {
-                    glowneOkno.Bohater.KupPrzedmiot(wybranyPrzedmiot);
-                    MessageBox.Show($"Kupiłeś: {wybranyPrzedmiot.Nazwa}!\n{infoPoZakupie}", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (NotEnoughGoldException ex)
-                {
-                    MessageBox.Show(ex.Message, "Brak złota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (RequirementNotMetException ex)
-                {
-                    MessageBox.Show(ex.Message, "Wymagania niespełnione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Najpierw wybierz przedmiot z listy!");
-            }
-        }
-
         protected void ObsluzPrzyciskWrot()
         {
             glowneOkno.ZmienEkran(new UlicaControl(glowneOkno));

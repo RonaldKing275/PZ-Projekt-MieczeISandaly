@@ -351,14 +351,5 @@ namespace PZLab8i9Lib
             new Zbroja("Automaton boots", 10500, 42, 48, CzescZbroi.Buty, "buty11", strona:3, posX:161, posY:309),
             new Zbroja("Champions boots", 11000, 48, 50, CzescZbroi.Buty, "buty11", strona:3, posX:301, posY:309),
         };
-
-        public static List<Czar> WszystkieCzary { get; } = new List<Czar>
-        {
-            // Nazwa, Cena, Dmg, Koszt, reqInt
-            new Czar("Magiczny Pocisk", 100, 20, 10, reqInt: 15),
-            new Czar("Kula Ognia", 300, 50, 25, reqInt: 30),
-            new Czar("Lodowa Włócznia", 450, 80, 40, reqInt: 45),
-            new Czar("Burza Piorunów", 800, 150, 60, reqInt: 60)
-        };
     }
 }

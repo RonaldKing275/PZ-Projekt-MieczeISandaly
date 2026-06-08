@@ -7,8 +7,6 @@ namespace PZLab8i9Lib
 {
     [JsonDerivedType(typeof(Bron), typeDiscriminator: "Bron")]
     [JsonDerivedType(typeof(Zbroja), typeDiscriminator: "Zbroja")]
-    [JsonDerivedType(typeof(Czar), typeDiscriminator: "Czar")]
-    [JsonDerivedType(typeof(Mikstura), typeDiscriminator: "Mikstura")]
     public abstract class Przedmiot
     {
         public string Nazwa { get; set; }
@@ -115,41 +113,5 @@ namespace PZLab8i9Lib
         }
 
         public override string ToString() => $"{Nazwa} (Wymaga: Lv{WymaganyPoziom}) - {Cena}G";
-    }
-
-    public class Czar : Przedmiot
-    {
-        public int ObrazeniaMagiczne { get; set; }
-        public int KosztStaminy { get; set; }
-        public int WymaganaInteligencja { get; set; }
-
-        public Czar() { }
-
-        public Czar(string nazwa, int cena, int dmg, int koszt, int reqInt)
-            : base(nazwa, cena)
-        {
-            ObrazeniaMagiczne = dmg;
-            KosztStaminy = koszt;
-            WymaganaInteligencja = reqInt;
-        }
-
-        public override string ToString() => $"{Nazwa} (Wymaga: {WymaganaInteligencja} Int) - {Cena}G";
-    }
-
-    public class Mikstura : Przedmiot
-    {
-        public int LeczenieHp { get; set; }
-        public int LeczenieStaminy { get; set; }
-
-        public Mikstura() { }
-
-        public Mikstura(string nazwa, int cena, int leczenieHp, int leczenieStaminy)
-            : base(nazwa, cena)
-        {
-            LeczenieHp = leczenieHp;
-            LeczenieStaminy = leczenieStaminy;
-        }
-
-        // TODO: Napisać ToString
     }
 }

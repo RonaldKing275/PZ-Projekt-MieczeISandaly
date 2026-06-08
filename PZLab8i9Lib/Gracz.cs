@@ -53,22 +53,6 @@ namespace PZLab8i9Lib
             {
                 if (Poziom < z.WymaganyPoziom) throw new RequirementNotMetException($"Za niski poziom! Wymagany: {z.WymaganyPoziom}");
             }
-            else if (p is Czar c)
-            {
-                if (Inteligencja < c.WymaganaInteligencja) throw new RequirementNotMetException($"Za mało inteligencji! Wymagane: {c.WymaganaInteligencja}");
-
-                int aktualnaLiczbaCzarow = PosiadanePrzedmioty.Count(item => item is Czar);
-
-                // PROGI: 1lv->1, 3lv->2, 5lv->3, 8lv->4, 12lv->5, 16lv->6, 20lv->7, 25lv->8
-                LimitCzarow = (Poziom >= 25) ? 8 : (Poziom >= 20) ? 7 : (Poziom >= 16) ? 6 : 
-                    (Poziom >= 12) ? 5 : (Poziom >= 8) ? 4 : (Poziom >= 5) ? 3 : (Poziom >= 3) ? 2 : 1;
-
-                // Jeśli chce kupić kolejny, a nie ma miejsca
-                if (aktualnaLiczbaCzarow >= LimitCzarow)
-                {
-                    throw new RequirementNotMetException($"Brak miejsca na pasku czarów! Twój limit to {LimitCzarow}.");
-                }
-            }
 
             Zloto -= cenaPoRabacie;
 
@@ -81,14 +65,6 @@ namespace PZLab8i9Lib
                 case Zbroja nowaZbroja:
                     UbranyPancerz[nowaZbroja.TypCzesci] = nowaZbroja;
                     OdnowPancerz();
-                    break;
-
-                case Czar nowyCzar:
-                    PosiadanePrzedmioty.Add(nowyCzar);
-                    break;
-
-                case Mikstura nowaMikstura:
-                    PosiadanePrzedmioty.Add(nowaMikstura);
                     break;
             }
         }
