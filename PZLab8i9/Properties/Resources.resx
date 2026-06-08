@@ -124,6 +124,15 @@
   <data name="ArenaPrep2v2Gotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\ArenaPrep2v2Gotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ArenaWalkaPusta3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ArenaWalkaPusta3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buty11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\buty11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="helm4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\..\..\..\Desktop\Miecze i Sandały Images\helm4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IkonaAtakNormalPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaAtakNormalPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,6 +168,15 @@
   </data>
   <data name="IkonaZmienBronPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaZmienBronPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="klata11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\klata11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="luk4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\luk4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maczuga7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\maczuga7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MenuGlowneGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MenuGlowneGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,11 +256,32 @@
   <data name="MiSSklepMagiaGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSSklepMagiaGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MiSSklepZbroje2Gotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\MiSSklepZbroje2Gotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MiSSklepZbrojeGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSSklepZbrojeGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MiSUlicaGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSUlicaGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="naramienniki12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\naramienniki12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="postacGracz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\postacGracz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="postacWrog1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\postacWrog1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="postacWrog2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\postacWrog2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spodnie4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\spodnie4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tarcza10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\tarcza10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="topor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\topor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

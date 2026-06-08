@@ -37,7 +37,24 @@
             btnLuki = new Button();
             btnNastepnaStrona = new Button();
             pnlPolkaSklepowa = new Panel();
+            pictureBox9 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            pictureBox7 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlPolkaSklepowa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // lblZloto
@@ -114,8 +131,80 @@
             // pnlPolkaSklepowa
             // 
             pnlPolkaSklepowa.BackColor = Color.Transparent;
+            pnlPolkaSklepowa.Controls.Add(pictureBox9);
+            pnlPolkaSklepowa.Controls.Add(pictureBox8);
+            pnlPolkaSklepowa.Controls.Add(pictureBox7);
+            pnlPolkaSklepowa.Controls.Add(pictureBox6);
+            pnlPolkaSklepowa.Controls.Add(pictureBox5);
+            pnlPolkaSklepowa.Controls.Add(pictureBox4);
+            pnlPolkaSklepowa.Controls.Add(pictureBox3);
+            pnlPolkaSklepowa.Controls.Add(pictureBox2);
             resources.ApplyResources(pnlPolkaSklepowa, "pnlPolkaSklepowa");
             pnlPolkaSklepowa.Name = "pnlPolkaSklepowa";
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = Color.Transparent;
+            pictureBox9.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox9, "pictureBox9");
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.Transparent;
+            pictureBox8.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox8, "pictureBox8");
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = Color.Transparent;
+            pictureBox7.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox7, "pictureBox7");
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.Transparent;
+            pictureBox6.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox6, "pictureBox6");
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox5, "pictureBox5");
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox4, "pictureBox4");
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.luk4;
+            resources.ApplyResources(pictureBox2, "pictureBox2");
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.TabStop = false;
             // 
             // BronSklepControl
             // 
@@ -132,6 +221,15 @@
             Controls.Add(lblZloto);
             Name = "BronSklepControl";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlPolkaSklepowa.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -144,5 +242,13 @@
         private Button btnLuki;
         private Button btnNastepnaStrona;
         private Panel pnlPolkaSklepowa;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox8;
+        private PictureBox pictureBox7;
     }
 }

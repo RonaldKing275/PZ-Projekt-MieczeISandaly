@@ -57,9 +57,10 @@
             // 
             // lblZloto
             // 
-            lblZloto.Location = new Point(52, 30);
+            lblZloto.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            lblZloto.Location = new Point(48, 26);
             lblZloto.Name = "lblZloto";
-            lblZloto.Size = new Size(289, 167);
+            lblZloto.Size = new Size(301, 179);
             lblZloto.TabIndex = 1;
             lblZloto.Text = "label1";
             // 

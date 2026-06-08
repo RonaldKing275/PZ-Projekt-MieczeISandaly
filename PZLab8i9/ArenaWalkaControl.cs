@@ -13,12 +13,18 @@ namespace PZLab8i9
         private Random rnd = new Random();
 
         private const double LEWA_KRAWEDZ = 0.0;
-        private const double PRAWA_KRAWEDZ = 40.0;
-        private double pozycjaGracza = 16.0;
-        private double pozycjaWroga = 24.0;
+        private const double PRAWA_KRAWEDZ = 80.0;
+        private double pozycjaGracza = 32.0;
+        private double pozycjaWroga = 48.0;
+
+        private int pikseleXGracza = 0;
+        private int pikseleXWroga = 0;
 
         private bool uzywaBroniDystansowej = false;
         private bool czyTuraGracza = true;
+
+        private bool graczPatrzyWPrawo = true;
+        private bool wrogPatrzyWPrawo = false;
 
         private double PobierzDystans() => Math.Abs(pozycjaGracza - pozycjaWroga);
 
@@ -58,7 +64,71 @@ namespace PZLab8i9
             glowneOkno = form;
             wrog = wygenerowanyWrog;
 
+            // SYSTEM RYSOWANIA
+            if (picGracz != null && picWrog != null)
+            {
+                picGracz.Visible = false;
+                picWrog.Visible = false;
+
+                Control rodzic = picGracz.Parent;
+                if (rodzic != null)
+                {
+                    typeof(Control).InvokeMember("DoubleBuffered",
+                        System.Reflection.BindingFlags.SetProperty |
+                        System.Reflection.BindingFlags.Instance |
+                        System.Reflection.BindingFlags.NonPublic,
+                        null, rodzic, new object[] { true });
+
+                    rodzic.Paint += Arena_Paint;
+                }
+            }
+
             PrzygotujWalke();
+        }
+
+        private void Arena_Paint(object sender, PaintEventArgs e)
+        {
+            if (picWrog != null && picWrog.Image != null)
+            {
+                e.Graphics.DrawImage(picWrog.Image, pikseleXWroga, picWrog.Location.Y, picWrog.Width, picWrog.Height);
+            }
+
+            if (picGracz != null && picGracz.Image != null)
+            {
+                e.Graphics.DrawImage(picGracz.Image, pikseleXGracza, picGracz.Location.Y, picGracz.Width, picGracz.Height);
+            }
+        }
+
+        private void OdswiezPozycjeGrafik()
+        {
+            if (picGracz == null || picWrog == null || picGracz.Image == null || picWrog.Image == null) return;
+
+            Control rodzic = picGracz.Parent;
+            int szerokoscAreny = rodzic != null ? rodzic.Width : this.Width;
+            int dostepnaSzerokosc = szerokoscAreny - picGracz.Width;
+
+            double pikseleNaMetr = (double)dostepnaSzerokosc / PRAWA_KRAWEDZ;
+
+            pikseleXGracza = (int)(pozycjaGracza * pikseleNaMetr);
+            pikseleXWroga = (int)(pozycjaWroga * pikseleNaMetr);
+
+            bool graczPowinienPatrzecWPrawo = pozycjaWroga > pozycjaGracza;
+            bool wrogPowinienPatrzecWPrawo = pozycjaGracza > pozycjaWroga;
+
+            if (graczPatrzyWPrawo != graczPowinienPatrzecWPrawo)
+            {
+                picGracz.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                graczPatrzyWPrawo = graczPowinienPatrzecWPrawo;
+            }
+
+            if (wrogPatrzyWPrawo != wrogPowinienPatrzecWPrawo)
+            {
+                picWrog.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                wrogPatrzyWPrawo = wrogPowinienPatrzecWPrawo;
+            }
+
+            if (rodzic != null) rodzic.Invalidate();
+            else this.Invalidate();
         }
 
         private void PrzygotujWalke()
@@ -87,7 +157,17 @@ namespace PZLab8i9
                 barPancerzWroga.Value = aktualne;
             };
 
+            bool botMaLuk = wrog.WyposazonaBronPomocnicza != null && wrog.WyposazonaBronPomocnicza.Nazwa != "Brak";
+            bool preferujeLuk = botMaLuk && (wrog.Zrecznosc >= wrog.Sila);
+
+            if (picWrog != null)
+            {
+                // Łucznik to postacWrog2, Wojownik to postacWrog1
+                picWrog.Image = preferujeLuk ? Properties.Resources.postacWrog2 : Properties.Resources.postacWrog1;
+            }
+
             ZaktualizujPaski();
+            OdswiezPozycjeGrafik();
             UstawKomunikat("=== WALKA ROZPOCZĘTA ===");
         }
 
@@ -134,33 +214,27 @@ namespace PZLab8i9
                 btnSzybkiAtak.Visible = false;
 
                 btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaLukSnipePrzeskalowane;
-                btnNormalnyAtak.Text = "";
                 btnNormalnyAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakSnipe);
 
                 btnCiezkiAtak.BackgroundImage = Properties.Resources.IkonaLukBombardPrzeskalowane;
-                btnCiezkiAtak.Text = "";
                 btnCiezkiAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakBombard);
             }
             else
             {
                 btnSzybkiAtak.BackgroundImage = Properties.Resources.IkonaAtakQuickPrzeskalowane;
-                btnSzybkiAtak.Text = "";
                 btnSzybkiAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakSzybki);
 
                 btnCiezkiAtak.BackgroundImage = Properties.Resources.IkonaAtakPowerPrzeskalowane;
-                btnCiezkiAtak.Text = "";
                 btnCiezkiAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakCiezki);
 
-                if (PobierzDystans() > 0.5)
+                if (PobierzDystans() > 3.5)
                 {
                     btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaAtakNormalPrzeskalowane;
-                    btnNormalnyAtak.Text = "Szarża"; // TODO: ZOBACZYĆ CZY KONIECZNE!
                     btnNormalnyAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakDash);
                 }
                 else
                 {
                     btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaAtakNormalPrzeskalowane;
-                    btnNormalnyAtak.Text = "";
                     btnNormalnyAtak.Visible = glowneOkno.Bohater.AktualnaStamina >= ObliczKosztAtaku(glowneOkno.Bohater, AtakNormalny);
                 }
             }
@@ -207,7 +281,7 @@ namespace PZLab8i9
         }
 
         // SYSTEM RUCHU (OŚ X)
-        private bool WykonajRuchMechanika(Postac ruszajacy, bool toGracz, bool wPrzod)
+        private bool WykonajRuchMechanika(Postac ruszajacy, bool toGracz, bool wPrawo)
         {
             int kosztRuchu = ObliczKosztRuchu();
 
@@ -218,43 +292,48 @@ namespace PZLab8i9
             }
 
             ruszajacy.AktualnaStamina -= kosztRuchu;
-            double mocSkoku = 1.0 + (ruszajacy.Zrecznosc * 0.2);
+            double mocSkoku = 2.0 + (ruszajacy.Zrecznosc * 0.4);
 
-            // Przypisanie pozycji na podstawie tego kto się rusza
             double posRuszajacego = toGracz ? pozycjaGracza : pozycjaWroga;
             double posCelu = toGracz ? pozycjaWroga : pozycjaGracza;
 
-            bool celPoPrawej = posCelu > posRuszajacego;
+            // Określamy, czy intencją ruchu jest zbliżenie się do wroga (tylko do komunikatów tekstowych!)
+            bool wPrzod = (wPrawo && posCelu > posRuszajacego) || (!wPrawo && posCelu < posRuszajacego);
 
-            // Jeśli idzie w przód, idzie w stronę celu. Jeśli w tył - w przeciwną.
-            double kierunek = wPrzod ? (celPoPrawej ? 1.0 : -1.0) : (celPoPrawej ? -1.0 : 1.0);
-
+            // Bezwzględny kierunek na osi X (+1.0 to prawo, -1.0 to lewo)
+            double kierunek = wPrawo ? 1.0 : -1.0;
             double nowaPozycja = posRuszajacego + (mocSkoku * kierunek);
 
             if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
             if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
 
-            // Sprawdzanie przeskoczenia
-            bool przeskoczyl = (celPoPrawej && nowaPozycja > posCelu) || (!celPoPrawej && nowaPozycja < posCelu);
+            // Przeskoczenie następuje, gdy startowaliśmy z jednej strony, a lądujemy po drugiej
+            bool przeskoczyl = (posRuszajacego < posCelu && nowaPozycja > posCelu) ||
+                               (posRuszajacego > posCelu && nowaPozycja < posCelu);
 
-            if (Math.Abs(nowaPozycja - posCelu) < 0.5)
+            // Mechanika kolizji zachowująca minimalny dystans 3.5m
+            if (Math.Abs(nowaPozycja - posCelu) < 3.5)
             {
                 if (przeskoczyl)
-                    nowaPozycja = posCelu + (celPoPrawej ? 0.5 : -0.5);
+                {
+                    // Przeskakuje i ląduje ZA plecami
+                    nowaPozycja = posCelu + (wPrawo ? 3.5 : -3.5);
+                }
                 else
-                    nowaPozycja = posCelu - (celPoPrawej ? 0.5 : -0.5);
+                {
+                    // Zderza się z celem i zostaje PRZED nim
+                    nowaPozycja = posCelu - (wPrawo ? 3.5 : -3.5);
+                }
 
                 if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
                 if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
             }
 
-            // Nadpisanie właściwej zmiennej po wykonaniu obliczeń
             if (toGracz) pozycjaGracza = nowaPozycja;
             else pozycjaWroga = nowaPozycja;
 
             double nowyDystans = PobierzDystans();
 
-            // Komunikaty
             if (wPrzod && przeskoczyl)
                 UstawKomunikat(toGracz ? $"Przeskakujesz wroga! Jesteś za jego plecami. (Dystans: {Math.Round(nowyDystans, 1)}m)" : $"{ruszajacy.Imie} przeskakuje za Twoje plecy! (Dystans: {Math.Round(nowyDystans, 1)}m)");
             else if (wPrzod)
@@ -267,20 +346,21 @@ namespace PZLab8i9
                     UstawKomunikat(toGracz ? $"Wycofujesz się! (Dystans: {Math.Round(nowyDystans, 1)}m)" : $"{ruszajacy.Imie} odskakuje do tyłu! (Dystans: {Math.Round(nowyDystans, 1)}m)");
             }
 
+            OdswiezPozycjeGrafik();
             return true;
         }
 
-        private async void WykonajRuchGracza(bool wPrzod)
+        private async void WykonajRuchGracza(bool wPrawo)
         {
-            if (WykonajRuchMechanika(glowneOkno.Bohater, toGracz: true, wPrzod))
+            if (WykonajRuchMechanika(glowneOkno.Bohater, toGracz: true, wPrawo))
             {
                 ZaktualizujPaski();
                 await OddajTureWrogowi();
             }
         }
 
-        private void btnKrokPrzod_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrzod: true);
-        private void btnKrokTyl_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrzod: false);
+        private void btnKrokPrzod_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrawo: true);
+        private void btnKrokTyl_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrawo: false);
 
 
         // SYSTEM ATAKU W MIEJSCU
@@ -290,12 +370,12 @@ namespace PZLab8i9
             double aktDystans = PobierzDystans();
             int kosztAtaku = ObliczKosztAtaku(atakujacy, staty);
 
-            if (!czyDystans && aktDystans > 0.5)
+            if (!czyDystans && aktDystans > 3.5)
             {
                 UstawKomunikat(toGracz ? "Jesteś za daleko! Podejdź bliżej lub użyj Szarży." : $"{atakujacy.Imie} uderza powietrze!");
                 return false;
             }
-            if (czyDystans && aktDystans <= 0.5)
+            if (czyDystans && aktDystans <= 3.5)
             {
                 UstawKomunikat(toGracz ? "Wróg jest za blisko na łuk! Wyciągnij broń białą." : $"{atakujacy.Imie} nie może strzelać w zwarciu!");
                 return false;
@@ -336,7 +416,7 @@ namespace PZLab8i9
             double aktDystans = PobierzDystans();
             int kosztDash = ObliczKosztAtaku(atakujacy, AtakDash);
 
-            if (aktDystans <= 0.5)
+            if (aktDystans <= 3.5)
             {
                 UstawKomunikat(toGracz ? "Jesteś za blisko na szarżę!" : "");
                 return false;
@@ -357,11 +437,11 @@ namespace PZLab8i9
             bool wrogPoPrawej = posBroniacego > posAtakujacego;
             double kierunek = wrogPoPrawej ? 1.0 : -1.0;
 
-            double dystansDoZwarcia = aktDystans - 0.5;
+            double dystansDoZwarcia = aktDystans - 3.5;
 
             if (zasiegSzarzy >= dystansDoZwarcia)
             {
-                double nowaPozycja = posBroniacego - (0.5 * kierunek);
+                double nowaPozycja = posBroniacego - (3.5 * kierunek);
 
                 if (toGracz) pozycjaGracza = nowaPozycja;
                 else pozycjaWroga = nowaPozycja;
@@ -398,6 +478,7 @@ namespace PZLab8i9
                     $"{atakujacy.Imie} szarżuje, ale mija się z Tobą z braku sił!");
             }
 
+            OdswiezPozycjeGrafik();
             ZaktualizujPaski();
             return true;
         }
@@ -483,7 +564,7 @@ namespace PZLab8i9
             }
             else
             {
-                if (PobierzDystans() > 0.5)
+                if (PobierzDystans() > 3.5)
                     udanaAkcja = WykonajDashAtak(glowneOkno.Bohater, wrog);
                 else
                     udanaAkcja = WykonajAtak(glowneOkno.Bohater, wrog, false, AtakNormalny);
@@ -589,15 +670,18 @@ namespace PZLab8i9
             }
 
             // TAKTYKA GŁÓWNA
+            bool graczPoPrawej = pozycjaGracza > pozycjaWroga;
+
             if (preferujeLuk)
             {
                 // TAKTYKA: ŁUCZNIK
-                if (aktDystans <= 0.5) // Gracz podszedł do zwarcia
+                if (aktDystans <= 3.5)
                 {
                     if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
-                        WykonajRuchMechanika(wrog, false, wPrzod: false); // Łucznik robi unik w tył
+                        // Ucieczka: bot idzie w odwrotną stronę niż stoi gracz
+                        WykonajRuchMechanika(wrog, false, wPrawo: !graczPoPrawej);
                     else
-                        WykonajAtakWreczBota(); // Brak staminy na ucieczkę, bije wręcz
+                        WykonajAtakWreczBota();
                 }
                 else
                 {
@@ -605,11 +689,12 @@ namespace PZLab8i9
                     int kosztBombard = ObliczKosztAtaku(wrog, AtakBombard);
 
                     if (wrog.AktualnaStamina >= kosztBombard && rnd.Next(100) < 30)
-                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakBombard); // 30% szans na potężny strzał
+                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakBombard);
                     else if (wrog.AktualnaStamina >= kosztSnipe)
-                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakSnipe); // Zwykły strzał
+                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakSnipe);
                     else if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
-                        WykonajRuchMechanika(wrog, false, wPrzod: false); // Odsunięcie się dla poprawy dystansu
+                        // Zwiększanie dystansu
+                        WykonajRuchMechanika(wrog, false, wPrawo: !graczPoPrawej);
                     else
                     {
                         wrog.Odpocznij();
@@ -620,16 +705,17 @@ namespace PZLab8i9
             else
             {
                 // TAKTYKA: WOJOWNIK
-                if (aktDystans > 0.5)
+                if (aktDystans > 3.5)
                 {
                     int kosztDash = ObliczKosztAtaku(wrog, AtakDash);
                     if (wrog.AktualnaStamina >= kosztDash && rnd.Next(100) < 40)
                     {
-                        WykonajDashAtak(wrog, glowneOkno.Bohater); // 40% szans na Szarżę
+                        WykonajDashAtak(wrog, glowneOkno.Bohater);
                     }
                     else if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
                     {
-                        WykonajRuchMechanika(wrog, false, wPrzod: true); // Zwykłe podejście
+                        // Szarża się nie udała - podchodzi do gracza
+                        WykonajRuchMechanika(wrog, false, wPrawo: graczPoPrawej);
                     }
                     else
                     {

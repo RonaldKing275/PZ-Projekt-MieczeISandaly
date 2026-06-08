@@ -94,15 +94,24 @@ namespace PZLab8i9Lib
         public int PunktyPancerza { get; set; }
         public CzescZbroi TypCzesci { get; set; }
         public int WymaganyPoziom { get; set; }
+        public string NazwaIkony { get; set; }
+        public int StronaWSklepie { get; set; }
+        public int SklepX { get; set; }
+        public int SklepY { get; set; }
 
         public Zbroja () { }
 
-        public Zbroja(string nazwa, int cena, int poziom, int pancerz, CzescZbroi typCzesci)
+        public Zbroja(string nazwa, int cena, int poziom, int pancerz, CzescZbroi typCzesci,
+            string nazwaIkony = "", int strona = 1, int posX = 0, int posY = 0)
             : base(nazwa, cena)
         {
             PunktyPancerza = pancerz;
             TypCzesci = typCzesci;
             WymaganyPoziom = poziom;
+            NazwaIkony = nazwaIkony;
+            StronaWSklepie = strona;
+            SklepX = posX;
+            SklepY = posY;
         }
 
         public override string ToString() => $"{Nazwa} (Wymaga: Lv{WymaganyPoziom}) - {Cena}G";

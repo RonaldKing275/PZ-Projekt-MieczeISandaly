@@ -41,6 +41,7 @@
             // lblGracz
             // 
             lblGracz.BackColor = Color.White;
+            lblGracz.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblGracz.ImageAlign = ContentAlignment.TopLeft;
             lblGracz.Location = new Point(53, 53);
             lblGracz.Name = "lblGracz";
@@ -53,6 +54,7 @@
             // 
             lblWrog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblWrog.BackColor = Color.White;
+            lblWrog.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             lblWrog.ImageAlign = ContentAlignment.TopLeft;
             lblWrog.Location = new Point(662, 194);
             lblWrog.Name = "lblWrog";

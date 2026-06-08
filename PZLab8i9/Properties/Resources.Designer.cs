@@ -83,6 +83,36 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ArenaWalkaPusta3 {
+            get {
+                object obj = ResourceManager.GetObject("ArenaWalkaPusta3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buty11 {
+            get {
+                object obj = ResourceManager.GetObject("buty11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap helm4 {
+            get {
+                object obj = ResourceManager.GetObject("helm4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IkonaAtakNormalPrzeskalowane {
             get {
                 object obj = ResourceManager.GetObject("IkonaAtakNormalPrzeskalowane", resourceCulture);
@@ -196,6 +226,36 @@ namespace PZLab8i9.Properties {
         public static System.Drawing.Bitmap IkonaZmienBronPrzeskalowane {
             get {
                 object obj = ResourceManager.GetObject("IkonaZmienBronPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap klata11 {
+            get {
+                object obj = ResourceManager.GetObject("klata11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap luk4 {
+            get {
+                object obj = ResourceManager.GetObject("luk4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap maczuga7 {
+            get {
+                object obj = ResourceManager.GetObject("maczuga7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -463,6 +523,16 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap MiSSklepZbroje2Gotowe {
+            get {
+                object obj = ResourceManager.GetObject("MiSSklepZbroje2Gotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap MiSSklepZbrojeGotowe {
             get {
                 object obj = ResourceManager.GetObject("MiSSklepZbrojeGotowe", resourceCulture);
@@ -476,6 +546,66 @@ namespace PZLab8i9.Properties {
         public static System.Drawing.Bitmap MiSUlicaGotowe {
             get {
                 object obj = ResourceManager.GetObject("MiSUlicaGotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap naramienniki12 {
+            get {
+                object obj = ResourceManager.GetObject("naramienniki12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap postacGracz {
+            get {
+                object obj = ResourceManager.GetObject("postacGracz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap postacWrog1 {
+            get {
+                object obj = ResourceManager.GetObject("postacWrog1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap postacWrog2 {
+            get {
+                object obj = ResourceManager.GetObject("postacWrog2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap spodnie4 {
+            get {
+                object obj = ResourceManager.GetObject("spodnie4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tarcza10 {
+            get {
+                object obj = ResourceManager.GetObject("tarcza10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
