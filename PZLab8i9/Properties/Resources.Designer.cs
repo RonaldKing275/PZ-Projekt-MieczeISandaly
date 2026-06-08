@@ -183,6 +183,16 @@ namespace PZLab8i9.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IkonaZatwierdzPrzeskalowane {
+            get {
+                object obj = ResourceManager.GetObject("IkonaZatwierdzPrzeskalowane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IkonaZmienBronPrzeskalowane {
             get {
                 object obj = ResourceManager.GetObject("IkonaZmienBronPrzeskalowane", resourceCulture);
@@ -426,6 +436,26 @@ namespace PZLab8i9.Properties {
         public static System.Drawing.Bitmap MiSSklepBronieGotowe {
             get {
                 object obj = ResourceManager.GetObject("MiSSklepBronieGotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MiSSklepMagia2Gotowe {
+            get {
+                object obj = ResourceManager.GetObject("MiSSklepMagia2Gotowe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MiSSklepMagiaGotowe {
+            get {
+                object obj = ResourceManager.GetObject("MiSSklepMagiaGotowe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

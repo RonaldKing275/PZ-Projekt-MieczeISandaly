@@ -27,6 +27,8 @@ namespace PZLab8i9Lib
 
     public enum TypBroni { Miecze, Topory, Maczugi, Luki }
     public enum RodzajZasiegu { Wrecz, Dystansowa }
+    public enum TypZakleciaBroni { Brak, Flame, Frost, Poison, Wraith }
+    public enum WielkoscZakleciaBroni { Brak, Male, Srednie, Duze }
 
     public class Bron : Przedmiot
     {
@@ -40,6 +42,10 @@ namespace PZLab8i9Lib
         public int StronaWSklepie { get; set; } // Na której stronie (1, 2 czy 3) ma się pojawić
         public int SklepX { get; set; } // Oś X na ekranie
         public int SklepY { get; set; } // Oś Y na ekranie
+        public TypZakleciaBroni TypZaklecia { get; set; } = TypZakleciaBroni.Brak;
+        public WielkoscZakleciaBroni WielkoscZaklecia { get; set; } = WielkoscZakleciaBroni.Brak;
+        public int ZaklecieSzansa { get; set; } = 0;
+        public int ZaklecieObrazenia { get; set; } = 0;
 
         public Bron () { }
 

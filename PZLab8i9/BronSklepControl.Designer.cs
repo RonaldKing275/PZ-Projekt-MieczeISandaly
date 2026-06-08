@@ -37,26 +37,26 @@
             btnLuki = new Button();
             btnNastepnaStrona = new Button();
             pnlPolkaSklepowa = new Panel();
+            pictureBox10 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            pictureBox8 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox7 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox8 = new PictureBox();
-            pictureBox9 = new PictureBox();
-            pictureBox10 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlPolkaSklepowa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // lblZloto
@@ -68,6 +68,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Cursor = Cursors.Hand;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
@@ -119,6 +120,7 @@
             // 
             // btnNastepnaStrona
             // 
+            btnNastepnaStrona.Cursor = Cursors.Hand;
             resources.ApplyResources(btnNastepnaStrona, "btnNastepnaStrona");
             btnNastepnaStrona.Name = "btnNastepnaStrona";
             btnNastepnaStrona.UseVisualStyleBackColor = true;
@@ -138,6 +140,24 @@
             pnlPolkaSklepowa.Controls.Add(pictureBox3);
             resources.ApplyResources(pnlPolkaSklepowa, "pnlPolkaSklepowa");
             pnlPolkaSklepowa.Name = "pnlPolkaSklepowa";
+            // 
+            // pictureBox10
+            // 
+            resources.ApplyResources(pictureBox10, "pictureBox10");
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            resources.ApplyResources(pictureBox9, "pictureBox9");
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            resources.ApplyResources(pictureBox8, "pictureBox8");
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -175,24 +195,6 @@
             pictureBox3.Name = "pictureBox3";
             pictureBox3.TabStop = false;
             // 
-            // pictureBox8
-            // 
-            resources.ApplyResources(pictureBox8, "pictureBox8");
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            resources.ApplyResources(pictureBox9, "pictureBox9");
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            resources.ApplyResources(pictureBox10, "pictureBox10");
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.TabStop = false;
-            // 
             // BronSklepControl
             // 
             resources.ApplyResources(this, "$this");
@@ -209,15 +211,15 @@
             Name = "BronSklepControl";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlPolkaSklepowa.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

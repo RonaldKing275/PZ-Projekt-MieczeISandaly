@@ -66,6 +66,7 @@
             // btnSila
             // 
             btnSila.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnSila.Cursor = Cursors.Hand;
             btnSila.Location = new Point(222, 206);
             btnSila.Name = "btnSila";
             btnSila.Size = new Size(133, 29);
@@ -77,6 +78,7 @@
             // btnZrecznosc
             // 
             btnZrecznosc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnZrecznosc.Cursor = Cursors.Hand;
             btnZrecznosc.Location = new Point(222, 267);
             btnZrecznosc.Name = "btnZrecznosc";
             btnZrecznosc.Size = new Size(133, 29);
@@ -88,6 +90,7 @@
             // btnInteligencja
             // 
             btnInteligencja.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnInteligencja.Cursor = Cursors.Hand;
             btnInteligencja.Location = new Point(222, 327);
             btnInteligencja.Name = "btnInteligencja";
             btnInteligencja.Size = new Size(133, 29);
@@ -99,6 +102,7 @@
             // btnCharyzma
             // 
             btnCharyzma.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCharyzma.Cursor = Cursors.Hand;
             btnCharyzma.Location = new Point(222, 386);
             btnCharyzma.Name = "btnCharyzma";
             btnCharyzma.Size = new Size(133, 29);
@@ -110,6 +114,7 @@
             // btnWitalnosc
             // 
             btnWitalnosc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnWitalnosc.Cursor = Cursors.Hand;
             btnWitalnosc.Location = new Point(222, 445);
             btnWitalnosc.Name = "btnWitalnosc";
             btnWitalnosc.Size = new Size(133, 29);
@@ -121,6 +126,7 @@
             // btnWytrzymalosc
             // 
             btnWytrzymalosc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnWytrzymalosc.Cursor = Cursors.Hand;
             btnWytrzymalosc.Location = new Point(222, 506);
             btnWytrzymalosc.Name = "btnWytrzymalosc";
             btnWytrzymalosc.Size = new Size(133, 29);
@@ -132,6 +138,7 @@
             // btnZatwierdz
             // 
             btnZatwierdz.BackColor = Color.Transparent;
+            btnZatwierdz.Cursor = Cursors.Hand;
             btnZatwierdz.Location = new Point(908, 468);
             btnZatwierdz.Name = "btnZatwierdz";
             btnZatwierdz.Size = new Size(76, 71);

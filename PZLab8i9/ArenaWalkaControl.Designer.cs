@@ -161,6 +161,7 @@
             // 
             btnKrokTyl.BackColor = Color.Transparent;
             btnKrokTyl.BackgroundImage = Properties.Resources.IkonaKrokTylPrzeskalowane;
+            btnKrokTyl.Cursor = Cursors.Hand;
             btnKrokTyl.Location = new Point(120, 138);
             btnKrokTyl.Name = "btnKrokTyl";
             btnKrokTyl.Size = new Size(65, 63);
@@ -172,6 +173,7 @@
             // 
             btnKrokPrzod.BackColor = Color.Transparent;
             btnKrokPrzod.BackgroundImage = Properties.Resources.IkonaKrokPrzodPrzeskalowane;
+            btnKrokPrzod.Cursor = Cursors.Hand;
             btnKrokPrzod.Location = new Point(319, 138);
             btnKrokPrzod.Name = "btnKrokPrzod";
             btnKrokPrzod.Size = new Size(65, 63);
@@ -183,6 +185,7 @@
             // 
             btnKrzyk.BackColor = Color.Transparent;
             btnKrzyk.BackgroundImage = Properties.Resources.IkonaKrzykPrzeskalowane;
+            btnKrzyk.Cursor = Cursors.Hand;
             btnKrzyk.Location = new Point(82, 276);
             btnKrzyk.Name = "btnKrzyk";
             btnKrzyk.Size = new Size(65, 63);
@@ -194,6 +197,7 @@
             // 
             btnOdpocznij.BackColor = Color.Transparent;
             btnOdpocznij.BackgroundImage = Properties.Resources.IkonaOdpocznijPrzeskalowane;
+            btnOdpocznij.Cursor = Cursors.Hand;
             btnOdpocznij.Location = new Point(82, 207);
             btnOdpocznij.Name = "btnOdpocznij";
             btnOdpocznij.Size = new Size(65, 63);
@@ -205,6 +209,7 @@
             // 
             btnSzybkiAtak.BackColor = Color.Transparent;
             btnSzybkiAtak.BackgroundImage = Properties.Resources.IkonaAtakQuickPrzeskalowane;
+            btnSzybkiAtak.Cursor = Cursors.Hand;
             btnSzybkiAtak.Location = new Point(319, 345);
             btnSzybkiAtak.Name = "btnSzybkiAtak";
             btnSzybkiAtak.Size = new Size(65, 63);
@@ -216,6 +221,7 @@
             // 
             btnNormalnyAtak.BackColor = Color.Transparent;
             btnNormalnyAtak.BackgroundImage = Properties.Resources.IkonaAtakNormalPrzeskalowane;
+            btnNormalnyAtak.Cursor = Cursors.Hand;
             btnNormalnyAtak.Location = new Point(356, 276);
             btnNormalnyAtak.Name = "btnNormalnyAtak";
             btnNormalnyAtak.Size = new Size(65, 63);
@@ -227,6 +233,7 @@
             // 
             btnCiezkiAtak.BackColor = Color.Transparent;
             btnCiezkiAtak.BackgroundImage = Properties.Resources.IkonaAtakPowerPrzeskalowane;
+            btnCiezkiAtak.Cursor = Cursors.Hand;
             btnCiezkiAtak.Location = new Point(356, 207);
             btnCiezkiAtak.Name = "btnCiezkiAtak";
             btnCiezkiAtak.Size = new Size(65, 63);
@@ -238,6 +245,7 @@
             // 
             btnZmienBron.BackColor = Color.Transparent;
             btnZmienBron.BackgroundImage = Properties.Resources.IkonaZmienBronPrzeskalowane;
+            btnZmienBron.Cursor = Cursors.Hand;
             btnZmienBron.Location = new Point(120, 345);
             btnZmienBron.Name = "btnZmienBron";
             btnZmienBron.Size = new Size(53, 53);

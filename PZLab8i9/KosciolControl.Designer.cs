@@ -49,6 +49,7 @@
             // btnZapisz
             // 
             btnZapisz.BackColor = Color.Transparent;
+            btnZapisz.Cursor = Cursors.Hand;
             btnZapisz.Location = new Point(540, 446);
             btnZapisz.Name = "btnZapisz";
             btnZapisz.Size = new Size(102, 37);
@@ -60,6 +61,7 @@
             // 
             btnWroc.BackColor = Color.Transparent;
             btnWroc.BackgroundImage = Properties.Resources.IkonaWyjscieGotowePrzeskalowane;
+            btnWroc.Cursor = Cursors.Hand;
             btnWroc.Location = new Point(910, 462);
             btnWroc.Name = "btnWroc";
             btnWroc.Size = new Size(74, 74);

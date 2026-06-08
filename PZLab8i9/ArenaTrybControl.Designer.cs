@@ -40,6 +40,7 @@
             // btnTournament
             // 
             btnTournament.BackColor = Color.Transparent;
+            btnTournament.Cursor = Cursors.Hand;
             btnTournament.Location = new Point(772, 88);
             btnTournament.Name = "btnTournament";
             btnTournament.Size = new Size(134, 183);
@@ -50,6 +51,7 @@
             // btnDuel
             // 
             btnDuel.BackColor = Color.Transparent;
+            btnDuel.Cursor = Cursors.Hand;
             btnDuel.Location = new Point(760, 325);
             btnDuel.Name = "btnDuel";
             btnDuel.Size = new Size(122, 127);
@@ -60,6 +62,7 @@
             // btnWroc
             // 
             btnWroc.BackColor = Color.Transparent;
+            btnWroc.Cursor = Cursors.Hand;
             btnWroc.Location = new Point(896, 458);
             btnWroc.Name = "btnWroc";
             btnWroc.Size = new Size(81, 82);

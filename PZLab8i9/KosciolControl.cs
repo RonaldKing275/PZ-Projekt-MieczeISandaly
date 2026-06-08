@@ -37,6 +37,12 @@ namespace PZLab8i9
         {
             try
             {
+                if (glowneOkno.Bohater.Zloto < 100)
+                {
+                    MessageBox.Show("Nie masz wystarczająco złota na ofiarę (wymagane 100G)!", "Brak złota", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 glowneOkno.Bohater.Zloto -= 100;
 
                 // Zmiana Bohatera w tekst (JSON)

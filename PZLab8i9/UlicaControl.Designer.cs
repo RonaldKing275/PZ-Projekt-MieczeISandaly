@@ -42,6 +42,7 @@
             // 
             btnZbrojny.Anchor = AnchorStyles.None;
             btnZbrojny.BackColor = Color.Transparent;
+            btnZbrojny.Cursor = Cursors.Hand;
             btnZbrojny.FlatAppearance.BorderSize = 0;
             btnZbrojny.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnZbrojny.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -59,6 +60,7 @@
             // btnMagia
             // 
             btnMagia.BackColor = Color.Transparent;
+            btnMagia.Cursor = Cursors.Hand;
             btnMagia.FlatAppearance.BorderSize = 0;
             btnMagia.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnMagia.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -77,6 +79,7 @@
             // 
             btnKosciol.Anchor = AnchorStyles.None;
             btnKosciol.BackColor = Color.Transparent;
+            btnKosciol.Cursor = Cursors.Hand;
             btnKosciol.FlatAppearance.BorderSize = 0;
             btnKosciol.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnKosciol.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -95,6 +98,7 @@
             // 
             btnArena.Anchor = AnchorStyles.None;
             btnArena.BackColor = Color.Transparent;
+            btnArena.Cursor = Cursors.Hand;
             btnArena.FlatAppearance.BorderSize = 0;
             btnArena.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnArena.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -131,6 +135,7 @@
             // 
             btnBronie.Anchor = AnchorStyles.None;
             btnBronie.BackColor = Color.Transparent;
+            btnBronie.Cursor = Cursors.Hand;
             btnBronie.FlatAppearance.BorderSize = 0;
             btnBronie.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnBronie.FlatAppearance.MouseOverBackColor = Color.Transparent;

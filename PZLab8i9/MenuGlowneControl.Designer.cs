@@ -37,6 +37,7 @@
             // btnNowaGra
             // 
             btnNowaGra.BackColor = Color.Transparent;
+            btnNowaGra.Cursor = Cursors.Hand;
             btnNowaGra.Location = new Point(373, 411);
             btnNowaGra.Name = "btnNowaGra";
             btnNowaGra.Size = new Size(91, 107);
@@ -47,6 +48,7 @@
             // btnWczytaj
             // 
             btnWczytaj.BackColor = Color.Transparent;
+            btnWczytaj.Cursor = Cursors.Hand;
             btnWczytaj.Location = new Point(517, 411);
             btnWczytaj.Name = "btnWczytaj";
             btnWczytaj.Size = new Size(122, 107);

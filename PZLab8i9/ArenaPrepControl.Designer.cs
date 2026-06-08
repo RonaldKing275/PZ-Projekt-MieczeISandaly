@@ -61,6 +61,7 @@
             // btnWroc
             // 
             btnWroc.BackColor = Color.Transparent;
+            btnWroc.Cursor = Cursors.Hand;
             btnWroc.Location = new Point(305, 390);
             btnWroc.Name = "btnWroc";
             btnWroc.Size = new Size(90, 110);
@@ -71,6 +72,7 @@
             // btnWalcz
             // 
             btnWalcz.BackColor = Color.Transparent;
+            btnWalcz.Cursor = Cursors.Hand;
             btnWalcz.Location = new Point(545, 389);
             btnWalcz.Name = "btnWalcz";
             btnWalcz.Size = new Size(90, 136);
@@ -81,6 +83,7 @@
             // btnLosuj
             // 
             btnLosuj.BackColor = Color.Transparent;
+            btnLosuj.Cursor = Cursors.Hand;
             btnLosuj.Location = new Point(423, 389);
             btnLosuj.Name = "btnLosuj";
             btnLosuj.Size = new Size(89, 136);

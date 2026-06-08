@@ -56,6 +56,7 @@
             // 
             btnWroc.BackColor = Color.Transparent;
             btnWroc.BackgroundImage = Properties.Resources.IkonaWyjscieGotowePrzeskalowane;
+            btnWroc.Cursor = Cursors.Hand;
             btnWroc.Location = new Point(920, 470);
             btnWroc.Name = "btnWroc";
             btnWroc.Size = new Size(74, 74);

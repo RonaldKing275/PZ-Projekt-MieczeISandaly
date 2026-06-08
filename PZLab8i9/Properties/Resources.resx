@@ -154,6 +154,9 @@
   <data name="IkonaWyjscieGotowePrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaWyjscieGotowePrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IkonaZatwierdzPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\IkonaZatwierdzPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IkonaZmienBronPrzeskalowane" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\IkonaZmienBronPrzeskalowane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -228,6 +231,12 @@
   </data>
   <data name="MiSSklepBronieGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSSklepBronieGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MiSSklepMagia2Gotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\MiSSklepMagia2Gotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MiSSklepMagiaGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\MiSSklepMagiaGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MiSSklepZbrojeGotowe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MiSSklepZbrojeGotowe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
