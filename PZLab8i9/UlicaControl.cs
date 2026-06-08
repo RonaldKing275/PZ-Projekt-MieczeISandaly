@@ -18,11 +18,11 @@ namespace PZLab8i9
             glowneOkno = form;
             this.DoubleBuffered = true;
 
-            btnBronie.Paint += RysujObramowanyTekst;
-            btnMagia.Paint += RysujObramowanyTekst;
-            btnZbrojny.Paint += RysujObramowanyTekst;
-            btnKosciol.Paint += RysujObramowanyTekst;
-            btnArena.Paint += RysujObramowanyTekst;
+            UstawPrzyciskZObramowaniem(btnBronie);
+            UstawPrzyciskZObramowaniem(btnMagia);
+            UstawPrzyciskZObramowaniem(btnZbrojny);
+            UstawPrzyciskZObramowaniem(btnKosciol);
+            UstawPrzyciskZObramowaniem(btnArena);
 
             AktualizujWidok();
         }
@@ -35,6 +35,25 @@ namespace PZLab8i9
             barExp.Value = Math.Min(b.Exp, b.WymaganyExp);
 
             lblExpInfo.Text = $"Poziom: {b.Poziom} | Doświadczenie: {b.Exp} / {b.WymaganyExp}";
+        }
+
+        private void UstawPrzyciskZObramowaniem(Button btn)
+        {
+            btn.UseVisualStyleBackColor = false;
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btn.BackColor = Color.Transparent;
+
+            typeof(Button).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, btn, new object[] { true });
+
+            // 3. Podpinamy Twoją metodę rysującą tekst
+            btn.Paint += RysujObramowanyTekst;
         }
 
         private void RysujObramowanyTekst(object sender, PaintEventArgs e)

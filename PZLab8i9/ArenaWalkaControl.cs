@@ -54,6 +54,7 @@ namespace PZLab8i9
         public ArenaWalkaControl(Form1 form, PrzeciwnikKomputer wygenerowanyWrog)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             glowneOkno = form;
             wrog = wygenerowanyWrog;
 
@@ -206,62 +207,81 @@ namespace PZLab8i9
         }
 
         // SYSTEM RUCHU (OŚ X)
-        private async void WykonajRuch(bool wPrzod)
+        private bool WykonajRuchMechanika(Postac ruszajacy, bool toGracz, bool wPrzod)
         {
             int kosztRuchu = ObliczKosztRuchu();
 
-            if (!glowneOkno.Bohater.CzyMozeWykonacAkcje(kosztRuchu))
+            if (!ruszajacy.CzyMozeWykonacAkcje(kosztRuchu))
             {
-                UstawKomunikat("Nie masz staminy na ruch! Odpocznij.");
-                return;
+                UstawKomunikat(toGracz ? "Nie masz staminy na ruch! Odpocznij." : $"{ruszajacy.Imie} opada z sił i nie może się ruszyć!");
+                return false;
             }
 
-            glowneOkno.Bohater.AktualnaStamina -= kosztRuchu;
-            double mocSkoku = 1.0 + (glowneOkno.Bohater.Zrecznosc * 0.2);
+            ruszajacy.AktualnaStamina -= kosztRuchu;
+            double mocSkoku = 1.0 + (ruszajacy.Zrecznosc * 0.2);
 
-            bool wrogPoPrawej = pozycjaWroga > pozycjaGracza;
-            double kierunek = wPrzod ? (wrogPoPrawej ? 1.0 : -1.0) : (wrogPoPrawej ? -1.0 : 1.0);
+            // Przypisanie pozycji na podstawie tego kto się rusza
+            double posRuszajacego = toGracz ? pozycjaGracza : pozycjaWroga;
+            double posCelu = toGracz ? pozycjaWroga : pozycjaGracza;
 
-            double nowaPozycja = pozycjaGracza + (mocSkoku * kierunek);
+            bool celPoPrawej = posCelu > posRuszajacego;
+
+            // Jeśli idzie w przód, idzie w stronę celu. Jeśli w tył - w przeciwną.
+            double kierunek = wPrzod ? (celPoPrawej ? 1.0 : -1.0) : (celPoPrawej ? -1.0 : 1.0);
+
+            double nowaPozycja = posRuszajacego + (mocSkoku * kierunek);
 
             if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
             if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
 
-            bool przeskoczyl = (wrogPoPrawej && nowaPozycja > pozycjaWroga) || (!wrogPoPrawej && nowaPozycja < pozycjaWroga);
+            // Sprawdzanie przeskoczenia
+            bool przeskoczyl = (celPoPrawej && nowaPozycja > posCelu) || (!celPoPrawej && nowaPozycja < posCelu);
 
-            if (Math.Abs(nowaPozycja - pozycjaWroga) < 0.5)
+            if (Math.Abs(nowaPozycja - posCelu) < 0.5)
             {
                 if (przeskoczyl)
-                    nowaPozycja = pozycjaWroga + (wrogPoPrawej ? 0.5 : -0.5);
+                    nowaPozycja = posCelu + (celPoPrawej ? 0.5 : -0.5);
                 else
-                    nowaPozycja = pozycjaWroga - (wrogPoPrawej ? 0.5 : -0.5);
+                    nowaPozycja = posCelu - (celPoPrawej ? 0.5 : -0.5);
 
                 if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
                 if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
             }
 
-            pozycjaGracza = nowaPozycja;
+            // Nadpisanie właściwej zmiennej po wykonaniu obliczeń
+            if (toGracz) pozycjaGracza = nowaPozycja;
+            else pozycjaWroga = nowaPozycja;
 
             double nowyDystans = PobierzDystans();
 
+            // Komunikaty
             if (wPrzod && przeskoczyl)
-                UstawKomunikat($"Przeskakujesz wroga! Jesteś za jego plecami. (Dystans: {Math.Round(nowyDystans, 1)}m)");
+                UstawKomunikat(toGracz ? $"Przeskakujesz wroga! Jesteś za jego plecami. (Dystans: {Math.Round(nowyDystans, 1)}m)" : $"{ruszajacy.Imie} przeskakuje za Twoje plecy! (Dystans: {Math.Round(nowyDystans, 1)}m)");
             else if (wPrzod)
-                UstawKomunikat($"Zbliżasz się do wroga. (Dystans: {Math.Round(nowyDystans, 1)}m)");
+                UstawKomunikat(toGracz ? $"Zbliżasz się do wroga. (Dystans: {Math.Round(nowyDystans, 1)}m)" : $"{ruszajacy.Imie} zbliża się. (Dystans: {Math.Round(nowyDystans, 1)}m)");
             else
             {
-                if (pozycjaGracza == LEWA_KRAWEDZ || pozycjaGracza == PRAWA_KRAWEDZ)
-                    UstawKomunikat($"Odskakujesz pod samą ścianę areny! (Dystans: {Math.Round(nowyDystans, 1)}m)");
+                if (nowaPozycja == LEWA_KRAWEDZ || nowaPozycja == PRAWA_KRAWEDZ)
+                    UstawKomunikat(toGracz ? $"Odskakujesz pod samą ścianę areny! (Dystans: {Math.Round(nowyDystans, 1)}m)" : $"{ruszajacy.Imie} zapędzony pod ścianę! (Dystans: {Math.Round(nowyDystans, 1)}m)");
                 else
-                    UstawKomunikat($"Wycofujesz się! (Dystans: {Math.Round(nowyDystans, 1)}m)");
+                    UstawKomunikat(toGracz ? $"Wycofujesz się! (Dystans: {Math.Round(nowyDystans, 1)}m)" : $"{ruszajacy.Imie} odskakuje do tyłu! (Dystans: {Math.Round(nowyDystans, 1)}m)");
             }
 
-            ZaktualizujPaski();
-            await OddajTureWrogowi();
+            return true;
         }
 
-        private void btnKrokPrzod_Click(object sender, EventArgs e) => WykonajRuch(wPrzod: true);
-        private void btnKrokTyl_Click(object sender, EventArgs e) => WykonajRuch(wPrzod: false);
+        private async void WykonajRuchGracza(bool wPrzod)
+        {
+            if (WykonajRuchMechanika(glowneOkno.Bohater, toGracz: true, wPrzod))
+            {
+                ZaktualizujPaski();
+                await OddajTureWrogowi();
+            }
+        }
+
+        private void btnKrokPrzod_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrzod: true);
+        private void btnKrokTyl_Click(object sender, EventArgs e) => WykonajRuchGracza(wPrzod: false);
+
 
         // SYSTEM ATAKU W MIEJSCU
         private bool WykonajAtak(Postac atakujacy, Postac broniacy, bool czyDystans, StatyAtaku staty)
@@ -423,6 +443,26 @@ namespace PZLab8i9
             return true;
         }
 
+        private void WykonajAtakWreczBota()
+        {
+            int losAtaku = rnd.Next(1, 101);
+            int kosztCiezki = ObliczKosztAtaku(wrog, AtakCiezki);
+            int kosztNormalny = ObliczKosztAtaku(wrog, AtakNormalny);
+            int kosztSzybki = ObliczKosztAtaku(wrog, AtakSzybki);
+
+            if (wrog.AktualnaStamina >= kosztCiezki && losAtaku <= 25)
+                WykonajAtak(wrog, glowneOkno.Bohater, false, AtakCiezki);
+            else if (wrog.AktualnaStamina >= kosztNormalny && losAtaku <= 75)
+                WykonajAtak(wrog, glowneOkno.Bohater, false, AtakNormalny);
+            else if (wrog.AktualnaStamina >= kosztSzybki)
+                WykonajAtak(wrog, glowneOkno.Bohater, false, AtakSzybki);
+            else
+            {
+                wrog.Odpocznij();
+                UstawKomunikat($"{wrog.Imie} dyszy i brakuje mu sił na cios!");
+            }
+        }
+
         // PRZYCISKI AKCJI GRACZA
         private async void btnSzybkiAtak_Click(object sender, EventArgs e)
         {
@@ -534,95 +574,72 @@ namespace PZLab8i9
             int losCzynnosci = rnd.Next(1, 101);
 
             int kosztKrzykuWroga = ObliczKosztKrzyku(wrog);
-            int kosztDashWroga = ObliczKosztAtaku(wrog, AtakDash);
             int kosztRuchuWroga = ObliczKosztRuchu();
 
-            // 15% szans na użycie Krzyku w tej turze
+            // AI dedukuje, czy chce grać na dystans
+            bool botMaLuk = wrog.WyposazonaBronPomocnicza != null && wrog.WyposazonaBronPomocnicza.Nazwa != "Brak";
+            bool preferujeLuk = botMaLuk && (wrog.Zrecznosc >= wrog.Sila); // Łuk jeśli ma więcej Zręczności
+
+            // Zawsze 15% szans na Krzyk (jeśli go stać)
             if (losCzynnosci <= 15 && wrog.AktualnaStamina >= kosztKrzykuWroga)
             {
                 WykonajKrzyk(wrog, glowneOkno.Bohater);
+                ZaktualizujPaski();
+                return;
             }
-            else if (aktDystans > 0.5)
+
+            // TAKTYKA GŁÓWNA
+            if (preferujeLuk)
             {
-                if (wrog.AktualnaStamina >= kosztDashWroga && rnd.Next(100) < 40)
+                // TAKTYKA: ŁUCZNIK
+                if (aktDystans <= 0.5) // Gracz podszedł do zwarcia
                 {
-                    WykonajDashAtak(wrog, glowneOkno.Bohater);
+                    if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
+                        WykonajRuchMechanika(wrog, false, wPrzod: false); // Łucznik robi unik w tył
+                    else
+                        WykonajAtakWreczBota(); // Brak staminy na ucieczkę, bije wręcz
                 }
                 else
                 {
-                    if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
+                    int kosztSnipe = ObliczKosztAtaku(wrog, AtakSnipe);
+                    int kosztBombard = ObliczKosztAtaku(wrog, AtakBombard);
+
+                    if (wrog.AktualnaStamina >= kosztBombard && rnd.Next(100) < 30)
+                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakBombard); // 30% szans na potężny strzał
+                    else if (wrog.AktualnaStamina >= kosztSnipe)
+                        WykonajAtak(wrog, glowneOkno.Bohater, true, AtakSnipe); // Zwykły strzał
+                    else if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
+                        WykonajRuchMechanika(wrog, false, wPrzod: false); // Odsunięcie się dla poprawy dystansu
+                    else
                     {
-                        wrog.AktualnaStamina -= kosztRuchuWroga;
-                        double mocSkoku = 1.0 + (wrog.Zrecznosc * 0.2);
-
-                        bool graczPoPrawej = pozycjaGracza > pozycjaWroga;
-                        double kierunek = graczPoPrawej ? 1.0 : -1.0;
-
-                        double nowaPozycja = pozycjaWroga + (mocSkoku * kierunek);
-
-                        if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
-                        if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
-
-                        bool przeskoczyl = (graczPoPrawej && nowaPozycja > pozycjaGracza) || (!graczPoPrawej && nowaPozycja < pozycjaGracza);
-
-                        if (Math.Abs(nowaPozycja - pozycjaGracza) < 0.5)
-                        {
-                            if (przeskoczyl)
-                                nowaPozycja = pozycjaGracza + (graczPoPrawej ? 0.5 : -0.5);
-                            else
-                                nowaPozycja = pozycjaGracza - (graczPoPrawej ? 0.5 : -0.5);
-
-                            if (nowaPozycja < LEWA_KRAWEDZ) nowaPozycja = LEWA_KRAWEDZ;
-                            if (nowaPozycja > PRAWA_KRAWEDZ) nowaPozycja = PRAWA_KRAWEDZ;
-                        }
-
-                        pozycjaWroga = nowaPozycja;
-
-                        double nowyDystansWroga = PobierzDystans();
-
-                        if (przeskoczyl)
-                        {
-                            UstawKomunikat($"{wrog.Imie} przeskakuje za Twoje plecy! (Dystans: {Math.Round(nowyDystansWroga, 1)}m)");
-                        }
-                        else
-                        {
-                            if (pozycjaWroga == LEWA_KRAWEDZ || pozycjaWroga == PRAWA_KRAWEDZ)
-                                UstawKomunikat($"{wrog.Imie} wycofuje się pod ścianę! (Dystans: {Math.Round(nowyDystansWroga, 1)}m)");
-                            else
-                                UstawKomunikat($"{wrog.Imie} przemieszcza się. (Dystans: {Math.Round(nowyDystansWroga, 1)}m)");
-                        }
+                        wrog.Odpocznij();
+                        UstawKomunikat($"{wrog.Imie} opuszcza łuk ze zmęczenia.");
+                    }
+                }
+            }
+            else
+            {
+                // TAKTYKA: WOJOWNIK
+                if (aktDystans > 0.5)
+                {
+                    int kosztDash = ObliczKosztAtaku(wrog, AtakDash);
+                    if (wrog.AktualnaStamina >= kosztDash && rnd.Next(100) < 40)
+                    {
+                        WykonajDashAtak(wrog, glowneOkno.Bohater); // 40% szans na Szarżę
+                    }
+                    else if (wrog.CzyMozeWykonacAkcje(kosztRuchuWroga))
+                    {
+                        WykonajRuchMechanika(wrog, false, wPrzod: true); // Zwykłe podejście
                     }
                     else
                     {
                         wrog.Odpocznij();
-                        UstawKomunikat($"{wrog.Imie} zatrzymuje się, by odpocząć.");
+                        UstawKomunikat($"{wrog.Imie} zatrzymuje się by złapać oddech.");
                     }
                 }
-            }
-            else // ZWARCIE
-            {
-                int losAtaku = rnd.Next(1, 101);
-
-                int kosztCiezki = ObliczKosztAtaku(wrog, AtakCiezki);
-                int kosztNormalny = ObliczKosztAtaku(wrog, AtakNormalny);
-                int kosztSzybki = ObliczKosztAtaku(wrog, AtakSzybki);
-
-                if (wrog.AktualnaStamina >= kosztCiezki && losAtaku <= 25)
+                else // Zwarcie
                 {
-                    WykonajAtak(wrog, glowneOkno.Bohater, false, AtakCiezki);
-                }
-                else if (wrog.AktualnaStamina >= kosztNormalny && losAtaku <= 75)
-                {
-                    WykonajAtak(wrog, glowneOkno.Bohater, false, AtakNormalny);
-                }
-                else if (wrog.AktualnaStamina >= kosztSzybki)
-                {
-                    WykonajAtak(wrog, glowneOkno.Bohater, false, AtakSzybki);
-                }
-                else
-                {
-                    wrog.Odpocznij();
-                    UstawKomunikat($"{wrog.Imie} jest wyczerpany i musi odpocząć!");
+                    WykonajAtakWreczBota();
                 }
             }
 

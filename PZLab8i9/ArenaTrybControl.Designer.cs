@@ -72,9 +72,10 @@
             // 
             // lblInfo
             // 
-            lblInfo.Location = new Point(28, 33);
+            lblInfo.BackColor = Color.White;
+            lblInfo.Location = new Point(28, 25);
             lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(303, 164);
+            lblInfo.Size = new Size(308, 180);
             lblInfo.TabIndex = 3;
             lblInfo.Text = "label1";
             // 

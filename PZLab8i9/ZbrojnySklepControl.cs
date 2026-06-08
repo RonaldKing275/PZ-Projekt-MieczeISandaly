@@ -14,6 +14,7 @@ namespace PZLab8i9
         public ZbrojnySklepControl(Form1 form) : base(form)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             ZaladujSklep();
         }
 

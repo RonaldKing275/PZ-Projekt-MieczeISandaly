@@ -16,6 +16,7 @@ namespace PZLab8i9
         public ArenaTrybControl(Form1 form)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             glowneOkno = form;
 
             OdswiezInfo();

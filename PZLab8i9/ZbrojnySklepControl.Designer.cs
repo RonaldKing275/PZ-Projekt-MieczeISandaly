@@ -46,6 +46,7 @@
             // 
             // lblZloto
             // 
+            lblZloto.BackColor = Color.White;
             lblZloto.Location = new Point(48, 25);
             lblZloto.Name = "lblZloto";
             lblZloto.Size = new Size(335, 209);

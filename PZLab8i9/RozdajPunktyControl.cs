@@ -17,6 +17,7 @@ namespace PZLab8i9
         public RozdajPunktyControl(Form1 form)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             glowneOkno = form;
 
             ZaladujAktualneStatystyki();

@@ -22,6 +22,7 @@ namespace PZLab8i9
         public KosciolControl(Form1 form)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             glowneOkno = form;
             AktualizujWidok();
         }

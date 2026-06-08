@@ -59,22 +59,26 @@
             // 
             // lblImieGracza
             // 
-            lblImieGracza.AutoSize = true;
-            lblImieGracza.Location = new Point(224, 168);
+            lblImieGracza.BackColor = Color.White;
+            lblImieGracza.Font = new Font("Algerian", 12F);
+            lblImieGracza.Location = new Point(120, 83);
             lblImieGracza.Name = "lblImieGracza";
-            lblImieGracza.Size = new Size(50, 20);
+            lblImieGracza.Size = new Size(264, 52);
             lblImieGracza.TabIndex = 0;
             lblImieGracza.Text = "label1";
+            lblImieGracza.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblImieWroga
             // 
             lblImieWroga.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblImieWroga.AutoSize = true;
-            lblImieWroga.Location = new Point(735, 158);
+            lblImieWroga.BackColor = Color.White;
+            lblImieWroga.Font = new Font("Algerian", 12F);
+            lblImieWroga.Location = new Point(623, 83);
             lblImieWroga.Name = "lblImieWroga";
-            lblImieWroga.Size = new Size(50, 20);
+            lblImieWroga.Size = new Size(264, 52);
             lblImieWroga.TabIndex = 1;
             lblImieWroga.Text = "label2";
+            lblImieWroga.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnWroc
             // 
@@ -150,9 +154,10 @@
             // 
             // lblKomunikatWalki
             // 
-            lblKomunikatWalki.Location = new Point(420, 50);
+            lblKomunikatWalki.BackColor = Color.White;
+            lblKomunikatWalki.Location = new Point(390, 50);
             lblKomunikatWalki.Name = "lblKomunikatWalki";
-            lblKomunikatWalki.Size = new Size(160, 100);
+            lblKomunikatWalki.Size = new Size(227, 100);
             lblKomunikatWalki.TabIndex = 16;
             lblKomunikatWalki.Text = "label1";
             lblKomunikatWalki.TextAlign = ContentAlignment.MiddleCenter;
@@ -287,7 +292,6 @@
             ((System.ComponentModel.ISupportInitialize)btnCiezkiAtak).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnZmienBron).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

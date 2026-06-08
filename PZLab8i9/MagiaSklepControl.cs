@@ -21,6 +21,7 @@ namespace PZLab8i9
         public MagiaSklepControl(Form1 form) : base(form)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             UstawStan(StanSklepu.Glowny);
         }
 

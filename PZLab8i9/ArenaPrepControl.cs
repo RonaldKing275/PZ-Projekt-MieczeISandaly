@@ -16,6 +16,7 @@ namespace PZLab8i9
         public ArenaPrepControl(Form1 form)
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             glowneOkno = form;
 
             LosujPrzeciwnika();

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Drawing;
+using System.Windows.Forms;
 using System.ComponentModel;
 
 namespace PZLab8i9
@@ -13,19 +13,34 @@ namespace PZLab8i9
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-        // Wymuszamy natychmiastowe przerysowanie, gdy wartość się zmienia
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new int Value
-        {
-            get => base.Value;
-            set { base.Value = value; this.Invalidate(); }
-        }
-
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new int Maximum
         {
             get => base.Maximum;
-            set { base.Maximum = value; this.Invalidate(); }
+            set
+            {
+                if (value < 0) value = 1;
+
+                if (base.Value > value) base.Value = value;
+
+                base.Maximum = value;
+                this.Invalidate();
+            }
+        }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new int Value
+        {
+            get => base.Value;
+            set
+            {
+                if (value < 0) value = 0;
+
+                if (value > base.Maximum) base.Maximum = value;
+
+                base.Value = value;
+                this.Invalidate();
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)

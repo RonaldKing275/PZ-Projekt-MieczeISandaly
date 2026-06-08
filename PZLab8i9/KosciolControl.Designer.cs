@@ -38,6 +38,7 @@
             // lblInfo
             // 
             lblInfo.Anchor = AnchorStyles.Top;
+            lblInfo.BackColor = Color.White;
             lblInfo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             lblInfo.Location = new Point(26, 45);
             lblInfo.Name = "lblInfo";

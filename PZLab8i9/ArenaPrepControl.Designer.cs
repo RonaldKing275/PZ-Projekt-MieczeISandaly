@@ -40,6 +40,7 @@
             // 
             // lblGracz
             // 
+            lblGracz.BackColor = Color.White;
             lblGracz.ImageAlign = ContentAlignment.TopLeft;
             lblGracz.Location = new Point(53, 53);
             lblGracz.Name = "lblGracz";
@@ -51,6 +52,7 @@
             // lblWrog
             // 
             lblWrog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblWrog.BackColor = Color.White;
             lblWrog.ImageAlign = ContentAlignment.TopLeft;
             lblWrog.Location = new Point(662, 194);
             lblWrog.Name = "lblWrog";
