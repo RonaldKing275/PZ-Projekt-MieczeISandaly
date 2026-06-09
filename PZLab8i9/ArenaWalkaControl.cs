@@ -374,6 +374,7 @@ namespace PZLab8i9
                 int finalneDmg = (int)(bazoweDmg * staty.Mnoznik);
                 int utrataHp = broniacy.OtrzymajObrazenia(finalneDmg);
 
+                if (!czyDystans) AudioPlayer.GrajEfekt("uderzenieMiecza.mp3");
                 string komunikat = toGracz ? $"TRAFIENIE! Zadajesz {utrataHp} DMG." : $"{atakujacy.Imie} trafia Cię za {utrataHp} DMG.";
 
                 // Mechanika Zaklęć
@@ -502,6 +503,8 @@ namespace PZLab8i9
             szansa = Math.Max(10, Math.Min(99, szansa));
 
             int los = rnd.Next(1, 101);
+
+            AudioPlayer.GrajEfekt("krzyk.mp3");
 
             if (los <= szansa)
             {

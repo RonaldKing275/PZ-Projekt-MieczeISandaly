@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace PZLab8i9
             this.DoubleBuffered = true;
 
             glowneOkno = form;
+            AudioPlayer.GrajMuzykeWTle("muzykaTlo.mp3");
         }
 
         private void btnNowaGra_Click(object sender, EventArgs e)
