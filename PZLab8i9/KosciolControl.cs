@@ -61,30 +61,6 @@ namespace PZLab8i9
             }
         }
 
-        private void btnWczytaj_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (File.Exists(sciezkaZapisu))
-                {
-                    string jsonString = File.ReadAllText(sciezkaZapisu);
-
-                    // Odtworzenie obiektu z tekstu i podmiana gracza w głównym oknie
-                    glowneOkno.Bohater = JsonSerializer.Deserialize<Gracz>(jsonString);
-
-                    MessageBox.Show("Odtworzono Twoją dawną chwałę!", "Wczytano grę", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AktualizujWidok();
-                }
-                else
-                {
-                    MessageBox.Show("Nie odnaleziono ksiąg z Twoim zapisem (brak pliku).", "Brak zapisu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Księgi zostały uszkodzone (błąd odczytu):\n{ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void btnWroc_Click(object sender, EventArgs e)
         {
             glowneOkno.ZmienEkran(new UlicaControl(glowneOkno));
